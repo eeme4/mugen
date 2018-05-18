@@ -1,0 +1,35 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "FT-Mizuchi"
+displayname = "FT-Mizuchi"
+versiondate = 11,22,2000
+mugenversion = 11,22,2000
+author = "e.eme";"ahuron"
+pal.defaults = 1
+
+[Files]
+cmd     = sys/Mizuchi.cmd
+cns     = st/Mizuchi.cns
+st      = st/Mizuchi.cns
+st2     = st/Mizuchi2.cns
+st3     = st/Mizuchi_Null.cns
+st4     = st/Mizuchi_Enemy.cns
+st5     = st/Mizuchi_Helper.cns
+st6     = オプション.txt
+st7     = st/Mizuchi_-3.cns
+stcommon = st/common.cns
+sprite  = sys/Mizuchi.sff
+anim    = sys/Mizuchi.air
+sound   = sys/Mizuchi.snd
+pal1    = act/Mizuchi.act
+pal2    = act/Mizuchi.act
+pal3    = act/Mizuchi.act
+pal4    = act/Mizuchi.act
+pal5    = act/Mizuchi.act
+pal6    = act/Mizuchi.act
+pal7    = act/Mizuchi.act
+pal8    = act/Mizuchi.act
+pal9    = act/Mizuchi.act
+pal10   = act/Mizuchi.act
+pal11   = act/Mizuchi.act
+pal12   = act/Mizuchi.act

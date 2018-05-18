@@ -1,0 +1,1991 @@
+[statedef 9131104]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=roundstate=2
+trigger1=movetype=i;&&numtarget
+;trigger1=!root,numprojid(55555)
+trigger1=!floor(root,fvar(4))&&!floor(root,fvar(7))
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+trigger1=(hitcount&16)
+value=9131110
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitadd
+trigger1=!(hitcount&4)
+trigger1=(sysvar(1)&63)>59
+trigger1=floor((sysvar(1)&4032)/64)>59
+trigger1=floor((sysvar(1)&258048)/4096)>59
+trigger1=floor((sysvar(1)&16515072)/262144)>59
+trigger1=floor((sysvar(1)&1056964608)/16777216)>59
+value=4
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitadd
+trigger1=!(hitcount&8)
+trigger1=(sysvar(2)&63)>59
+trigger1=floor((sysvar(2)&4032)/64)>59
+trigger1=floor((sysvar(2)&258048)/4096)>59
+trigger1=floor((sysvar(2)&16515072)/262144)>59
+trigger1=floor((sysvar(2)&1056964608)/16777216)>59
+value=8
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varrangeset
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+sysvar(3)=(sysvar(3)|63)-63
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+sysvar(1)=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+sysvar(2)=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+sysvar(0)=(sysvar(0)|1048575)-1048575
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;changestate
+trigger1=sysfvar(4)<1
+value=9131109
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!(hitcount&4)
+trigger2=!(hitcount&8)
+value=9131105
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+trigger1=!(hitcount&16)
+value=9131107
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+trigger1=(hitcount&16)
+value=5150;9131109
+persistent=256
+ignorehitpause=1
+[statedef 9131105]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=(hitcount&4)
+trigger1=(hitcount&8)
+value=ifelse((hitcount&16),5150,9131107);+(!!(hitcount&16))*2
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(1)&63)<60
+sysvar(0)=(sysvar(0)|3)-3+((sysvar(0)&3)+1)*((sysvar(0)&3)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(1)&4032)/64)<60
+sysvar(0)=(sysvar(0)|12)-12+((sysvar(0)&12)+4)*(floor((sysvar(0)&12)/4)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(1)&258048)/4096)<60
+sysvar(0)=(sysvar(0)|48)-48+((sysvar(0)&48)+16)*(floor((sysvar(0)&48)/16)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(1)&16515072)/262144)<60
+sysvar(0)=(sysvar(0)|192)-192+((sysvar(0)&192)+64)*(floor((sysvar(0)&192)/64)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(1)&1056964608)/16777216)<60
+sysvar(0)=(sysvar(0)|768)-768+((sysvar(0)&768)+256)*(floor((sysvar(0)&768)/256)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(2)&63)<60
+sysvar(0)=(sysvar(0)|3072)-3072+((sysvar(0)&3072)+1024)*(floor((sysvar(0)&3072)/1024)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(2)&4032)/64)<60
+sysvar(0)=(sysvar(0)|12288)-12288+((sysvar(0)&12288)+4096)*(floor((sysvar(0)&12288)/4096)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(2)&258048)/4096)<60
+sysvar(0)=(sysvar(0)|49152)-49152+((sysvar(0)&49152)+16384)*(floor((sysvar(0)&49152)/16384)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(2)&16515072)/262144)<60
+sysvar(0)=(sysvar(0)|196608)-196608+((sysvar(0)&196608)+65536)*(floor((sysvar(0)&196608)/65536)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(2)&1056964608)/16777216)<60
+sysvar(0)=(sysvar(0)|786432)-786432+((sysvar(0)&786432)+262144)*(floor((sysvar(0)&786432)/262144)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(1)&63)<60
+trigger1=0&&var(0+(sysvar(0)&3)):=enemy,var((sysvar(1)&63))
+trigger2=floor((sysvar(1)&4032)/64)<60
+trigger2=0&&var(3+floor((sysvar(0)&12)/4)):=enemy,var(floor((sysvar(1)&4032)/64))
+trigger3=floor((sysvar(1)&258048)/4096)<60
+trigger3=0&&var(6+floor((sysvar(0)&48)/16)):=enemy,var(floor((sysvar(1)&258048)/4096))
+trigger4=floor((sysvar(1)&16515072)/262144)<60
+trigger4=0&&var(9+floor((sysvar(0)&192)/64)):=enemy,var(floor((sysvar(1)&16515072)/262144))
+trigger5=floor((sysvar(1)&1056964608)/16777216)<60
+trigger5=0&&var(12+floor((sysvar(0)&768)/256)):=enemy,var(floor((sysvar(1)&1056964608)/16777216))
+trigger6=(sysvar(2)&63)<60
+trigger6=0&&var(15+floor((sysvar(0)&3072)/1024)):=enemy,var((sysvar(2)&63))
+trigger7=floor((sysvar(2)&4032)/64)<60
+trigger7=0&&var(18+floor((sysvar(0)&12288)/4096)):=enemy,var(floor((sysvar(2)&4032)/64))
+trigger8=floor((sysvar(2)&258048)/4096)<60
+trigger8=0&&var(21+floor((sysvar(0)&49152)/16384)):=enemy,var(floor((sysvar(2)&258048)/4096))
+trigger9=floor((sysvar(2)&16515072)/262144)<60
+trigger9=0&&var(24+floor((sysvar(0)&196608)/65536)):=enemy,var(floor((sysvar(2)&16515072)/262144))
+trigger10=floor((sysvar(2)&1056964608)/16777216)<60
+var(27+floor((sysvar(0)&786432)/262144))=enemy,var(floor((sysvar(2)&1056964608)/16777216))
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&3)&&(sysvar(1)&63)<60
+triggerall=var(0)=var(1)||(var(0)=var(2)&&((sysvar(0)&3)>1))||(var(1)=var(2)&&((sysvar(0)&3)>1))
+trigger1=var(1):=0||var(2):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(0):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(0):=0||1
+sysvar(1)=(sysvar(1)|63)+(-63+(sysvar(3)&63))*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(1)&63)
+sysvar(0)=(sysvar(0)|3)-3
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(1)&63)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&12)&&floor((sysvar(1)&4032)/64)<60
+triggerall=var(3)=var(4)||(var(3)=var(5)&&(floor((sysvar(0)&12)/4)>1))||(var(4)=var(5)&&(floor((sysvar(0)&12)/4)>1))
+trigger1=var(4):=0||var(5):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(3):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(3):=0||1
+sysvar(1)=(sysvar(1)|4032)+(-4032+(sysvar(3)&63)*64)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&4032)/64)
+sysvar(0)=(sysvar(0)|12)-12
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&4032)/64)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&48)&&floor((sysvar(1)&258048)/4096)<60
+triggerall=var(6)=var(7)||(var(6)=var(8)&&(floor((sysvar(0)&48)/16)>1))||(var(7)=var(8)&&(floor((sysvar(0)&48)/16)>1))
+trigger1=var(7):=0||var(8):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(6):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(6):=0||1
+sysvar(1)=(sysvar(1)|258048)+(-258048+(sysvar(3)&63)*4096)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&258048)/4096)
+sysvar(0)=(sysvar(0)|48)-48
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&258048)/4096)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&192)&&floor((sysvar(1)&16515072)/262144)<60
+triggerall=var(9)=var(10)||(var(9)=var(11)&&(floor((sysvar(0)&192)/64)>1))||(var(10)=var(11)&&(floor((sysvar(0)&192)/64)>1))
+trigger1=var(10):=0||var(11):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(9):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(9):=0||1
+sysvar(1)=(sysvar(1)|16515072)+(-16515072+(sysvar(3)&63)*262144)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&16515072)/262144)
+sysvar(0)=(sysvar(0)|192)-192
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&16515072)/262144)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&768)&&floor((sysvar(1)&1056964608)/16777216)<60
+triggerall=var(12)=var(13)||(var(12)=var(14)&&(floor((sysvar(0)&768)/256)>1))||(var(13)=var(14)&&(floor((sysvar(0)&768)/256)>1))
+trigger1=var(13):=0||var(14):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(12):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(12):=0||1
+sysvar(1)=(sysvar(1)|1056964608)+(-1056964608+(sysvar(3)&63)*16777216)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&768)/256)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(12)||var(13)||var(14))
+sysvar(1)=(sysvar(1)|1056964608)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|768)-768
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&1056964608)/16777216)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&3072)&&(sysvar(2)&63)<60
+triggerall=var(15)=var(16)||(var(15)=var(17)&&floor((sysvar(0)&3072)/1024)>1)||(var(16)=var(17)&&floor((sysvar(0)&3072)/1024)>1)
+trigger1=var(16):=0||var(17):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(15):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(15):=0||1
+sysvar(2)=(sysvar(2)|63)+(-63+(sysvar(3)&63))*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&3072)/1024)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(15)||var(16)||var(17))
+sysvar(2)=(sysvar(2)|63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(2)&63)
+sysvar(0)=(sysvar(0)|3072)-3072
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(2)&63)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&12288)&&floor((sysvar(2)&4032)/64)<60
+triggerall=var(18)=var(19)||(var(18)=var(20)&&(floor((sysvar(0)&12288)/4096)>1))||(var(19)=var(20)&&(floor((sysvar(0)&12288)/4096)>1))
+trigger1=var(19):=0||var(20):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(18):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(18):=0||1
+sysvar(2)=(sysvar(2)|4032)+(-4032+(sysvar(3)&63)*64)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&12288)/4096)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(18)||var(19)||var(20))
+sysvar(2)=(sysvar(2)|4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&4032)/64)
+sysvar(0)=(sysvar(0)|12288)-12288
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&4032)/64)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&49152)&&floor((sysvar(2)&258048)/4096)<60
+triggerall=var(21)=var(22)||(var(21)=var(23)&&(floor((sysvar(0)&49152)/16384)>1))||(var(22)=var(23)&&(floor((sysvar(0)&49152)/16384)>1))
+trigger1=var(22):=0||var(23):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(21):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(21):=0||1
+sysvar(2)=(sysvar(2)|258048)+(-258048+(sysvar(3)&63)*4096)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&49152)/16384)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(21)||var(22)||var(23))
+sysvar(2)=(sysvar(2)|258048)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&258048)/4096)
+sysvar(0)=(sysvar(0)|49152)-49152
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&258048)/4096)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&196608)&&floor((sysvar(2)&16515072)/262144)<60
+triggerall=var(24)=var(25)||(var(24)=var(26)&&(floor((sysvar(0)&196608)/65536)>1))||(var(25)=var(26)&&(floor((sysvar(0)&196608)/65536)>1))
+trigger1=var(25):=0||var(26):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(24):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(24):=0||1
+sysvar(2)=(sysvar(2)|16515072)+(-16515072+(sysvar(3)&63)*262144)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&196608)/65536)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(24)||var(25)||var(26))
+sysvar(2)=(sysvar(2)|16515072)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&16515072)/262144)
+sysvar(0)=(sysvar(0)|196608)-196608
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&16515072)/262144)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&786432)&&floor((sysvar(2)&1056964608)/16777216)<60
+triggerall=var(27)=var(28)||(var(27)=var(29)&&(floor((sysvar(0)&786432)/262144)>1))||(var(28)=var(29)&&(floor((sysvar(0)&786432)/262144)>1))
+trigger1=var(28):=0||var(29):=0||(sysvar(3)&63)=[0,59]
+trigger1=var(27):=enemy,var((sysvar(3)&63))||1
+trigger2=(sysvar(3)&63)!=[0,59]
+trigger2=var(27):=0||1
+sysvar(2)=(sysvar(2)|1056964608)+(-1056964608+(sysvar(3)&63)*16777216)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=floor((sysvar(0)&786432)/262144)>1
+trigger1=(sysvar(3)&63)!=[0,59]
+trigger1=!(var(27)||var(28)||var(29))
+sysvar(2)=(sysvar(2)|1056964608)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|786432)-786432
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&1056964608)/16777216)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=(sysvar(0)&3)>1
+trigger2=(floor((sysvar(0)&12)/4)>1)
+trigger3=(floor((sysvar(0)&48)/16)>1)
+trigger4=(floor((sysvar(0)&192)/64)>1)
+trigger5=(floor((sysvar(0)&768)/256)>1)
+trigger6=(floor((sysvar(0)&3072)/1024)>1)
+trigger7=(floor((sysvar(0)&12288)/4096)>1)
+trigger8=(floor((sysvar(0)&49152)/16384)>1)
+trigger9=(floor((sysvar(0)&196608)/65536)>1)
+trigger10=(floor((sysvar(0)&786432)/262144)>1)
+value=9131106
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=9131107
+persistent=256
+ignorehitpause=1
+[statedef 9131106]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=varset
+triggerall=((sysvar(0)&3)>1)&&(sysvar(1)&63)<60
+triggerall=var(32):=var(2)-(var(30):=-(floor((var(2)-var(0))/2)-var(2)+var(1)))*gametime*gametime-(var(31):=(var(2)-var(1)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(1):=0||var(2):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(0):=0
+var(0)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=((sysvar(0)&3)>1)&&(sysvar(1)&63)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(2):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(1):=((!!(floor(root,fvar(4+var(2)))&63))*64+(!!(floor(root,fvar(4+var(2)))&4032))*4032+(!!(floor(root,fvar(4+var(2)))&258048)*258048)+(!!(floor(root,fvar(4+var(2)))&16515072))*16515072)
+trigger2=var(1):=1
+fvar(4+var(2))=(floor(root,fvar(4+var(2)))|16515072)-16515072+(floor(root,fvar(4+var(2)))&16515072)+ifelse(!(sysvar(1)&63),63,(sysvar(1)&63))*var(1)+(var(1):=var(2):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=!(floor(root,fvar(5)&63))
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4)))&16515072))*3)=(var(30)+(var(30):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=!(floor(root,fvar(5)&63))
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4)))&16515072))*3)=(var(31)+(var(31):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=!(floor(root,fvar(5)&63))
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4)))&16515072))*3)=(var(32)+(var(32):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(5)&63))&&!(floor(root,fvar(6)&63))
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5)))&16515072))*3)=(var(30)+(var(30):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(5)&63))&&!(floor(root,fvar(6)&63))
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5)))&16515072))*3)=(var(31)+(var(31):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(5)&63))&&!(floor(root,fvar(6)&63))
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5)))&16515072))*3)=(var(32)+(var(32):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(6)&63))
+var(29+(!!(floor(root,fvar(6))&4032)*3))=(var(30)+(var(30):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(6)&63))
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+trigger1=(floor(root,fvar(6)&63))
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*((sysvar(1)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(0)&3)>1&&(sysvar(1)&63)<60
+sysvar(1)=(sysvar(1)|63)+(-63+(sysvar(3)&63))*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(1)&63)
+sysvar(0)=(sysvar(0)|3)-3
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(1)&63)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&12)/4)>1)&&floor((sysvar(1)&4032)/64)<60
+triggerall=var(32):=var(5)-(var(30):=-(floor((var(5)-var(3))/2)-var(5)+var(4)))*gametime*gametime-(var(31):=(var(5)-var(4)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(4):=0||var(5):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(3):=0
+var(3)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&12)/4)>1)&&floor((sysvar(1)&4032)/64)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(5):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(4):=((!!(floor(root,fvar(4+var(5)))&63))*64+(!!(floor(root,var(4+var(5)))&4032))*4032+(!!(floor(root,fvar(4+var(5)))&258048)*258048)+(!!(floor(root,fvar(4+var(5)))&16515072))*16515072)
+trigger2=var(4):=1
+fvar(4+var(5))=(floor(root,fvar(4+var(5)))|16777215)-16777215+(floor(root,fvar(4+var(5))&16777215))+ifelse(!(sysvar(1)&4032),63,floor((sysvar(1)&4032)/64))*var(4)+(var(4):=var(5):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12)/4)>1&&floor((sysvar(1)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&12)/4)>1)
+sysvar(1)=(sysvar(1)|4032)+(-4032+(sysvar(3)&63)*64)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&4032)/64)
+sysvar(0)=(sysvar(0)|12)-12
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&4032)/64)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+triggerall=var(32):=var(8)-(var(30):=-(floor((var(8)-var(6))/2)-var(8)+var(7)))*gametime*gametime-(var(31):=(var(8)-var(7)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(7):=0||var(8):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(6):=0
+var(6)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(8):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(7):=((!!(floor(root,fvar(4+var(8)))&63))*64+(!!(floor(root,fvar(4+var(8)))&4032))*4032+(!!(floor(root,fvar(4+var(8)))&258048)*258048)+(!!(floor(root,fvar(4+var(8)))&16515072))*16515072)
+trigger2=var(7):=1
+fvar(4+var(8))=(floor(root,fvar(4+var(8)))|16777215)-16777215+(floor(root,fvar(4+var(8)))&16777215)+ifelse(!(sysvar(1)&258048),63,floor((sysvar(1)&258048)/4096))*var(7)+(var(7):=var(8):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&48)/16)>1)&&floor((sysvar(1)&258048)/4096)<60
+sysvar(1)=(sysvar(1)|258048)+(-258048+(sysvar(3)&63)*4096)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&258048)/4096)
+sysvar(0)=(sysvar(0)|48)-48
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&258048)/4096)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&192)/64)>1)&&floor((sysvar(1)&16515072)/262144)<60
+triggerall=var(32):=var(11)-(var(30):=-(floor((var(11)-var(9))/2)-var(11)+var(10)))*gametime*gametime-(var(31):=(var(11)-var(10)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(10):=0||var(11):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(9):=0
+var(9)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&192)/64)>1)&&floor((sysvar(1)&16515072)/262144)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(11):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(10):=((!!(floor(root,fvar(4+var(11)))&63))*64+(!!(floor(root,fvar(4+var(11)))&4032))*4032+(!!(floor(root,fvar(4+var(11)))&258048)*258048)+(!!(floor(root,fvar(4+var(11)))&16515072))*16515072)
+trigger2=var(10):=1
+fvar(4+var(11))=(floor(root,fvar(4+var(11)))|16777215)-16777215+(floor(root,fvar(4+var(11)))&16777215)+ifelse(!(sysvar(1)&16515072),63,floor((sysvar(1)&16515072)/262144))*var(10)+(var(10):=var(11):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&192)/64)>1&&floor((sysvar(1)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&192)/64)>1
+sysvar(1)=(sysvar(1)|16515072)+(-16515072+(sysvar(3)&63)*262144)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&16515072)/262144)
+sysvar(0)=(sysvar(0)|192)-192
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&16515072)/262144)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&768)/256)>1)&&floor((sysvar(1)&1056964608)/16777216)<60
+triggerall=var(32):=var(14)-(var(30):=-(floor((var(14)-var(12))/2)-var(14)+var(13)))*gametime*gametime-(var(31):=(var(14)-var(13)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(13):=0||var(14):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(12):=0
+var(12)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&768)/256)>1)&&floor((sysvar(1)&1056964608)/16777216)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(14):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(13):=((!!(floor(root,fvar(4+var(14)))&63))*64+(!!(floor(root,fvar(4+var(14)))&4032))*4032+(!!(floor(root,fvar(4+var(14)))&258048)*258048)+(!!(floor(root,fvar(4+var(14)))&16515072))*16515072)
+trigger2=var(13):=1
+fvar(4+var(14))=(floor(root,fvar(4+var(14)))|16777215)-16777215+(floor(root,fvar(4+var(14)))&16777215)+ifelse(!(sysvar(1)&1056964608),63,floor((sysvar(1)&1056964608)/16777216))*var(13)+(var(13):=var(14):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&768)/256)>1&&floor((sysvar(1)&1056964608)/16777216)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&768)/256)>1
+sysvar(1)=(sysvar(1)|1056964608)+(-1056964608+(sysvar(3)&63)*16777216)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|768)-768
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(1)&1056964608)/16777216)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&3072)/1024)>1)&&(sysvar(2)&63)<60
+triggerall=var(32):=var(17)-(var(30):=-(floor((var(17)-var(15))/2)-var(17)+var(16)))*gametime*gametime-(var(31):=(var(17)-var(16)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(16):=0||var(17):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(15):=0
+var(15)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&3072)/1024)>1)&&(sysvar(2)&63)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(17):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(16):=((!!(floor(root,fvar(4+var(17)))&63))*64+(!!(floor(root,fvar(4+var(17)))&4032))*4032+(!!(floor(root,fvar(4+var(17)))&258048)*258048)+(!!(floor(root,fvar(4+var(17)))&16515072))*16515072)
+trigger2=var(16):=1
+fvar(4+var(17))=(floor(root,fvar(4+var(17)))|16777215)-16777215+(floor(root,fvar(4+var(17)))&16777215)+ifelse(!(sysvar(2)&63),63,(sysvar(2)&63))*var(16)+(var(16):=var(17):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*((sysvar(2)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&3072)/1024)>1&&(sysvar(2)&63)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&3072)/1024)>1)
+sysvar(2)=(sysvar(2)|63)+(-63+(sysvar(3)&63))*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(2)&63)
+sysvar(0)=(sysvar(0)|3072)-3072
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=(sysvar(2)&63)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&12288)/4096)>1)&&floor((sysvar(2)&4032)/64)<60
+triggerall=var(32):=var(20)-(var(30):=-(floor((var(20)-var(18))/2)-var(20)+var(19)))*gametime*gametime-(var(31):=(var(20)-var(19)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(19):=0||var(20):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(18):=0
+var(18)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&12288)/4096)>1)&&floor((sysvar(2)&4032)/64)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(20):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(19):=((!!(floor(root,fvar(4+var(20)))&63))*64+(!!(floor(root,fvar(4+var(20)))&4032))*4032+(!!(floor(root,fvar(4+var(20)))&258048)*258048)+(!!(floor(root,fvar(4+var(20)))&16515072))*16515072)
+trigger2=var(19):=1
+fvar(4+var(20))=(floor(root,fvar(4+var(20)))|16777215)-16777215+(floor(root,fvar(4+var(20)))&16777215)+ifelse(!(sysvar(2)&4032),63,floor((sysvar(2)&4032)/64))*var(19)+(var(19):=var(20):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&12288)/4096)>1&&floor((sysvar(2)&4032)/64)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&12288)/4096)>1
+sysvar(2)=(sysvar(2)|4032)+(-4032+(sysvar(3)&63)*64)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&4032)/64)
+sysvar(0)=(sysvar(0)|12288)-12288
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&4032)/64)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&49152)/16384)>1)&&floor((sysvar(2)&258048)/4096)<60
+triggerall=var(32):=var(23)-(var(30):=-(floor((var(23)-var(21))/2)-var(23)+var(22)))*gametime*gametime-(var(31):=(var(23)-var(22)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(22):=0||var(23):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(21):=0
+var(21)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&49152)/16384)>1)&&floor((sysvar(2)&258048)/4096)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(23):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(22):=((!!(floor(root,fvar(4+var(23)))&63))*64+(!!(floor(root,fvar(4+var(23)))&4032))*4032+(!!(floor(root,fvar(4+var(23)))&258048)*258048)+(!!(floor(root,fvar(4+var(23))&16515072))*16515072))
+trigger2=var(22):=1
+fvar(4+var(23))=(floor(root,fvar(4+var(23)))|16777215)-16777215+(floor(root,fvar(4+var(23)))&16777215)+ifelse(!(sysvar(2)&258048),63,floor((sysvar(2)&258048)/4096))*var(22)+(var(22):=var(23):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&258048)/4096)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&49152)/16384)>1&&floor((sysvar(2)&258048)/4096)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&49152)/16384)>1)
+sysvar(2)=(sysvar(2)|258048)+(-258048+(sysvar(3)&63)*4096)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&258048)/4096)
+sysvar(0)=(sysvar(0)|49152)-49152
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&258048)/4096)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&196608)/65536)>1)&&floor((sysvar(2)&16515072)/262144)<60
+triggerall=var(32):=var(26)-(var(30):=-(floor((var(26)-var(24))/2)-var(26)+var(25)))*gametime*gametime-(var(31):=(var(26)-var(25)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(25):=0||var(26):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(24):=0
+var(24)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&196608)/65536)>1)&&floor((sysvar(2)&16515072)/262144)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(26):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(25):=((!!(floor(root,fvar(4+var(26)))&63))*64+(!!(floor(root,fvar(4+var(26)))&4032))*4032+(!!(floor(root,fvar(4+var(26)))&258048)*258048)+(!!(floor(root,fvar(4+var(26)))&16515072))*16515072)
+trigger2=var(25):=1
+fvar(4+var(26))=(floor(root,fvar(4+var(26)))|16777215)-16777215+(floor(root,fvar(4+var(26)))&16777215)+ifelse(!(sysvar(2)&16515072),63,floor((sysvar(2)&16515072)/262144))*var(25)+(var(25):=var(26):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&16515072)/262144)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&196608)/65536)>1&&floor((sysvar(2)&16515072)/262144)<60
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&196608)/65536)>1
+sysvar(2)=(sysvar(2)|16515072)+(-16515072+(sysvar(3)&63)*262144)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&16515072)/262144)
+sysvar(0)=(sysvar(0)|196608)-196608
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&16515072)/262144)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(floor((sysvar(0)&786432)/262144)>1)&&floor((sysvar(2)&1056964608)/16777216)<60
+triggerall=var(32):=var(29)-(var(30):=-(floor((var(29)-var(27))/2)-var(29)+var(32)))*gametime*gametime-(var(31):=(var(29)-var(28)-2*var(30)*gametime+var(30)))*gametime
+trigger1=var(28):=0||var(29):=0||(sysvar(3)&63)=[0,59]
+trigger2=var(27):=0
+var(27)=enemy,var((sysvar(3)&63))
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&786432)/262144)>1)&&floor((sysvar(2)&1056964608)/16777216)<60
+triggerall=var(30)||var(31)||var(32)
+trigger1=var(29):=!!(floor(root,fvar(4))&16515072)+!!(floor(root,fvar(5))&16515072)||1
+trigger1=var(28):=((!!(floor(root,fvar(4+var(29)))&63))*64+(!!(floor(root,fvar(4+var(29)))&4032))*4032+(!!(floor(root,fvar(4+var(29)))&258048)*258048)+(!!(floor(root,fvar(4+var(29)))&16515072))*16515072)
+trigger2=var(28):=1
+fvar(4+var(29))=(floor(root,fvar(4+var(29)))|16777215)-16777215+(floor(root,fvar(4+var(29)))&16777215)+ifelse(!(sysvar(2)&1056964608),63,floor((sysvar(2)&1056964608)/16777216))*var(28)+(var(28):=var(29):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=!(floor(root,fvar(5))&63)
+var(5+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=!(floor(root,fvar(5))&63)
+var(6+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=!(floor(root,fvar(5))&63)
+var(7+((!!(floor(root,fvar(4))&4032))+(!!(floor(root,fvar(4))&258048))+(!!(floor(root,fvar(4))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(17+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(30)+(var(30):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(18+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(31)+(var(31):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(5))&63)&&!(floor(root,fvar(6))&63)
+var(19+((!!(floor(root,fvar(5))&4032))+(!!(floor(root,fvar(5))&258048))+(!!(floor(root,fvar(5))&16515072)))*3)=(var(32)+(var(32):=0))*(floor((sysvar(2)&1056964608)/16777216)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(6))&63)
+var(29+(!!(floor(root,fvar(6))&4032))*3)=(var(30)+(var(30):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(6))&63)
+var(30+(!!(floor(root,fvar(6))&4032))*3)=(var(31)+(var(31):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+trigger1=floor((sysvar(0)&786432)/262144)>1&&(floor((sysvar(2)&1056964608)/16777216)<60)
+trigger1=(floor(root,fvar(6))&63)
+var(31+(!!(floor(root,fvar(6))&4032))*3)=(var(32)+(var(32):=0))*(floor((sysvar(1)&4032)/64)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&786432)/262144)>1
+sysvar(2)=(sysvar(2)|1056964608)+(-1056964608+(sysvar(3)&63)*16777216)*((sysvar(3)&63)<60)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|786432)-786432
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(3)&63)=floor((sysvar(2)&1056964608)/16777216)
+trigger1=(sysvar(3)&63)<60
+sysvar(3)=(sysvar(3)|63)-62+(sysvar(3)&63)
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=9131107;+(!!(hitcount&16))*2
+persistent=256
+ignorehitpause=1
+[statedef 9131107]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=(hitcount&16)
+value=5150;9131109
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(4)&63)<40
+sysvar(0)=(sysvar(0)|3145728)-3145728+((sysvar(0)&3145728)+1048576)*(floor((sysvar(0)&3145728)/1048576)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(4)&4032)/64)<40
+sysvar(0)=(sysvar(0)|12582912)-12582912+((sysvar(0)&12582912)+4194304)*(floor((sysvar(0)&12582912)/4194304)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(4)&258048)/4096)<40
+sysvar(0)=(sysvar(0)|50331648)-50331648+((sysvar(0)&50331648)+16777216)*(floor((sysvar(0)&50331648)/16777216)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(4)&16515072)/262144)<40
+sysvar(0)=(sysvar(0)|201326592)-201326592+((sysvar(0)&201326592)+67108864)*(floor((sysvar(0)&201326592)/67108864)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(0)&805306368)/268435456)<40
+sysvar(0)=(sysvar(0)|805306368)-805306368+((sysvar(0)&805306368)+268435456)*(floor((sysvar(0)&805306368)/268435456)<2)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(sysvar(4)&63)<40
+trigger1=fvar(0+floor((sysvar(0)&3145728)/1048576)):=enemy,fvar((sysvar(4)&63))
+trigger2=floor((sysvar(4)&4032)/64)<40
+trigger2=fvar(3+floor((sysvar(0)&12582912)/4194304)):=enemy,fvar(floor((sysvar(4)&4032)/64))
+trigger3=floor((sysvar(4)&258048)/4096)<40
+trigger3=fvar(6+floor((sysvar(0)&50331648)/16777216)):=enemy,fvar(floor((sysvar(4)&258048)/4096))
+trigger4=floor((sysvar(4)&16515072)/262144)<40
+trigger4=fvar(9+floor((sysvar(0)&201326592)/67108864)):=enemy,fvar(floor((sysvar(4)&16515072)/262144))
+trigger5=floor((sysvar(4)&1056964608)/16777216)<40
+fvar(12+floor((sysvar(0)&805306368)/268435456))=enemy,fvar(floor((sysvar(4)&1056964608)/16777216))
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&3145728)&&(sysvar(4)&63)<40
+triggerall=fvar(0)=fvar(1)||(fvar(0)=fvar(2)&&floor((sysvar(0)&3145728)/1048576)>1)||(fvar(1)=fvar(2)&&floor((sysvar(0)&3145728)/1048576)>1)
+trigger1=fvar(1):=0||fvar(2):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=fvar(0):=enemy,fvar(floor((sysvar(3)&4032)/64))||1
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(0):=0||1
+sysvar(4)=(sysvar(4)|63)+(-63+floor((sysvar(3)&4032)/64))*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=(sysvar(4)&63)
+sysvar(0)=(sysvar(0)|3145728)-3145728
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=(sysvar(4)&63)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&12582912)&&floor((sysvar(4)&4032)/64)<40
+triggerall=fvar(3)=fvar(4)||(fvar(3)=fvar(5)&&(floor((sysvar(0)&12582912)/4194304)>1))||(fvar(4)=fvar(5)&&(floor((sysvar(0)&12582912)/4194304)>1))
+trigger1=fvar(4):=0||fvar(5):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=fvar(3):=enemy,fvar(floor((sysvar(3)&4032)/64))||1
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(3):=0||1
+sysvar(4)=(sysvar(4)|4032)+(-4032+(sysvar(3)&4032))*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&4032)/64)
+sysvar(0)=(sysvar(0)|12582912)-12582912
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&4032)/64)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&50331648)&&floor((sysvar(4)&258048)/4096)<40
+triggerall=fvar(6)=fvar(7)||(fvar(6)=fvar(8)&&(floor((sysvar(0)&50331648)/16777216)>1))||(fvar(7)=fvar(8)&&(floor((sysvar(0)&50331648)/16777216)>1))
+trigger1=fvar(7):=0||fvar(8):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=fvar(6):=enemy,fvar(floor((sysvar(3)&4032)/64))||1
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(6):=0||1
+sysvar(4)=(sysvar(4)|258048)+(-258048+floor((sysvar(3)&4032)/64)*4096)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&258048)/4096)
+sysvar(0)=(sysvar(0)|50331648)-50331648
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&258048)/4096)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&201326592)&&floor((sysvar(4)&16515072)/262144)<40
+triggerall=fvar(9)=fvar(10)||(fvar(9)=fvar(11)&&(floor((sysvar(0)&201326592)/67108864)>1))||(fvar(10)=fvar(11)&&(floor((sysvar(0)&201326592)/67108864)>1))
+trigger1=fvar(10):=0||fvar(11):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=fvar(9):=enemy,fvar(floor((sysvar(3)&4032)/64))||1
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(9):=0||1
+sysvar(4)=(sysvar(4)|16515072)+(-16515072+floor((sysvar(3)&4032)/64)*262144)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&16515072)/262144)
+sysvar(0)=(sysvar(0)|201326592)-201326592
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&16515072)/262144)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=(sysvar(0)&805306368)&&floor((sysvar(4)&1056964608)/16777216)<40
+triggerall=fvar(12)=fvar(13)||(fvar(12)=fvar(14)&&(floor((sysvar(0)&805306368)/268435456)>1))||(fvar(13)=fvar(14)&&(floor((sysvar(0)&805306368)/268435456)>1))
+trigger1=fvar(13):=0||fvar(14):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=fvar(12):=enemy,fvar(floor((sysvar(3)&4032)/64))||1
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(12):=0||1
+sysvar(4)=(sysvar(4)|1056964608)+(-1056964608+floor((sysvar(3)&4032)/64)*16777216)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|805306368)-805306368
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&1056964608)/16777216)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=floor((sysvar(0)&3145728)/1048576)>1
+trigger2=floor((sysvar(0)&12582912)/4194304)>1
+trigger3=floor((sysvar(0)&50331648)/16777216)>1
+trigger4=floor((sysvar(0)&201326592)/67108864)>1
+trigger5=floor((sysvar(0)&805306368)/268435456)>1
+value=9131108
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=0||var(59):=999
+value=5150;9131109
+persistent=256
+ignorehitpause=1
+[statedef 9131108]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&3145728)/1048576)>1)&&(sysvar(4)&63)<40
+triggerall=fvar(0)||fvar(1)||fvar(2)
+trigger1=fvar(1):=0||fvar(2):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=0&&fvar(0):=enemy,fvar(floor((sysvar(3)&4032)/64))
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(0):=0
+trigger3=var(30):=((!!(floor(root,fvar(7+!!(floor(root,fvar(7))&258048)))&63))*64+(!!(floor(root,fvar(7+!!(floor(root,fvar(7))&258048)))&4032))*4032+(!!(floor(root,fvar(7+!!(floor(root,fvar(7))&258048)))&258048)*258048))
+trigger4=var(30):=1
+fvar(7+!!(floor(root,fvar(7))&258048))=(floor(root,fvar(7+!!(floor(root,fvar(7))&258048)))|16777215)-16777215+(floor(root,fvar(7+!!(floor(root,fvar(7))&258048)))&16777215)+ifelse(!(sysvar(4)&63),63,(sysvar(4)&63))*var(30)+(var(30):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&3145728)/1048576)>1)
+sysvar(4)=(sysvar(4)|63)+(-63+floor((sysvar(3)&4032)/64))*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=(sysvar(4)&63)
+sysvar(0)=(sysvar(0)|3145728)-3145728
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=(sysvar(4)&63)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&12582912)/4194304)>1)&&floor((sysvar(3)&4032)/64)<40
+triggerall=fvar(3)||fvar(4)||fvar(5)
+trigger1=fvar(4):=0||fvar(5):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=0&&fvar(3):=enemy,fvar(floor((sysvar(3)&4032)/64))
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(3):=0
+trigger3=var(30):=((!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&63))*64+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&4032))*4032+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&258048)*258048))
+trigger4=var(30):=1
+fvar(7+!!floor(root,fvar(7)&258048))=(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))|16777215)-16777215+(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&16777215)+ifelse(!(sysvar(4)&4032),63,floor((sysvar(4)&4032)/64))*var(30)+(var(30):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&12582912)/4194304)>1)
+sysvar(4)=(sysvar(4)|4032)+(-4032+floor((sysvar(3)&4032)/64)*64)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&4032)/64)
+sysvar(0)=(sysvar(0)|12582912)-12582912
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&4032)/64)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&50331648)/16777216)>1)&&floor((sysvar(4)&258048)/4096)<40
+triggerall=fvar(6)||fvar(7)||fvar(8)
+trigger1=fvar(7):=0||fvar(8):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=0&&fvar(6):=enemy,fvar(floor((sysvar(3)&4032)/64))
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(6):=0
+trigger3=var(30):=((!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&63))*64+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&4032))*4032+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&258048)*258048))
+trigger4=var(30):=1
+fvar(7+!!floor(root,fvar(7)&258048))=(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))|16777215)-16777215+(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&16777215)+ifelse(!(sysvar(4)&258048),63,floor((sysvar(4)&258048)/4096))*var(30)+(var(30):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&50331648)/16777216)>1)
+sysvar(4)=(sysvar(4)|258048)+(-258048+floor((sysvar(3)&4032)/64)*4096)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&258048)/4096)
+sysvar(0)=(sysvar(0)|50331648)-50331648
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&258048)/4096)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&201326592)/67108864)>1)&&floor((sysvar(4)&16515072)/262144)<40
+triggerall=fvar(9)||fvar(10)||fvar(11)
+trigger1=fvar(10):=0||fvar(11):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=0&&fvar(9):=enemy,fvar(floor((sysvar(3)&4032)/64))
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(9):=0
+trigger3=var(30):=((!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&63))*64+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&4032))*4032+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&258048)*258048))
+trigger4=var(30):=1
+fvar(7+!!floor(root,fvar(7)&258048))=(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))|16777215)-16777215+(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&16777215)+ifelse(!(sysvar(4)&16515072),63,floor((sysvar(4)&16515072)/262144))*var(30)+(var(30):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&201326592)/67108864)>1)
+sysvar(4)=(sysvar(4)|16515072)+(-16515072+floor((sysvar(3)&4032)/64)*262144)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&16515072)/262144)
+sysvar(0)=(sysvar(0)|201326592)-201326592
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&16515072)/262144)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=parentvarset
+triggerall=(floor((sysvar(0)&805306368)/268435456)>1)&&floor((sysvar(0)&805306368)/268435456)<40
+triggerall=fvar(12)||fvar(13)||fvar(14)
+trigger1=fvar(13):=0||fvar(14):=0||floor((sysvar(3)&4032)/64)<40
+trigger1=0&&fvar(12):=enemy,fvar(floor((sysvar(3)&4032)/64))
+trigger2=floor((sysvar(3)&4032)/64)>39
+trigger2=fvar(12):=0
+trigger3=var(30):=((!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&63))*64+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&4032))*4032+(!!(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&258048)*258048))
+trigger4=var(30):=1
+fvar(7+!!floor(root,fvar(7)&258048))=(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))|16777215)-16777215+(floor(root,fvar(7+!!floor(root,fvar(7)&258048)))&16777215)+ifelse(!(sysvar(4)&1056964608),63,floor((sysvar(4)&1056964608)/16777216))*var(30)+(var(30):=0)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=(floor((sysvar(0)&805306368)/268435456)>1)
+sysvar(4)=(sysvar(4)|1056964608)+(-1056964608+floor((sysvar(3)&4032)/64)*16777216)*(floor((sysvar(3)&4032)/64)<40)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&1056964608)/16777216)
+sysvar(0)=(sysvar(0)|805306368)-805306368
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=floor((sysvar(3)&4032)/64)=floor((sysvar(4)&1056964608)/16777216)
+trigger1=floor((sysvar(3)&4032)/64)<40
+sysvar(3)=(sysvar(3)|4032)-3968+(sysvar(3)&4032)
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitadd
+trigger1=!(hitcount&16)
+trigger1=(sysvar(4)&63)>59
+trigger1=floor((sysvar(4)&4032)/64)>59
+trigger1=floor((sysvar(4)&258048)/4096)>59
+trigger1=floor((sysvar(4)&16515072)/262144)>59
+trigger1=floor((sysvar(4)&1056964608)/16777216)>59
+value=16
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varrangeset
+trigger1=(hitcount&16)
+fvalue=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&16)
+sysvar(4)=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&16)
+sysvar(3)=(sysvar(3)|4032)-4032
+persistent=256
+ignorehitpause=1
+[state ]
+type=null;varset
+trigger1=(hitcount&16)
+sysvar(0)=(sysvar(0)|1072693248)-1072693248
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=0
+value=5150;9131109
+persistent=256
+ignorehitpause=1
+[statedef 9131110]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=hitadd
+trigger1=1;!root,var(20)&&!floor(root,fvar(7))
+value=-hitcount+32
+persistent=256
+ignorehitpause=1
+[state ]
+type=varrangeset
+trigger1=1
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(0)=1073741823
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=84947073
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(2)=170164678
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(4)=84947073
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(3)=(sysvar(3)|4095)-3700
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=9131104
+persistent=256
+ignorehitpause=1

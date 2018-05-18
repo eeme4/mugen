@@ -1,0 +1,878 @@
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;超必殺技
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; 大神
+[Statedef 2000]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+;poweradd= -1000
+ctrl = 0
+movehitpersist = 1
+hitdefpersist = 1
+
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger2 = Name != "FT-Mizuchi"
+value = 5150
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != [2000,2001]
+value = 2000
+persistent = 256
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+sysvar(4) = StateNo
+persistent = 256
+ignorehitpause = 1
+
+;---------------------[強弱判定]
+
+[State ]
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = !NumExplod(10)
+trigger1 = !NumExplod(11)
+trigger1 = command = "x"
+ID = 10
+PosType = P1
+Pos = 0,0
+BindTime = -1
+SprPriority = -2
+RemoveTime = -1
+SuperMove = -1
+SuperMoveTime = -1
+PauseMoveTime = -1
+Anim = 9000
+OwnPal = 0
+IgnoreHitPause = 1
+
+[State ]
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = !NumExplod(10)
+trigger1 = !NumExplod(11)
+trigger1 = command = "y"
+ID = 11
+PosType = P1
+Pos = 0,0
+BindTime = -1
+SprPriority = -2
+RemoveTime = -1
+SuperMove = -1
+SuperMoveTime = -1
+PauseMoveTime = -1
+Anim = 9000
+OwnPal = 0
+IgnoreHitPause = 1
+[State ]
+type = poweradd
+trigger1 = AnimElem = 1
+trigger1 = Anim = 2000
+value = -1000
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = AnimElem = 1
+trigger1 = Anim != 2001
+trigger1 = NumExplod(11)
+value = 2001
+
+
+;---------------------[パワーゲージ減少,MAX関係]
+[state a];スパキャン時のゲージ減少
+type = poweradd
+triggerall = AnimElem = 1
+trigger1 = prevstateno = 1100
+trigger2 = prevstateno = 1101
+trigger3 = prevstateno = 1200
+trigger4 = prevstateno = 1201
+trigger5 = prevstateno = 1702
+trigger6 = prevstateno = 1150
+trigger7 = prevstateno = 1250
+value = -1000
+
+[State -2, a];どこキャン時の点滅(失敗)
+type = palfx
+triggerall = gametime %2
+triggerall = AnimElemTime(1) <= 10
+trigger1 = prevstateno = 1100
+trigger2 = prevstateno = 1101
+trigger3 = prevstateno = 1200
+trigger4 = prevstateno = 1201
+trigger5 = prevstateno = 1702
+trigger6 = prevstateno = 1150
+trigger7 = prevstateno = 1250
+time = 1
+add = 248,248,248
+;mul = 248,248,248
+color = 1
+ignorehitpause = 1
+
+[state a];スパキャンコマンド判定初期化
+type = varset
+trigger1 = AnimElem = 2
+v = 11
+value = 0
+
+;---------------------[超必殺技演出]
+[State 1];無敵の状態を作る
+type = NotHitBy 
+trigger1 = 1
+value = SCA
+
+[State 2000, 2]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 28
+movetime = 28
+anim = -1
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = AnimElem = 1
+anim = 6000
+sprpriority = -1
+postype = p1
+pos = 0,-102
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = AnimElemTime(1) = 10
+anim = 6001
+sprpriority = 1
+postype = p1
+pos = 0,-102
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = AnimElem = 1
+persistent = 0
+ignorehitpause = 1
+time = 3
+value = 255,255,255
+under = 2
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = AnimElemTime(1) = 3
+persistent = 0
+ignorehitpause = 1
+time = 25
+value = 0,0,0
+under = 2
+
+[State 2000, 6]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 1
+value = 3000,0
+
+;---------------------[効果音]
+[State 2000, 6];フフフフフフフ
+type = PlaySnd
+trigger1 = AnimElem = 1
+trigger1 = NumExplod(10)
+value = 2000,0
+
+[State 2000, 6];フッハッハッハッハ
+type = PlaySnd
+trigger1 = AnimElem = 1
+trigger1 = NumExplod(11)
+value = 2000,1
+
+[State 2000, 6];ハアッハッハッハッハッハ
+type = PlaySnd
+trigger1 = animelem = 3
+trigger1 = NumExplod(11)
+value = 2000,2
+
+;---------------------[攻撃判定]
+[State 800, 1]
+type = HitDef
+Trigger1 = Enemy,stateno != [120,155]
+Trigger1 = Enemy,stateno != 40
+trigger1 = Enemy,statetype != A
+attr = S, HT
+damage = 0,0
+hitflag = M
+priority = 6, Miss
+sparkno = -1
+sprpriority = 5
+p2facing = 1
+p1stateno = 2005
+p2stateno = 2010
+p2facing = 1 
+kill = 0
+
+[State ]
+type = SelfState
+trigger1 = PlayerIDExist(sysvar(3))
+trigger1 = PlayerID(sysvar(3)),NumTarget
+value = 2005
+ignorehitpause = 1
+;---------------------[終了]
+[state a]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[State ]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = RoundState > 2
+value = 120
+persistent = 256
+ignorehitpause = 1
+;---------------------------------------------------------------------------
+; 大神ヒット
+[Statedef 2005]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+poweradd= 0
+;anim = 2005
+ctrl = 0
+movehitpersist = 1
+hitdefpersist = 1
+
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger2 = Name != "FT-Mizuchi"
+value = 5150
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 2005
+value = 2005
+persistent = 256
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+sysvar(4) = StateNo
+persistent = 256
+ignorehitpause = 1
+
+[State 1];無敵の状態を作る
+type = NotHitBy 
+trigger1 = 1
+value = SCA
+
+;---------------------[画面効果]
+[State 3040, 7]
+type = EnvColor
+trigger1 = animelem = 18,<=0
+ignorehitpause = 1
+time = 5
+value = 0,0,0
+under = 2
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = animelem = 7
+trigger2 = animelem = 8
+trigger3 = animelem = 18
+ignorehitpause = 1
+time = 14
+value = 255,255,255
+under = 3
+
+;---------------------[エフェクト]
+[State 1000, 5]
+type = Explod
+triggerall = playeridexist(id)
+trigger1 = animelem = 7
+trigger2 = animelem = 8
+anim = 7002
+sprpriority = 7
+postype = p1
+pos = 50,-65
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = animelem = 18
+anim = 7003
+sprpriority = 7
+postype = p1
+pos = 58,-83
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+PauseMoveTime = 14
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = animelem = 8
+anim = 2006
+sprpriority = 8
+postype = p1
+pos = 0,0
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+PauseMoveTime = 14
+
+
+;---------------------[効果音]
+[State 2000, 6];刺す
+type = PlaySnd
+trigger1 = animelem = 7
+value = 2000,4
+
+[State 2000, 6];抜く
+type = PlaySnd
+trigger1 = animelem = 9
+value = 240,0
+
+[State 2000, 6];潰す
+type = PlaySnd
+trigger1 = animelem = 18
+value = 2000,5
+
+[State 2000, 6];飛べ
+type = PlaySnd
+trigger1 = animelem = 17
+value = 2000,3
+
+;---------------------[相手制御]
+[State 801, 2]
+type = TargetBind
+trigger1 = NumTarget
+trigger1 = animelem = 1
+pos = 40,0
+
+[state a]
+type = targetstate
+trigger1 = NumTarget
+trigger1 = animelem = 7
+value = 2011
+
+[state a]
+type = targetstate
+trigger1 = NumTarget
+trigger1 = animelem = 8
+value = 2012
+
+[state a]
+type = targetstate
+trigger1 = NumTarget
+trigger1 = animelem = 18
+value = 2013
+
+[state a]
+type = pause
+trigger1 = animelem = 18
+time = 14
+movetime = 14
+
+
+[state a]
+type = targetlifeadd
+trigger1 = NumTarget
+trigger1 = animelem = 7
+value = -96
+kill = 0
+
+[state a]
+type = targetlifeadd
+trigger1 = NumTarget
+trigger1 = animelem = 8
+value = -58
+kill = 0
+
+[state a]
+type = targetlifeadd
+trigger1 = NumTarget
+trigger1 = animelem = 18
+value = -192
+
+[State ]
+type = RemoveExplod
+trigger1 = AnimTime = 0
+ID = 10 || 11
+ignorehitpause = 1
+
+;---------------------[終了]
+[state a]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[State ]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = RoundState > 2
+value = 120
+persistent = 256
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; 混
+[Statedef 2100]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+juggle = 0
+ctrl = 0
+movehitpersist = 1
+hitdefpersist = 1
+
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger2 = Name != "FT-Mizuchi"
+value = 5150
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 2100
+value = 2100
+persistent = 256
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+sysvar(4) = StateNo
+persistent = 256
+ignorehitpause = 1
+
+;---------------------[パワーゲージ減少,MAX関係]
+[state a];スパキャン時のゲージ減少
+type = poweradd
+triggerall = AnimElem = 1
+trigger1 = prevstateno = 1100
+trigger2 = prevstateno = 1101
+trigger3 = prevstateno = 1200
+trigger4 = prevstateno = 1201
+trigger5 = prevstateno = 1702
+trigger6 = prevstateno = 1150
+trigger7 = prevstateno = 1250
+value = -1000
+
+[State -2, a];どこキャン時の点滅(失敗)
+type = palfx
+triggerall = gametime %2
+triggerall = AnimElemTime(1) <= 10
+trigger1 = prevstateno = 1100
+trigger2 = prevstateno = 1101
+trigger3 = prevstateno = 1200
+trigger4 = prevstateno = 1201
+trigger5 = prevstateno = 1702
+trigger6 = prevstateno = 1150
+trigger7 = prevstateno = 1250
+time = 1
+add = 248,248,248
+;mul = 248,248,248
+color = 1
+ignorehitpause = 1
+
+[state a];スパキャンゲージ減少
+type = poweradd
+trigger1 = AnimElem = 1
+;trigger1 = var(11) = 1
+value = -2000
+
+[state a];スパキャンコマンド判定初期化
+type = varset
+trigger1 = AnimElem = 2
+v = 11
+value = 0
+
+;---------------------[超必殺技演出]
+[State 1];無敵の状態を作る
+type = NotHitBy 
+trigger1 = 1
+value = SCA
+
+[State 2000, 2]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 28
+movetime = 28
+anim = -1
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = AnimElem = 1
+anim = 6010
+sprpriority = -1
+postype = p1
+pos = -1,-138
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+
+[State 1000, 5]
+type = Explod
+trigger1 = playeridexist(id)
+trigger1 = AnimElemTime(1) = 10
+anim = 6011
+sprpriority = 1
+postype = p1
+pos = -1,-138
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = AnimElem = 1
+persistent = 0
+ignorehitpause = 1
+time = 3
+value = 255,255,255
+under = 2
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = AnimElemTime(1) = 3
+persistent = 0
+ignorehitpause = 1
+time = 25
+value = 0,0,0
+under = 2
+
+[State 2000, 6]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 1
+value = 3000,0
+
+;---------------------[効果音]
+[State 2000, 6];さあ
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 2100,0
+
+[State 2000, 6];無に還ろう
+type = PlaySnd
+trigger1 = animelem = 2
+value = 2100,1
+
+[State 2000, 6];無に還ろう
+type = PlaySnd
+trigger1 = animelem = 2
+value = 2100,1
+
+[State 2000, 6];はぁ
+type = PlaySnd
+trigger1 = animelem = 9
+value = 2100,2
+
+[State 2000, 6];効果音
+type = PlaySnd
+trigger1 = animelem = 8
+value = 2100,3
+
+;---------------------[画面効果]
+[State 3040, 7]
+type = EnvColor
+trigger1 = animelem = 9,<=0
+ignorehitpause = 1
+time = 2
+value = 0,0,0
+under = 2
+
+[State 3040, 7]
+type = EnvColor
+trigger1 = animelem = 9
+ignorehitpause = 1
+time = 2
+value = 255,255,255
+under = 2
+
+;---------------------[攻撃判定]
+;---------------------[ヘルパー呼び出し]
+[State 2900, 1];
+type = helper
+trigger1 = playeridexist(id)
+trigger1 = Animelem = 8
+id = 2100
+persistent = 0
+name = "muni"
+pos = -20,0
+postype = P1
+stateno = 2101
+helpertype = normal
+keyctrl = 0
+ownpal = 1
+
+[state ]
+type = StateTypeSet
+triggerall = animelem = 7
+trigger1 = !var(20)
+trigger1 = var(20) := 1
+trigger2 = var(20)
+trigger2 = var(20) := 0||1
+movetype = A
+ignorehitpause = 1
+
+[state ]
+type = StateTypeSet
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) = 2
+movetype = I
+ignorehitpause = 1
+
+[State ]
+type = Hitdef
+trigger1 = 1
+attr      = 
+damage    = 0
+Numhits = 0
+hitflag   = MAFD
+ground.type = none
+persistent = 256
+ignorehitpause = 1
+
+[State ]
+type = reversaldef
+triggerall = Anim = 2100
+triggerall = AnimElemNo(0)=8
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) != 2
+trigger2 = !playeridexist(sysvar(2))
+reversal.attr = SCA,AA,AP,AT
+pausetime=0,0
+sparkno=-1;s2110
+p2stateno=1000005
+persistent = 256
+ignorehitpause=1
+
+[State ]
+type = Hitdef
+triggerall = Anim = 2100
+triggerall = AnimElemNo(0)=8
+triggerall = random%5 = 0
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) != 2
+trigger2 = !playeridexist(sysvar(2))
+attr      = SCA,AA,AP,AT
+damage    = 0
+Numhits = 0
+hitflag   = MAFD
+ground.type = none
+sparkno = -1;s2110
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1;s2110
+guardsound = -1;s190,2
+persistent = 256
+ignorehitpause = 1
+
+[state a]
+type = targetlifeadd
+triggerall = NumTarget
+triggerall = animelemNo(0) = 8
+trigger1 = enemy,life > floor(enemy,lifemax/2)
+trigger1 = !(random%3)
+trigger2 = life<(lifemax/10)
+value = -2147483648
+kill = 1
+absolute = 1
+ignorehitpause = 1
+
+[State 攻撃Proj]
+type = Projectile
+triggerall = Anim = 2100
+triggerall = AnimElemNo(0)=8
+triggerall = !var(20)
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) != 2
+trigger2 = !playeridexist(sysvar(2))
+attr = SCA, AA, AP, AT
+hitflag = MAFD
+givepower = 0,0
+getpower = 0,0
+damage=ifelse(1,floor(2147483000/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))),floor(-2147483648/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))))
+pausetime = 0,0
+projremovetime = 1
+projremove = 1
+projid = 5
+projanim = 10001
+postype = p2
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+persistent = 256
+sparkno = -1;s2110
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1;s2110
+guardsound = -1;s190,2
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -8,-6
+air.velocity = -8,-6.5
+fall = 1
+air.fall = 1
+fall.damage = 100000000
+IgnoreHitPause = 1
+
+[State 攻撃Proj]
+type = Projectile
+triggerall = Anim = 2100
+triggerall = AnimElemNo(0)=8
+triggerall = var(20)
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) != 2
+trigger2 = !playeridexist(sysvar(2))
+attr = SCA, AA, AP, AT
+hitflag = MAFD
+givepower = 0,0
+getpower = 0,0
+damage=(random%100)+(random%10)
+pausetime = 0,0
+projremovetime = 1
+projremove = 1
+projid = 5
+projanim = 10001
+postype = p2
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+persistent = 256
+sparkno = -1;s2110
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1;s2110
+guardsound = -1;s190,2
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -8,-6
+air.velocity = -8,-6.5
+fall = 1
+air.fall = 1
+fall.damage = 100000000
+IgnoreHitPause = 1
+
+[State 攻撃Proj]
+type = Projectile
+trigger1 = Anim = 2100
+trigger1 = AnimElemNo(0)=8
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) = 2
+trigger1 = enemy,gethitvar(fall.damage) = 0
+attr = SCA, AA, AP
+hitflag = MAFD
+givepower = 0,0
+getpower = 0,0
+damage=ifelse(1,floor(2147483000/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))),floor(-2147483648/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))))
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 5
+projanim = 10001
+projhitanim = 10001
+ProjRemAnim = 10001
+ProjCancelAnim = 10001
+postype = p2
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+persistent = 256
+sparkno = -1;s2110
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1;s2110
+guardsound = -1;s190,2
+ground.type = high
+;p2getp1state = 0
+;p2stateno = 5100+(random%2)*10
+fall.damage = 100000000
+IgnoreHitPause = 1
+[State 攻撃Proj]
+type = Projectile
+trigger1 = Anim = 2100
+trigger1 = AnimElemNo(0)=8
+trigger1 = playeridexist(sysvar(2))
+trigger1 = (playerid(sysvar(2)),sysvar(3)%5) = 2
+trigger1 = enemy,gethitvar(fall.damage)
+attr = SCA, AA, AP
+hitflag = MAFD
+givepower = 0,0
+getpower = 0,0
+damage=0;ifelse(random%2,floor(2147483647/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))),floor(-2147483648/((1.0*Const(Data.Attack))/(1.0*EnemyNear,Const(Data.Defence)))))
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 5
+projanim = 10001
+projhitanim = 10001
+ProjRemAnim = 10001
+ProjCancelAnim = 10001
+postype = p2
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+persistent = 256
+sparkno = -1;s2110
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1;s2110
+guardsound = -1;s190,2
+ground.type = none
+p2getp1state = 0
+p2stateno = 5080+random%2
+fall.damage = 100000000
+IgnoreHitPause = 1
+;---------------------[終了]
+[state a]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[State ]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = RoundState > 2
+value = 120
+persistent = 256
+ignorehitpause = 1

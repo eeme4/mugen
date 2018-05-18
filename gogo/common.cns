@@ -1,0 +1,1295 @@
+[statedef 0]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=ishelper
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=sprpriority
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=0
+value=0
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=1
+y=0
+x=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 10]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 11]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 12]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 20]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 40]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 45]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 50]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 51]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 52]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 100]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 105]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 106]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 110]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 115]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 120]
+type=u
+movetype=u
+physics=u
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 130]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 131]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 132]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 140]
+type=u
+movetype=u
+physics=u
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 150]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 151]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 152]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 153]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 154]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 155]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=playsnd
+trigger1=roundstate=4
+trigger1=!enemy,alive
+trigger1=!numexplod(9999)
+value=180,0
+channel=20
+loop=1
+ignorehitpause=1
+[state ]
+type=explod
+triggerall=roundstate=4
+triggerall=!numexplod(9999)
+trigger1=numenemy=1
+trigger1=!enemy,alive
+trigger2=numenemy=2
+trigger2=!enemy,alive
+trigger2=!enemy(1),alive
+anim=9990
+postype=back
+pos=ifelse(facing=1,53,276),40
+removetime=-1
+bindtime=-1
+facing=facing
+scale=1,1
+ontop=1
+id=9999
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[statedef 170]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 175]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 180]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 190]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=sysvar(2)=1||sysvar(2)=3
+value=0
+ignorehitpause=1
+[state ]
+type=explod
+triggerall=roundstate<2
+trigger1=time=30||time=150||time=270||time=390||time=510
+trigger2=time=630||time=750||time=870||time=990||time=1110
+anim=3000+(time>30)+(time>150)+(time>270)+(time>390)+(time>510)+(time>630)+(time>750)+(time>870)+(time>990)
+postype=back
+pos=ifelse(facing=1,8,313),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=assertspecial
+trigger1=1
+flag=intro
+flag2=timerfreeze
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=time>1300
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 191]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=190
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5000]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5001]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5010]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5011]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5020]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5030]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5035]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5040]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5050]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5070]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5071]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5080]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5081]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5100]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5101]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5110]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5120]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5150]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=!ishelper
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!ishelper
+trigger1=alive
+value=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=!ishelper
+trigger1=!alive
+movetype=h
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!ishelper
+trigger1=!alive
+trigger1=numexplod(5)||sysvar(2)
+trigger1=anim!=[2,4]
+value=2
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!ishelper
+trigger1=!alive
+trigger1=anim=3
+value=4
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=!ishelper
+trigger1=anim=2
+trigger1=animelem=4
+value=5150,0
+ignorehitpause=1
+[state ]
+type=trans
+trigger1=!ishelper
+trigger1=anim=2
+trigger1=animelemno(0)>5
+trans=add
+ignorehitpause=1
+[state ]
+type=playsnd
+triggerall=!ishelper
+trigger1=anim=2
+trigger1=animelem=14
+trigger1=!numexplod(9999)
+trigger2=anim=4
+trigger2=animelem=2
+trigger2=!numexplod(9999)
+value=1,0
+channel=20
+loop=1
+ignorehitpause=1
+[state ]
+type=explod
+triggerall=!ishelper
+trigger1=anim=2
+trigger1=animelem=14
+trigger2=anim=4
+trigger2=animelem=2
+anim=9991
+postype=back
+pos=ifelse(facing=1,53,276),40
+removetime=-1
+bindtime=-1
+facing=facing
+scale=1,1
+ontop=1
+id=9999
+[state ]
+type=explod
+triggerall=!ishelper
+trigger1=anim=2
+trigger1=animelem=14
+trigger2=anim=4
+trigger2=animelem=2
+anim=9992
+postype=back
+pos=ifelse(facing=1,53,276),40
+removetime=240
+bindtime=-1
+facing=facing
+scale=1,1
+ontop=1
+id=9999
+[statedef 5200]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5201]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5210]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5500]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=(!alive)*5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1
+[statedef 5900]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=playsnd
+trigger1=!time
+trigger1=sysvar(3)=[1,2]
+value=2,(sysvar(3)-1)
+channel=20
+loop=1
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=!time
+trigger1=sysvar(2)=1
+value=2,2
+channel=20
+loop=1
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate
+value=(!roundsexisted)*190*(!sysvar(2))
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155
+ignorehitpause=1

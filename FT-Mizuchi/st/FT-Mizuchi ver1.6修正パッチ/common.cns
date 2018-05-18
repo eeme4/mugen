@@ -1,0 +1,2943 @@
+[statedef 0]
+type=s
+physics=s
+sprpriority=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=0&&anim!=5
+trigger2=anim=5&&animtime=0
+value=0
+[state ]
+type=velset
+trigger1=animelem=1
+y=0
+[state ]
+type=velset
+trigger1=abs(vel x)<2
+trigger2=animelemtime(1)=4
+x=0
+[state ]
+type=posset
+trigger1=1
+y=0
+[state ]
+type=ctrlset
+trigger1=roundstate=2
+trigger1=enemy,ctrl||enemy,movetype!=i||(enemy,stateno&&enemy,stateno!=[190,200))
+value=1
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!alive
+value=5050
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 10]
+type=c
+physics=c
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=10
+value=10
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velmul
+trigger1=animelem=1
+x=.75
+[state ]
+type=changestate
+trigger1=animtime=0
+value=11
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 11]
+type=c
+physics=c
+sprpriority=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=11
+value=11
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 12]
+type=s
+physics=s
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=12
+value=12
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 20]
+type=s
+physics=s
+sprpriority=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=command="holdfwd"
+x=const(velocity.walk.fwd.x)
+[state ]
+type=velset
+trigger1=command="holdback"
+x=const(velocity.walk.back.x)
+[state ]
+type=changeanim
+triggerall=vel x>0
+trigger1=anim!=20&&anim!=5
+trigger2=anim=5&&animtime=0
+value=20
+[state ]
+type=changeanim
+triggerall=vel x<0
+trigger1=anim!=21&&anim!=5
+trigger2=anim=5&&animtime=0
+value=21
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 40]
+type=s
+physics=s
+ctrl=0
+sprpriority=1
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=40
+value=40
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=playeridexist(id)
+trigger1=!numexplod(1)
+trigger1=command="holdfwd"
+id=1
+postype=p1
+pos=0,0
+bindtime=-1
+sprpriority=-2
+removetime=abs(animtime)+1
+supermove=-1
+supermovetime=-1
+pausemovetime=-1
+anim=anim
+ownpal=0
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=playeridexist(id)
+trigger1=!numexplod(2)
+trigger1=command="holdback"
+id=2
+postype=p1
+pos=0,0
+bindtime=-1
+sprpriority=-2
+removetime=abs(animtime)+1
+supermove=-1
+supermovetime=-1
+pausemovetime=-1
+anim=anim
+ownpal=0
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animtime=0
+x=ifelse(!(numexplod(1)||numexplod(2)),const(velocity.jump.neu.x),ifelse(numexplod(1),const(velocity.jump.fwd.x),const(velocity.jump.back.x)))
+y=const(velocity.jump.y)
+[state ]
+type=velset
+trigger1=animtime=0
+trigger1=prevstateno=100
+trigger1=numexplod(1)
+x=const(velocity.runjump.fwd.x)
+[state ]
+type=changestate
+trigger1=animtime=0
+value=50
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 45]
+type=a
+physics=n
+ctrl=0
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=41
+value=41
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=playeridexist(id)
+trigger1=!numexplod(1)
+trigger1=command="holdfwd"
+id=1
+postype=p1
+pos=0,0
+bindtime=-1
+sprpriority=-2
+removetime=abs(animtime)+1
+supermove=-1
+supermovetime=-1
+pausemovetime=-1
+anim=anim
+ownpal=0
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=playeridexist(id)
+trigger1=!numexplod(2)
+trigger1=command="holdback"
+id=2
+postype=p1
+pos=0,0
+bindtime=-1
+sprpriority=-2
+removetime=abs(animtime)+1
+supermove=-1
+supermovetime=-1
+pausemovetime=-1
+anim=anim
+ownpal=0
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelemtime(1)=2
+x=ifelse(!(numexplod(1)||numexplod(2)),const(velocity.airjump.neu.x),ifelse(numexplod(1),const(velocity.airjump.fwd.x),const(velocity.airjump.back.x)))
+y=const(velocity.airjump.y)
+[state ]
+type=changestate
+trigger1=animelemtime(1)=2
+value=50
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 50]
+type=a
+physics=a
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=[41,43]
+value=ifelse((vel x)=0,41,ifelse((vel x)>0,42,43))
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 51]
+type=a
+physics=a
+[state ]
+type=null
+trigger1=1
+[statedef 52]
+type=s
+physics=s
+ctrl=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=47
+value=47
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+y=0
+[state ]
+type=posset
+trigger1=animelem=1
+y=0
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=3
+value=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=0
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 100]
+type=s
+physics=s
+sprpriority=1
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=100
+value=100
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=1
+x=const(velocity.run.fwd.x)
+[state ]
+type=assertspecial
+trigger1=1
+flag=nowalk
+[state ]
+type=assertspecial
+trigger1=1
+flag=noautoturn
+[state ]
+type=changestate
+trigger1=command!="holdfwd"
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 105]
+type=a
+physics=a
+ctrl=0
+sprpriority=1
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=105
+value=105
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+x=const(velocity.run.back.x)
+y=const(velocity.run.back.y)
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=2
+value=1
+[state ]
+type=changestate
+trigger1=vel y>0
+trigger1=pos y>=0
+value=106
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 106]
+type=s
+physics=s
+ctrl=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=47
+value=47
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+y=0
+[state ]
+type=posset
+trigger1=animelem=1
+y=0
+[state ]
+type=makedust
+trigger1=animelemtime(1)=2
+pos=-5,-2
+spacing=1
+[state ]
+type=changestate
+trigger1=animelemtime(1)=7
+value=0
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 110]
+type=s
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=animelem=1
+value=0
+[state ]
+type=velset
+trigger1=animelem=1
+x=0
+z=-7
+[state ]
+type=velmul
+trigger1=1
+z=0.8
+[state ]
+type=velset
+trigger1=animtime=-8
+z=0
+[state ]
+type=ctrlset
+trigger1=animtime=0
+value=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 115]
+type=s
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=animelem=1
+value=0
+[state ]
+type=velset
+trigger1=animelem=1
+x=0
+z=7
+[state ]
+type=velmul
+trigger1=1
+z=0.8
+[state ]
+type=velset
+trigger1=animtime=-8
+z=0
+[state ]
+type=ctrlset
+trigger1=animtime=0
+value=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 120]
+type=u
+physics=u
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=roundstate=2
+trigger1=anim!=[120,122]
+value=120+(statetype=c)+(statetype=a)*2
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=roundstate=2
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=roundstate=2
+trigger1=animelem=1&&statetype=s
+physics=s
+[state ]
+type=statetypeset
+trigger1=roundstate=2
+trigger1=animelem=1&&statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=roundstate=2
+trigger1=animelem=1&&statetype=a
+physics=a
+[state ]
+type=statetypeset
+trigger1=roundstate=2
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=roundstate=2
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[state ]
+type=changestate
+trigger1=roundstate=2
+trigger1=animtime=0
+value=130+(statetype=c)+(statetype=a)*2
+[state ]
+type=changestate
+triggerall=roundstate=2
+trigger1=command!="holdback"
+trigger2=!inguarddist
+value=140
+[statedef 130]
+type=s
+physics=s
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=130
+value=130
+[state ]
+type=changestate
+trigger1=command="holddown"
+value=131
+[state ]
+type=changestate
+trigger1=command!="holdback"
+trigger2=!inguarddist
+value=140
+[statedef 131]
+type=c
+physics=c
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=131
+value=131
+[state ]
+type=changestate
+trigger1=command!="holddown"
+value=130
+[state ]
+type=changestate
+trigger1=command!="holdback"
+trigger2=!inguarddist
+value=140
+[statedef 132]
+type=a
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=132
+value=132
+[state ]
+type=veladd
+trigger1=1
+y=const(movement.yaccel)
+[state ]
+type=velset
+trigger1=(pos y>=0)&&(vel y>0)
+y=0
+[state ]
+type=posset
+trigger1=(pos y>=0)&&(vel y>0)
+y=0
+[state ]
+type=changestate
+trigger1=(pos y>=0)&&(vel y>0)
+trigger1=command="holdback"
+trigger1=inguarddist
+value=130
+[state ]
+type=changestate
+trigger1=(pos y>=0)&&(vel y>0)
+value=52
+[state ]
+type=changestate
+trigger1=command!="holdback"
+trigger2=!inguarddist
+value=140
+[statedef 140]
+type=u
+physics=u
+ctrl=1
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=[140,142]
+value=140+(statetype=c)+(statetype=a)*2
+[state ]
+type=statetypeset
+trigger1=animelem=1&&statetype=s
+physics=s
+[state ]
+type=statetypeset
+trigger1=animelem=1&&statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=animelem=1&&statetype=a
+physics=a
+[state ]
+type=statetypeset
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[statedef 150]
+type=s
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=150
+value=150
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=151+2*(command="holddown")
+[state ]
+type=statetypeset
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[state ]
+type=forcefeedback
+trigger1=animelem=1
+waveform=square
+time=3
+[statedef 151]
+type=s
+movetype=h
+physics=s
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=150
+value=150
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+[state ]
+type=velset
+trigger1=animelemtime(1)=gethitvar(slidetime)
+trigger2=hitover
+x=0
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=gethitvar(ctrltime)
+value=1
+[state ]
+type=statetypeset
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[state ]
+type=changestate
+trigger1=hitover
+value=130
+ctrl=1
+[statedef 152]
+type=c
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=151
+value=151
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=151+2*(command="holddown")
+[state ]
+type=statetypeset
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[state ]
+type=forcefeedback
+trigger1=animelem=1
+waveform=square
+time=4
+[statedef 153]
+type=c
+movetype=h
+physics=c
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=151
+value=151
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+[state ]
+type=velset
+trigger1=animelemtime(1)=gethitvar(slidetime)
+trigger2=hitover
+x=0
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=gethitvar(ctrltime)
+value=1
+[state ]
+type=statetypeset
+trigger1=statetype=s&&command="holddown"
+statetype=c
+physics=c
+[state ]
+type=statetypeset
+trigger1=statetype=c&&command!="holddown"
+statetype=s
+physics=s
+[state ]
+type=changestate
+trigger1=hitover
+value=131
+ctrl=1
+[statedef 154]
+type=a
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=152
+value=152
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=155
+[state ]
+type=forcefeedback
+trigger1=animelem=1
+waveform=square
+time=4
+[statedef 155]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=152
+value=152
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+y=1
+[state ]
+type=veladd
+trigger1=1
+y=const(movement.yaccel)
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=gethitvar(ctrltime)
+value=1
+[state ]
+type=velset
+trigger1=(pos y>=0)&&(vel y>0)
+y=0
+[state ]
+type=posset
+trigger1=(pos y>=0)&&(vel y>0)
+y=0
+[state ]
+type=changestate
+trigger1=(pos y>=0)&&(vel y>0)
+trigger1=command="holdback"
+trigger1=inguarddist
+value=130
+[state ]
+type=changestate
+trigger1=(pos y>=0)&&(vel y>0)
+value=52
+[statedef 170]
+type=s
+ctrl=0
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=170
+value=170
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 175]
+type=s
+ctrl=0
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=time=0
+trigger1=!selfanimexist(175)
+value=170
+[state ]
+type=changeanim
+trigger1=anim!=175
+value=175
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 190]
+type=s
+ctrl=0
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=selfanimexist(190)
+value=190
+[state ]
+type=changestate
+trigger1=animelem=1
+value=191
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 191]
+type=s
+ctrl=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=animelem=1
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5000]
+type=s
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=(anim!=[5000,5002])&&(anim!=[5010,5012])
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=(gethitvar(animtype)!=[3,5])
+value=ifelse((gethitvar(groundtype)=1),5000,5010)+gethitvar(animtype)
+[state ]
+type=changeanim
+trigger1=anim!=5030
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030
+[state ]
+type=changeanim
+trigger1=anim!=[5051,5052]
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=(gethitvar(animtype)=[4,5])
+value=5047+gethitvar(animtype)
+[state ]
+type=changeanim
+triggerall=anim!=5051
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)
+trigger2=!playeridexist(sysvar(1))
+value=5051
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=animelemtime(1)>0
+value=anim
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=animelem=1
+trigger1=gethitvar(yvel)!=0||gethitvar(fall)
+trigger2=pos y!=0
+statetype=a
+[state ]
+type=changestate
+trigger1=hitshakeover
+trigger1=gethitvar(yvel)=0&&!gethitvar(fall)
+value=5001
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=5030
+[state ]
+type=forcefeedback
+trigger1=anim=5000
+trigger2=anim=5010
+persistent=0
+time=6
+waveform=square
+[state ]
+type=forcefeedback
+trigger1=anim=5001
+trigger2=anim=5011
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+[state ]
+type=forcefeedback
+trigger1=anim=5012
+trigger2=anim=5002
+trigger3=anim=5030
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5001]
+type=s
+movetype=h
+physics=s
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+[state ]
+type=changeanim
+trigger1=animtime=0
+value=5005+gethitvar(animtype)+(gethitvar(groundtype)=2)*10
+[state ]
+type=velmul
+trigger1=animelemtime(1)>=gethitvar(slidetime)
+x=.6
+[state ]
+type=velset
+trigger1=hitover
+x=0
+[state ]
+type=defencemulset
+trigger1=hitover
+value=1
+[state ]
+type=changestate
+trigger1=hitover
+trigger2=time>100
+value=0
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5010]
+type=c
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=[5020,5022]
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=gethitvar(animtype)!=[3,5]
+value=5020+gethitvar(animtype)
+[state ]
+type=changeanim
+trigger1=anim!=5030
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030
+[state ]
+type=changeanim
+trigger1=anim!=[5051,5052]
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=(gethitvar(animtype)=[4,5])
+value=5047+gethitvar(animtype)
+[state ]
+type=changeanim
+triggerall=anim!=5051
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)
+trigger2=!playeridexist(sysvar(1))
+value=5051
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=animelemtime(1)>0
+value=anim
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+triggerall=animelem=1
+trigger1=gethitvar(yvel)!=0||gethitvar(fall)
+trigger2=pos y!=0
+statetype=a
+[state ]
+type=changestate
+trigger1=hitshakeover
+trigger1=gethitvar(yvel)=0&&!gethitvar(fall)
+value=5011
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=5030
+[state ]
+type=forcefeedback
+trigger1=anim=5020
+persistent=0
+time=6
+waveform=square
+[state ]
+type=forcefeedback
+trigger1=anim=5021
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+[state ]
+type=forcefeedback
+trigger1=anim=5022
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5011]
+type=c
+movetype=h
+physics=c
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+[state ]
+type=changeanim
+trigger1=animtime=0
+value=5025+gethitvar(animtype)
+[state ]
+type=velmul
+trigger1=animelemtime(1)>=gethitvar(slidetime)
+x=.6
+[state ]
+type=velset
+trigger1=hitover
+x=0
+[state ]
+type=defencemulset
+trigger1=hitover
+value=1
+[state ]
+type=changestate
+trigger1=hitover
+trigger2=time>100
+value=11
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5020]
+type=a
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=(anim!=[5000,5002])&&(anim!=[5010,5012])
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=(gethitvar(animtype)!=[3,5])
+value=ifelse((gethitvar(airtype)=1),5000,5010)+gethitvar(animtype)
+[state ]
+type=changeanim
+trigger1=anim!=5030
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=gethitvar(animtype)=[3,5]
+value=5030
+[state ]
+type=changeanim
+trigger1=anim!=[5051,5052]
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)=0
+trigger1=(gethitvar(animtype)=[4,5])
+value=5047+gethitvar(animtype)
+[state ]
+type=changeanim
+triggerall=anim!=5051
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)
+trigger2=!playeridexist(sysvar(1))
+value=5051
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=animelemtime(1)>0
+value=anim
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=5030
+[state ]
+type=forcefeedback
+trigger1=anim=5000
+trigger2=anim=5010
+persistent=0
+time=6
+waveform=square
+[state ]
+type=forcefeedback
+trigger1=anim=5001
+trigger2=anim=5011
+persistent=0
+time=8
+waveform=sinesquare
+ampl=110,-1,-.3
+[state ]
+type=forcefeedback
+trigger1=anim=5012
+trigger2=anim=5002
+trigger3=anim=5030
+trigger4=anim=[5051,5059]
+persistent=0
+time=15
+waveform=sinesquare
+ampl=140
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5030]
+type=a
+movetype=h
+physics=n
+ctrl=0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+y=1
+[state ]
+type=null
+trigger1=1
+y=-0.2
+[state ]
+type=changestate
+triggerall=!hitfall
+trigger1=hitover
+trigger2=pos y>=0
+trigger3=time>300
+value=5040
+[state ]
+type=changestate
+triggerall=hitfall
+trigger1=hitover
+trigger2=pos y>=0
+trigger3=time>300
+value=5050
+[state ]
+type=changestate
+trigger1=animtime=0
+value=5035
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5035]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+type=changestate
+triggerall=!hitfall
+trigger1=hitover
+trigger2=animtime=0
+trigger3=pos y>=10
+trigger4=animelem=1
+trigger4=anim!=5035
+trigger5=time>300
+value=5040
+[state ]
+type=changestate
+triggerall=hitfall
+trigger1=hitover
+trigger2=animtime=0
+trigger3=pos y>=10
+trigger4=animelem=1
+trigger4=anim!=5035
+trigger5=time>300
+value=5050
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5040]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=animtime=0
+trigger1=anim!=5040
+trigger2=animelem=1
+trigger2=anim!=5035&&anim!=5040
+value=5040
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!alive
+value=5050
+[state ]
+type=ctrlset
+trigger1=hitover
+value=1
+[state ]
+type=statetypeset
+trigger1=hitover
+movetype=i
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+type=changestate
+trigger1=pos y>=0
+trigger2=time>300
+value=52
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5050]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=animtime=0
+trigger1=anim=5035
+trigger2=anim!=5035
+trigger2=(anim!=[5050,5059])&&(anim!=[5061,5069])
+trigger2=anim!=5090
+value=5050
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim=[5050,5059]
+trigger1=vel y>=ifelse(anim=5050,1,-2)
+trigger1=selfanimexist(anim+10)
+value=anim+10
+persistent=0
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+type=changestate
+triggerall=pos y>=0
+triggerall=alive
+triggerall=canrecover
+trigger1=command="recovery"
+value=5200
+[state ]
+type=changestate
+triggerall=vel y>-1
+triggerall=alive
+triggerall=canrecover
+trigger1=command="recovery"
+value=5210
+[state ]
+type=changestate
+trigger1=pos y>=0
+trigger2=pos y<0
+trigger3=time>300
+value=5100
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5070]
+type=a
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5070
+value=5070
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=5071
+[state ]
+type=forcefeedback
+trigger1=animelem=1
+time=12
+waveform=sinesquare
+ampl=140
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5071]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+y=1
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+trigger1=pos y>=0
+trigger2=time>300
+type=changestate
+value=5110
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5080]
+type=l
+movetype=h
+physics=n
+velset=0,0
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5080&&anim!=5090
+value=ifelse(gethitvar(yvel)=0,5080,5090)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitshakeover
+value=ifelse(gethitvar(yvel),5030,5081)
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5081]
+type=l
+movetype=h
+physics=c
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitvelset
+trigger1=animelem=1
+x=1
+[state ]
+type=velset
+trigger1=hitover
+x=0
+[state ]
+type=changestate
+trigger1=hitover
+value=5110
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5100]
+type=l
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=5100
+trigger1=(anim!=[5051,5059])&&(anim!=[5061,5069])
+trigger2=!selfanimexist(5100+(anim%10))
+value=5100
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=[5100,5109]
+trigger1=(anim=[5051,5059])||(anim=[5061,5069])
+trigger1=selfanimexist(5100+(anim%10))
+value=5100+(anim%10)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+trigger1=gethitvar(fall.yvel)=0
+trigger1=vel x>1
+x=1
+[state ]
+type=fallenvshake
+trigger1=animelem=1
+[state ]
+type=posset
+trigger1=animelem=1
+y=0
+[state ]
+type=velset
+trigger1=animelem=1
+y=0
+[state ]
+type=velmul
+trigger1=animelem=1
+x=0.75
+[state ]
+type=changestate
+trigger1=animelem=1
+trigger1=gethitvar(fall.yvel)=0
+value=5110
+[state ]
+type=gamemakeanim
+trigger1=animelemtime(1)=1
+value=60+floor(vel y)+floor(vel y)
+pos=0,0
+under=floor(vel y)<=14
+[state ]
+type=hitfalldamage
+trigger1=animelemtime(1)=3
+trigger1=palno=[1,6]
+[state ]
+type=playsnd
+trigger1=animelemtime(1)=1
+value=f7,floor(vel y)+floor(vel y)
+[state ]
+type=posfreeze
+trigger1=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=5101
+[state ]
+type=forcefeedback
+trigger1=animelem=1
+waveform=sinesquare
+ampl=128,-3,-.2,.005
+time=20
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5101]
+type=l
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=5160
+trigger1=anim!=[5101,5109]
+trigger2=!selfanimexist(5160+(anim%10))
+value=5160
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=[5160,5169]
+trigger1=anim=[5101,5109]
+trigger1=selfanimexist(5160+(anim%10))
+value=5160+(anim%10)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitfallvel
+trigger1=animelem=1
+[state ]
+type=posset
+trigger1=animelem=1
+y=20
+[state ]
+type=veladd
+trigger1=1
+y=.4
+[state ]
+trigger1=pos y>=12
+trigger2=time>300
+type=changestate
+value=5110
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5110]
+type=l
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+persistent=0
+trigger1=selfanimexist(5110+(anim%10))
+trigger1=anim=[5081,5089]
+value=5110+(anim%10)
+[state ]
+type=changeanim
+triggerall=anim!=5170
+triggerall=anim!=[5110,5119]
+trigger1=anim!=[5161,5169]
+trigger2=!selfanimexist(5170+(anim%10))
+value=5170
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=[5170,5179]
+triggerall=anim!=[5110,5119]
+trigger1=anim=[5161,5169]
+trigger1=selfanimexist(5170+(anim%10))
+value=5170+(anim%10)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=fallenvshake
+trigger1=animelem=1
+[state ]
+type=hitfalldamage
+trigger1=animelem=1
+trigger1=palno=[1,6]
+[state ]
+type=posset
+trigger1=1
+y=0
+[state ]
+type=playsnd
+trigger1=animelem=1
+trigger1=prevstateno!=5081
+value=f7,floor(vel y)+floor(vel y)
+[state ]
+type=gamemakeanim
+trigger1=animelem=1
+trigger1=prevstateno!=5081
+value=60+floor(vel y)+floor(vel y)
+pos=0,0
+under=floor(vel y)<=14
+[state ]
+type=velset
+trigger1=1
+y=0
+[state ]
+type=changeanim
+persistent=0
+triggerall=anim=[5171,5179]
+triggerall=selfanimexist(5110+(anim%10))
+trigger1=animtime=0
+trigger2=prevstateno=5081
+value=5110+(anim%10)
+[state ]
+type=changeanim
+persistent=0
+triggerall=anim!=[5110,5119]
+trigger1=animtime=0
+trigger2=prevstateno=5081
+value=5110
+[state ]
+type=changestate
+triggerall=!alive
+trigger1=animtime=0
+trigger2=prevstateno=5081
+trigger3=anim=[5110,5119]
+value=5150
+[state ]
+type=velmul
+trigger1=1
+x=0.85
+[state ]
+type=forcefeedback
+trigger1=alive
+trigger1=animelem=1
+time=8
+ampl=240
+waveform=sine
+[state ]
+type=forcefeedback
+trigger1=!alive
+trigger1=animelem=1
+ampl=200,7,-.467
+time=30
+waveform=sine
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5120]
+type=l
+movetype=i
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=5120
+trigger1=anim!=[5111,5120]
+trigger2=!selfanimexist(5120+(anim%10))
+value=5120
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=anim!=[5120,5129]
+trigger1=anim=[5111,5119]
+trigger1=selfanimexist(5120+(anim%10))
+value=5120+(anim%10)
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+x=0
+[state ]
+type=hitfallset
+trigger1=animtime=0
+value=1
+[state ]
+type=changestate
+trigger1=animtime=0
+value=0
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5150]
+type=u
+movetype=u
+physics=u
+sprpriority=-3
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=ishelper(1000)
+value=1010
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(1001)
+value=1012
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(1400)
+value=1410
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(2100)
+value=2101
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=!ishelper
+statetype=l
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+triggerall=!ishelper
+triggerall=anim!=5140
+triggerall=selfanimexist(5140)
+trigger1=(anim!=[5111,5119])&&(anim!=[5171,5179])
+trigger2=!selfanimexist(5140+(anim%10))
+value=5140
+[state ]
+type=changeanim
+trigger1=!ishelper
+trigger1=anim!=[5140,5149]
+trigger1=(anim=[5111,5119])||(anim=[5171,5179])
+trigger1=selfanimexist(5140+(anim%10))
+value=5140+(anim%10)
+[state ]
+type=changeanim
+persistent=0
+trigger1=!ishelper
+trigger1=matchover=1
+trigger1=anim=[5140,5149]
+trigger1=selfanimexist(anim+10)
+value=anim+10
+[state ]
+type=changeanim
+trigger1=!ishelper
+trigger1=animelem=1
+trigger1=anim!=[5140,5159]
+trigger1=anim!=[5110,5119]
+value=5110
+[state ]
+type=varset
+trigger1=!ishelper
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=velmul
+trigger1=!ishelper
+x=0.85
+[state ]
+type=velset
+trigger1=!ishelper
+trigger1=vel x<.05
+persistent=0
+x=0
+[state ]
+type=lifeset
+trigger1=!ishelper
+trigger1=name!="FT-Mizuchi"
+value=0
+ignorehitpause=1
+[state ]
+type=destroyself
+triggerall=ishelper
+trigger1=root,alive=0
+trigger2=ishelper(5)
+trigger2=numhelper(6)
+trigger3=ishelper(7)
+trigger3=sysvar(0)>0
+trigger4=name!="FT-Mizuchi"
+ignorehitpause=1
+[state ]
+type=changestate
+triggerall=!ishelper
+triggerall=alive
+triggerall=name="FT-Mizuchi"
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),sysvar(0)>100
+trigger2=!playeridexist(sysvar(1))
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5200]
+type=a
+movetype=h
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim=5035
+trigger1=animtime=0
+value=5050
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=veladd
+trigger1=1
+y=gethitvar(yaccel)
+[state ]
+type=selfstate
+trigger1=pos y>=10
+trigger2=time>300
+value=5201
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5201]
+type=a
+movetype=h
+physics=a
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=win
+movetype=i
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5200
+value=5200
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=turn
+trigger1=animelem=1
+trigger1=p2dist x<-5
+[state ]
+type=velset
+trigger1=animelem=1
+x=-.15
+y=-3.5
+[state ]
+type=posset
+trigger1=animelem=1
+y=0
+[state ]
+type=palfx
+trigger1=animelem=1
+time=3
+add=128,128,128
+[state ]
+type=gamemakeanim
+trigger1=animelemtime(1)=1
+value=60
+pos=0,0
+under=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5210]
+type=a
+movetype=i
+physics=n
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5210
+value=5210
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=name="FT-Mizuchi"
+sysvar(4)=stateno
+persistent=256
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=animelem=1
+value=0
+ignorehitpause=1
+[state ]
+type=palfx
+trigger1=animelem=1
+time=3
+add=128,128,128
+[state ]
+type=posfreeze
+trigger1=animelem=1
+value=4
+[state ]
+type=turn
+trigger1=animelem=1
+trigger1=p2dist x<-20
+[state ]
+type=velmul
+trigger1=animelemtime(1)=4
+x=.8
+y=.8
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+y=-4.5
+[state ]
+type=velmul
+trigger1=animelemtime(1)=4
+trigger1=vel y>0
+y=.5
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+trigger1=vel y>-3
+y=-2
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+trigger1=vel y>-2
+y=-1
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+trigger1=command="holdup"
+y=-2
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+trigger1=command="holddown"
+y=1.5
+[state ]
+type=velmul
+trigger1=animelemtime(1)=4
+trigger1=command="holdfwd"
+x=1
+[state ]
+type=veladd
+trigger1=animelemtime(1)=4
+trigger1=command="holdback"
+x=-1
+[state ]
+type=ctrlset
+trigger1=animelemtime(1)=20
+value=1
+[state ]
+type=veladd
+trigger1=animelemtime(1)>=4
+y=.35
+[state ]
+type=changestate
+trigger1=pos y>=0
+trigger2=time>300
+value=52
+ctrl=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5500]
+type=s
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5300
+value=5300
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5300&&anim!=5500
+trigger1=selfanimexist(5500)
+value=5500
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=anim!=5300&&anim!=5500
+trigger1=!selfanimexist(5500)
+value=5300
+ignorehitpause=1
+[state ]
+type=velset
+trigger1=animelem=1
+x=0
+y=0
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=animelem=1
+value=0
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=!alive
+value=5050
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1
+[statedef 5900]
+type=s
+movetype=i
+[state ]
+type=changestate
+trigger1=ishelper
+trigger2=name!="FT-Mizuchi"
+value=5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundsexisted=0
+value=190
+[state ]
+type=changestate
+trigger1=roundsexisted!=0
+value=0
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=!alive
+value=5050
+persistent=256
+ignorehitpause=1
+[state ]
+type=selfstate
+trigger1=!ishelper
+trigger1=alive
+trigger1=name="FT-Mizuchi"
+trigger1=roundstate>2
+value=120
+persistent=256
+ignorehitpause=1

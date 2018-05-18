@@ -1,0 +1,19 @@
+[Info]
+name="Gogo"
+displayname="Famed Mimic Gogo"
+versiondate=11,22,2000
+mugenversion=11,22,2000
+author="e.eme"
+pal.defaults=1
+[Files]
+cmd=gogo.cmd
+cns=gogo.cns
+st=gogo_N.cns
+st1=OPTION.cns
+st2=gogo_helper.cns
+st3=gogo_null.cns
+stcommon=common.cns
+sprite=gogo.sff
+anim=gogo.air
+sound=gogo.snd
+pal1=

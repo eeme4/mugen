@@ -1,0 +1,1507 @@
+[statedef 1]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=!time
+trigger1=!(random%5)
+value=2
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!time
+trigger1=!(random%5)
+value=3
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=animtime=1
+anim=10000
+postype=back
+removetime=100
+bindtime=-1
+id=555
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=35
+trigger2=animtime=41
+trigger3=animtime=47
+trigger4=animtime=53
+trigger5=animtime=59
+anim=8000
+postype=p2
+pos=(1-random%3)*(random%50),-random%90
+sprpriority=6
+facing=1
+bindtime=1
+removetime=8
+ownpal=1
+scale=const(size.xscale),const(size.yscale)
+[state ]
+type=projectile
+trigger1=animtime=35
+attr=s,na
+damage=35
+animtype=hard
+pausetime=0,30
+postype=p2
+projanim=10001
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=30
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=s0,0
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>120
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 2]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1509
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=projectile
+trigger1=animtime=30
+attr=s,na
+damage=100
+animtype=hard
+pausetime=0,30
+postype=p2
+projanim=10001
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=30
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=s0,0
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>120
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 3]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=animtime=1
+anim=10000
+postype=back
+removetime=100
+bindtime=-1
+id=555
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=projectile
+trigger1=animtime=30
+attr=s,na
+damage=1000000000
+animtype=hard
+pausetime=0,30
+postype=p2
+projanim=10001
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=30
+priority=7
+sparkno=s8100
+guard.sparkno=-1
+hitsound=s0,8
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>120
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 5]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=bgpalfx
+trigger1=1
+time=1
+add=0,-200,-200
+mul=256,256,256
+sinadd=40,80,40,10
+invertall=1
+color=0
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1507
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+id=555
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,1
+volume=100
+[state ]
+type=projectile
+trigger1=(gametime%5)=0
+trigger1=animtime=[0,120]
+attr=s,sp
+damage=10+(random%31)
+postype=left
+getpower=30,10
+animtype=hard
+pausetime=0,12
+offset=(random%311)*facing,-220
+velocity=5,8
+projanim=200
+projhitanim=201
+projremanim=201
+projscale=0.8,0.8
+projshadow=0,0,0
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=200
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+air.juggle=7
+palfx.color=0
+palfx.time=10
+palfx.sinadd=50,50,0,10
+palfx.invertall=1
+palfx.add=150,0,-280
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>160
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 6]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=bgpalfx
+trigger1=1
+time=1
+add=0,-200,-200
+mul=256,256,256
+sinadd=40,80,40,10
+invertall=1
+color=0
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1502
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=330
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=explod
+trigger1=animtime=1
+anim=210
+postype=p2
+pos=0,-60
+removetime=226
+sprpriority=55555
+bindtime=-1
+facing=facing
+[state ]
+type=explod
+trigger1=animtime=1
+anim=211
+postype=p2
+pos=0,-60
+removetime=322
+sprpriority=55555
+bindtime=-1
+facing=facing
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,2
+volume=100
+[state ]
+type=projectile
+trigger1=animtime=1
+attr=s,na
+damage=0
+animtype=hard
+pausetime=0,30
+postype=p2
+projanim=10001
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=60
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+p2stateno=1000
+[state ]
+type=changestate
+trigger1=animtime>350
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 7]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=bgpalfx
+trigger1=1
+time=1
+add=-200,-200,0
+mul=256,256,256
+sinadd=40,80,40,100
+invertall=1
+color=0
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1506
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=explod
+trigger1=animtime=1
+anim=220
+postype=p2
+sprpriority=55555
+removetime=174
+bindtime=-1
+facing=facing
+[state ]
+type=explod
+trigger1=animtime=1
+anim=221
+postype=p2
+sprpriority=55555
+removetime=232
+bindtime=-1
+facing=facing
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,3
+volume=100
+[state ]
+type=projectile
+trigger1=animtime=1
+attr=s,na
+damage=0
+animtype=hard
+pausetime=0,30
+postype=p2
+projanim=10001
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=60
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+p2stateno=1100
+[state ]
+type=changestate
+trigger1=animtime>250
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 8]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(4)=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=animtime=360
+trigger1=sysvar(2)=0
+trigger1=sysvar(3)&&!(sysvar(2)%2)
+trigger1=!numexplod(5)
+value=2,2
+channel=20
+loop=1
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=animtime=360
+trigger1=!numexplod(5)
+anim=10000
+id=5
+pos=0,0
+postype=left
+removetime=-1
+ownpal=0
+scale=0,0
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=sysvar(2)=0
+trigger1=animtime=1||animtime=120||animtime=240||animtime=360
+anim=3019+(animtime>1)+(animtime>120)+(animtime>240)
+postype=back
+pos=ifelse(facing=1,8,313),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+[state ]
+type=bgpalfx
+trigger1=animtime>480
+time=1
+add=0,-200,-200
+mul=256,256,256
+sinadd=40,80,40,10
+invertall=1
+color=0
+[state ]
+type=explod
+trigger1=animtime=480
+anim=1507
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+id=555
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=480||animtime=510
+anim=1
+postype=p1
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=playsnd
+trigger1=animtime=480
+value=s0,1
+volume=100
+[state ]
+type=projectile
+trigger1=(gametime%5)=0
+trigger1=animtime=[480,600]
+attr=s,sp
+damage=10+(random%31)
+postype=left
+getpower=30,10
+animtype=hard
+pausetime=0,12
+offset=(random%311)*facing,-220
+velocity=5,8
+projanim=200
+projhitanim=201
+projremanim=201
+projscale=0.8,0.8
+projshadow=0,0,0
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=200
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+air.juggle=7
+palfx.color=0
+palfx.time=10
+palfx.sinadd=50,50,0,10
+palfx.invertall=1
+palfx.add=150,0,-280
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>620
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 9]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=bgpalfx
+trigger1=1
+time=1
+add=0,-200,-200
+mul=256,256,256
+sinadd=40,80,40,10
+invertall=1
+color=0
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=0
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=animtime=1||animtime=140||animtime=280
+anim=1507
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+id=555
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+[state ]
+type=explod
+trigger1=animtime=1||animtime=30
+trigger2=animtime=140||animtime=170
+trigger3=animtime=280||animtime=310
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=playsnd
+trigger1=animtime=1
+trigger2=animtime=140
+trigger3=animtime=280
+value=s0,1
+volume=100
+[state ]
+type=projectile
+triggerall=(gametime%5)=0
+trigger1=animtime=[0,120]
+trigger2=animtime=[140,260]
+trigger3=animtime=[280,600]
+attr=s,ap
+damage=10+(random%31)
+postype=left
+getpower=30,10
+animtype=hard
+pausetime=0,12
+offset=(random%311)*facing,-220
+velocity=5,8
+projanim=200
+projhitanim=201
+projremanim=201
+projscale=0.8,0.8
+projshadow=0,0,0
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=200
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+air.juggle=7
+palfx.color=0
+palfx.time=10
+palfx.sinadd=50,50,0,10
+palfx.invertall=1
+palfx.add=150,0,-280
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>420
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 30]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,7
+volume=100
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1503
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=changestate
+trigger1=animtime>160
+value=31
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 31]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=0
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,5
+volume=100
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1508
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=projectile
+trigger1=animtime=[0,120]
+attr=a,ap
+damage=12
+animtype=hard
+pausetime=0,15
+offset=0,-100
+velocity=ifelse(random<500,7,8),ifelse(random<250,.25+(random%3),ifelse(random<500,.5+(random%3),ifelse(random<750,-.25-(random%3),-.5-(random%3))))
+postype=p1
+projanim=302
+projhits=1
+projmisstime=1
+projpriority=7
+projremovetime=60
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>160
+value=32
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 32]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=0
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,6
+volume=100
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1505
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=projectile
+trigger1=animtime=[0,120]
+attr=a,ap
+damage=10
+animtype=hard
+pausetime=0,15
+postype=p2
+offset=(1-random%3)*(random%50),-random%100
+projanim=300
+projhits=1
+projremove=0
+projmisstime=1
+projpriority=7
+projremovetime=15
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.slidetime=14
+ground.hittime=16
+ground.velocity=-6,0
+air.velocity=-3,-4
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=changestate
+trigger1=animtime>160
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 33]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=a
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=1
+sysvar(1)=0
+ignorehitpause=1
+[state ]
+type=playsnd
+trigger1=animtime=1
+value=s0,4
+volume=100
+[state ]
+type=explod
+trigger1=roundstate=2
+trigger1=animtime=1||animtime=30
+anim=1
+postype=p1
+sprpriority=55555
+removetime=5
+bindtime=-1
+scale=1.5,1.5
+[state ]
+type=explod
+trigger1=animtime=1
+anim=1504
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=changestate
+trigger1=animtime>160
+value=31
+anim=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 60]
+type=u
+movetype=u
+physics=u
+hitcountpersist=1
+[state ]
+type=changestate
+trigger1=name="Gogo"
+trigger1=anim=0
+trigger1=!numexplod(55)
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=!time
+value=0
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=explod
+trigger1=anim=0
+trigger1=animtime=1||animtime=120||animtime=240||animtime=360||animtime=480||animtime=600||animtime=720||animtime=840||animtime=960
+anim=3010+(animtime>1)+(animtime>120)+(animtime>240)+(animtime>360)+(animtime>480)+(animtime>600)+(animtime>720)+(animtime>840)
+postype=back
+pos=ifelse(facing=1,8,313),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+[state ]
+type=playsnd
+trigger1=animtime=1080
+value=s40,0
+volume=100
+[state ]
+type=explod
+trigger1=animtime=1080
+anim=1500
+postype=back
+pos=ifelse(facing=1,103,216),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=explod
+trigger1=anim=3
+trigger1=animtime=120
+anim=1501
+postype=back
+pos=ifelse(facing=1,53,276),40
+removetime=120
+bindtime=-1
+facing=facing
+scale=0.85,0.85
+ontop=1
+id=555
+[state ]
+type=explod
+trigger1=animtime=1080
+anim=400
+postype=p1
+removetime=42
+sprpriority=55555
+bindtime=-1
+facing=facing
+scale=1,1
+[state ]
+type=explod
+trigger1=animtime=1080
+anim=401
+postype=p1
+removetime=42
+sprpriority=-2
+bindtime=-1
+facing=facing
+scale=1,1
+[state ]
+type=changeanim
+trigger1=animtime>=1080
+trigger1=anim!=3
+value=3
+ignorehitpause=1
+[state ]
+type=lifeset
+trigger1=anim=3
+trigger1=animtime>=140
+value=0
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=anim=3
+trigger1=animtime>270
+value=5150
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=roundstate>2
+value=155+(!alive)*4995
+anim=!alive
+ignorehitpause=1
+[statedef 800]
+type=u
+movetype=u
+physics=u
+[state ]
+type=changestate
+trigger1=name="Gogo"
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=changeanim2
+trigger1=anim!=100810||anim!=100800
+value=ifelse(statetype=a,100810,100800)
+[state ]
+type=lifeset
+trigger1=!time&&life>=10
+value=ifelse(random<200,2,ifelse(random<400,4,ifelse(random<600,6,ifelse(random<800,8,9))))
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=enemy(enemy,name!="Gogo"),stateno!=30
+value=900+(statetype=a)*10
+[statedef 900]
+type=u
+movetype=u
+velset=0,0
+sprpriority=1
+[state ]
+type=changestate
+trigger1=name="Gogo"
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+statetype=s
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=changeanim2
+trigger1=anim!=100910
+value=100910
+[state ]
+type=selfstate
+trigger1=animtime=0
+value=5100
+[statedef 910]
+type=u
+movetype=u
+velset=-6,-8
+sprpriority=1
+[state ]
+type=changestate
+trigger1=name="Gogo"
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+statetype=a
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=changeanim2
+trigger1=anim!=100900
+value=100900
+[state ]
+type=gravity
+trigger1=1
+[state ]
+type=selfstate
+trigger1=pos y>=0
+trigger1=vel y>0
+value=5100
+[statedef 1000]
+type=u
+movetype=u
+velset=0,0
+sprpriority=1
+[state ]
+type=changestate
+trigger1=name="Gogo"
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim2
+trigger1=anim!=101000
+value=101000
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=posfreeze
+trigger1=0
+value=1
+ignorehitpause=1
+[state ]
+type=palfx
+trigger1=enemy,stateno=6
+trigger1=enemy,animtime>=227
+time=1
+add=40,-70,-200
+mul=256,256,256
+sinadd=40,30,0,10
+invertall=1
+color=0
+[state ]
+type=selfstate
+trigger1=enemy(enemy,name!="Gogo"),stateno!=6
+value=5100
+ignorehitpause=1
+[statedef 1100]
+type=u
+movetype=u
+velset=0,0
+sprpriority=1
+[state ]
+type=changestate
+trigger1=name="Gogo"
+value=0
+anim=0
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=h
+physics=n
+ignorehitpause=1
+[state ]
+type=changeanim2
+trigger1=anim!=101000
+value=101000
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[state ]
+type=posfreeze
+trigger1=0
+value=1
+ignorehitpause=1
+[state ]
+type=palfx
+trigger1=enemy,stateno=7
+trigger1=enemy,animtime>=175
+time=1
+add=0,-200,0
+mul=256,256,256
+sinadd=40,80,40,10
+invertall=1
+color=0
+[state ]
+type=selfstate
+trigger1=enemy(enemy,name!="Gogo"),stateno!=7
+value=5100
+ignorehitpause=1

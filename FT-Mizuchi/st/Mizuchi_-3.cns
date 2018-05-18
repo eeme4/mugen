@@ -1,0 +1,279 @@
+[Statedef -3]
+;ゲーム中に常にいつでも開始したいステート、ここでは「着地音」に使用しています
+;下の条件は「52か106のステートに移動して１フレーム目に」と言う事です。
+;52と106はバックステップとジャンプの着地のステートです。
+
+[State GameTime式ステ抜け]
+type = VarSet
+trigger1 = 1
+sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+;変数を使用した強力なステ抜け
+;通常変数だと突破されることも多々あるがシステム変数を使用すると捏造利用でない限り突破されない
+;だが、これだけだとp1stateno耐性が無いためp1stateno耐性をつけるなら一工夫する必要がある
+ignorehitpause = 1
+
+[state ]
+type=varset
+trigger1=!ishelper
+trigger1=numhelper(4)=1
+trigger1=playeridexist(sysvar(1))
+trigger1=playerid(sysvar(1)),ishelper(4)
+sysfvar(3)=playerid(sysvar(1)),sysfvar(3)
+ignorehitpause=1
+
+[State ]
+type = Tagout
+trigger1 = IsHelper
+trigger1 = !IsHelper(1)
+ignorehitpause = 1
+
+[State ステート奪取判断Explod]
+;Explod式ステ抜け
+;原理はGameTime式ステ抜けとほぼ同じ
+;違うのは捏造でもほぼ弄らないものであること
+;よく弄られる危険性のあるGameTime式ステ抜けよりは安心できる
+;Proj式もあるがこちらはヘルパー押し付けなどで突破される危険性があるのでこちらのほうがいい
+;だが、少しでも重さを回避したいならProj式も考慮にいれるといい
+;ぶっちゃけどっちも捏造利用でも滅多に突破されない
+;Proj式はヘルパー奪われたらあっさりステ抜け貫通されるけど
+Type = Explod
+trigger1 = !ishelper
+;trigger1 = NumExplod(9000+GameTime) = 0
+ID = 9000+GameTime
+PosType = P1
+Pos = 0,0
+BindTime = -1
+SprPriority = -2
+RemoveTime = 1
+SuperMove = -1
+SuperMoveTime = -1
+PauseMoveTime = -1
+Anim = 9000
+OwnPal = 0
+IgnoreHitPause = 1
+
+[State ]
+type = ChangeAnim
+triggerall = IsHelper(1)
+triggerall = Root,PalNo%6 = [1,2]
+triggerall = PlayerIDExist(Root,sysvar(1))
+triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+trigger1 = var(1) := AnimElemNo(0)
+trigger1 = var(0) := Root,GetHitVar(Damage)
+trigger1 = abs(var(0)) > (LifeMax/2) || abs(var(0)) < 0
+trigger1 = var(0) := ceil((1.0*var(0))/2) || 1
+trigger1 = var(0) > LifeMax/2 || var(0) < -LifeMax/2
+trigger1 = var(0) := 0
+trigger2 = Root,GetHitVar(AnimType) = 0
+trigger2 = var(1) := var(1) + ceil(1.0*var(0)/3.0)
+trigger3 = Root,GetHitVar(AnimType) = 1
+trigger3 = var(1) := var(1) + ceil(1.0*var(0)/2.0)
+trigger4 = Root,GetHitVar(AnimType) = 2
+trigger4 = var(1) := var(1) + ceil(1.0*var(0)*2.0/3.0)
+trigger5 = Root,GetHitVar(AnimType) = 3
+trigger5 = var(1) := var(1) + ceil(1.0*var(0)*3.0/4.0)
+trigger6 = Root,GetHitVar(AnimType) = 4
+trigger6 = var(1) := var(1) + ceil(1.0*var(0)*4.0/5.0)
+trigger7 = Root,GetHitVar(AnimType) = 5
+trigger7 = var(1) := var(1) + ceil(1.0*var(0)*4.0/5.0)
+value = 10000
+elem = var(1); + var(0)
+Persistent = 256
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+triggerall = IsHelper(1)
+triggerall = Root,PalNo%6 = [3,4]
+triggerall = PlayerIDExist(Root,sysvar(1))
+triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+trigger1 = var(1) := AnimElemNo(0)
+trigger1 = var(0) := Root,GetHitVar(Damage)
+trigger1 = abs(var(0)) > (LifeMax/3) || abs(var(0)) < 0
+trigger1 = var(0) := ceil(1.0*var(0)/3.0) || 1
+trigger1 = var(0) > (LifeMax/3) || var(0) < -(LifeMax/3)
+trigger1 = var(0) := 0
+trigger2 = Root,GetHitVar(AnimType) = 0
+trigger2 = var(1) := var(1) + ceil(1.0*var(0)/5.0)
+trigger3 = Root,GetHitVar(AnimType) = 1
+trigger3 = var(1) := var(1) + ceil(1.0*var(0)/4.0)
+trigger4 = Root,GetHitVar(AnimType) = 2
+trigger4 = var(1) := var(1) + ceil(1.0*var(0)/3.0)
+trigger5 = Root,GetHitVar(AnimType) = 3
+trigger5 = var(1) := var(1) + ceil(1.0*var(0)/2.0)
+trigger6 = Root,GetHitVar(AnimType) = 4
+trigger6 = var(1) := var(1) + ceil(1.0*var(0)*2.0/3.0)
+trigger7 = Root,GetHitVar(AnimType) = 5
+trigger7 = var(1) := var(1) + ceil(1.0*var(0)*2.0/3.0)
+value = 10000
+elem = var(1)
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+triggerall = IsHelper(1)
+triggerall = Root,PalNo%6 != [1,4]
+triggerall = PlayerIDExist(Root,sysvar(1))
+triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+trigger1 = var(1) := AnimElemNo(0) || 1
+trigger1 = var(0) := Root,GetHitVar(Damage)
+trigger1 = abs(var(0)) > (LifeMax/4) || abs(var(0)) < 0
+trigger1 = var(0) := ceil(1.0*var(0)/4.0) || 1
+trigger1 = var(0) > (LifeMax/4) || var(0) < -(LifeMax/4)
+trigger1 = var(0) := 0
+trigger2 = Root,GetHitVar(AnimType) = 0
+trigger2 = var(1) := var(1) + ceil(1.0*var(0)/6.0)
+trigger3 = Root,GetHitVar(AnimType) = 1
+trigger3 = var(1) := var(1) + ceil(1.0*var(0)/5.0)
+trigger4 = Root,GetHitVar(AnimType) = 2
+trigger4 = var(1) := var(1) + ceil(1.0*var(0)/4.0)
+trigger5 = Root,GetHitVar(AnimType) = 3
+trigger5 = var(1) := var(1) + ceil(1.0*var(0)/3.0)
+trigger6 = Root,GetHitVar(AnimType) = 4
+trigger6 = var(1) := var(1) + ceil(1.0*var(0)*2.0/3)
+trigger7 = Root,GetHitVar(AnimType) = 5
+trigger7 = var(1) := var(1) + ceil(1.0*var(0)*2.0/3)
+value = 10000
+elem = var(1)
+Persistent = 256
+ignorehitpause = 1
+[State ]
+type = Tagout
+trigger1 = IsHelper(1)
+ignorehitpause = 1
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 
+trigger2 = stateno = 107 
+trigger3 = stateno = 103 
+value = 40, 0
+
+
+[State -3, 2];ジャンプ音
+type = PlaySnd
+triggerall = time = 1
+trigger1 = stateno = 40 
+trigger1 = var(15) <= 0
+value = 40, 1
+
+[State -3, 2];ジャンプ音
+type = PlaySnd
+triggerall = time = 1
+trigger1 = stateno = 40 
+trigger1 = var(15) > 1
+value = 40, 2
+
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 105 
+value = 105, 0
+
+[State -3, 3];ダッシュの音止め
+type = stopSnd
+trigger1 = stateno != 100
+channel = 1
+
+;ダメージ時のエフェクトの消去
+[State 1]
+type = removeexplod
+trigger1 = MoveType = H
+ID = 2405
+
+;ダメージ時のエフェクトの消去
+[State 1]
+type = removeexplod
+trigger1 = MoveType = H
+ID = 1000
+
+[state a];残像消去
+type = afterimagetime
+trigger1 = movetype = H
+time = 0
+
+[State 210, Width];画面端の押し戻し判定
+type = Width
+trigger1 = 1
+edge = 5,0
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ハイジャンプ処理
+[State -3, 5];ハイジャンプ判定
+type = varset
+triggerall = !IsHelper
+trigger1 = stateno = 10
+trigger1 = time = 0
+trigger2 = stateno = 100
+v = 15
+value = 20
+
+[State -3, 5];ハイジャンプ消去
+type = varset
+trigger1 = !IsHelper
+trigger1 = stateno = 52
+trigger1 = time = 0
+v = 15
+value = 0
+
+; 小ジャンプ処理
+[State -3, 5];小ジャンプ判定
+type = varset
+trigger1 = !IsHelper
+trigger1 = stateno = 40
+trigger1 = command != "holdup"
+v = 16
+value = 1
+
+[State -3, 5];小ジャンプ消去
+type = varset
+trigger1 = !IsHelper
+trigger1 = stateno = 40
+trigger1 = command = "holdup"
+v = 16
+value = 0
+
+[State -3, 5]
+type = velset
+trigger1 = stateno = 50
+trigger1 = anim = 42
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+x = 5
+;y = -9
+
+
+[State -3, 5]
+type = velset
+trigger1 = stateno = 50
+trigger1 = anim = 43
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+x = -5
+;y = -9
+
+[State -3, 5];小ジャンプ
+type = veladd
+trigger1 = stateno = 50
+trigger1 = time = 1
+trigger1 = var(16) = 1
+y = 3
+
+[State -3, 5]
+type = AfterImage
+trigger1 = stateno = 50
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+time = 10
+trans = add1
+timegap = 1
+framegap = 2
+length = 8
+palbright = 12,12,12
+palcontrast = 225,225,225
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1

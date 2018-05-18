@@ -1,0 +1,1291 @@
+[Statedef -2]
+[State ]
+type=VarSet
+ignorehitpause=1
+triggerall=!ishelper
+trigger1=command="CPU_01"||command="CPU_02"||command="CPU_03"||command="CPU_04"||command="CPU_05"||command="CPU_06"||command="CPU_07"||command="CPU_08"||command="CPU_09"||command="CPU_10"
+trigger2=command="CPU_11"||command="CPU_12"||command="CPU_13"||command="CPU_14"||command="CPU_15"||command="CPU_16"||command="CPU_17"||command="CPU_18"||command="CPU_19"||command="CPU_20"
+trigger3=command="CPU_21"||command="CPU_22"||command="CPU_23"||command="CPU_24"||command="CPU_25"||command="CPU_26"||command="CPU_27"||command="CPU_28"||command="CPU_29"||command="CPU_30"
+trigger4=command="CPU_31"||command="CPU_32"||command="CPU_33"||command="CPU_34"||command="CPU_35"||command="CPU_36"||command="CPU_37"||command="CPU_38"||command="CPU_39"||command="CPU_40"
+trigger5=command="CPU_41"||command="CPU_42"||command="CPU_43"||command="CPU_44"||command="CPU_45"||command="CPU_46"||command="CPU_47"||command="CPU_48"||command="CPU_49"||command="CPU_50"
+trigger6=(palno%2)=0
+;/---------------------------------------------------------------------/
+;/---------------------------------------------------------------------/
+var(30) = 2;←AIレベル設定:デフォルト,2
+;0:AIオフ
+
+;1:超必に強い制限が付きます
+;条件1:残りライフが2/5以下になるまで超必を使えない
+;条件2:ライフが1/2未満の時、相手残りライフが1/2を越えている場合超必解禁
+
+;2:超必に制限が付きます
+;残りライフが2/3未満になるまで超必を使えない
+
+;3:超必を使う際にゲージを確認します。
+;ゲージ無視AIに比べて超必を使う確率はかなり低いです
+
+;4,もしくは上記以外:ゲージ無視して超必を連発します。
+;狂の範疇には絶対収まらないです
+;正直見栄え悪いのでレベル3を使う方が動画映えするかも
+
+
+;/---------------------------------------------------------------------/
+[State スイッチ]
+type = null
+
+trigger1 = 1;TU回復スイッチ,←の数値を0にするとオフ,それ以外の数値だとオン,デフォルト:オン
+;特定条件下になるとオフでもTU回復します
+
+trigger2 = 1;混線使用許可スイッチ,←の数値を0にするとオフ,それ以外の数値だとオン,デフォルト:オン
+
+trigger3 = 1;死の宣告許可スイッチ,←の数値を0にするとオフ,それ以外の数値だとオン,デフォルト:オン
+
+trigger4 = 0;カラー弄りスイッチ,←の数値を0にするとオフ,それ以外の値だとオン,デフォルト:オフ
+;一部超必使用時に相手のカラーを弄ろうとします
+
+trigger5 = 0;発狂スイッチ,←の数値を0にするとオフ,それ以外の数値だとオン,デフォルト:オフ
+;AIオンの時、残りライフが1/5未満になると超必使用率が爆発的に上がります
+
+trigger6 = 1;食らい抜けスイッチ,←の数値を0にするとオフ,それ以外の数値だとオン,デフォルト:オン
+;対神仕様のキャラなので一部特殊な無敵があります
+;それを無効化するスイッチです。
+;永久抜けとかをさせたくない時にオフにするといいです
+
+;これ以降は弄らないでね
+;/---------------------------------------------------------------------/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+triggerall = !IsHelper
+triggerall = var(59):=(var(59)|63)-63||1
+trigger1 = var(59):=(var(59)|1)&&0
+trigger2 = var(59):=(var(59)|2)&&0
+trigger3 = var(59):=(var(59)|4)&&0
+trigger4 = var(59):=(var(59)|8)&&0
+trigger5 = var(59):=(var(59)|16)&&0
+trigger6 = var(59):=(var(59)|32)&&0
+ignorehitpause = 1
+[state ]
+type=varadd
+trigger1=1
+var(6)=1
+ignorehitpause=1
+[State ]
+type = VarSet
+trigger1 = !IsHelper
+trigger1 = NumHelper(1) = 1;規定の個数であるかどうか
+trigger1 = PlayerIDExist(var(0));存在確認
+trigger1 = var(0) = Helper(1),ID;リダイレクト偽装対策
+trigger1 = PlayerID(var(0)),Name = "FT-Mizuchi";名前のお守り。相手かどうかの判別に使う
+trigger1 = PlayerID(var(0)),IsHelper(1);ID確認
+trigger1 = sysvar(0) != var(0);余計な代入を防ぐ
+sysvar(0) = var(0)
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !PlayerIDExist(sysvar(0))
+trigger2 = NumHelper(1)
+trigger2 = sysvar(0) != Helper(1),ID
+trigger3 = PlayerID(sysvar(0)),Name != "FT-Mizuchi"
+trigger4 = !PlayerID(sysvar(0)),IsHelper(1)
+trigger5 = NumHelper(1) != 1
+sysvar(0) = 0
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = !IsHelper
+trigger1 = NumHelper(4) = 1
+trigger1 = PlayerIDExist(var(1))
+trigger1 = var(1) = Helper(4),ID
+trigger1 = PlayerID(var(1)),Name = "FT-Mizuchi"
+trigger1 = PlayerID(var(1)),IsHelper(4)
+trigger1 = sysvar(1) != var(1)
+sysvar(1) = var(1)
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !PlayerIDExist(sysvar(1))
+trigger2 = NumHelper(4)
+trigger2 = sysvar(1) != Helper(4),ID
+trigger3 = PlayerID(sysvar(1)),Name != "FT-Mizuchi"
+trigger4 = !PlayerID(sysvar(1)),IsHelper(4)
+trigger5 = NumHelper(4) != 1
+sysvar(1) = 0
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = !IsHelper
+trigger1 = NumHelper(3) = 1
+trigger1 = PlayerIDExist(var(2))
+trigger1 = var(2) = Helper(3),ID
+trigger1 = PlayerID(var(2)),Name = "FT-Mizuchi"
+trigger1 = PlayerID(var(2)),IsHelper(3)
+trigger1 = sysvar(2) != var(2)
+sysvar(2) = var(2)
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !PlayerIDExist(sysvar(2))
+trigger2 = NumHelper(3)
+trigger2 = sysvar(2) != Helper(3),ID
+trigger3 = PlayerID(sysvar(2)),Name != "FT-Mizuchi"
+trigger4 = !PlayerID(sysvar(2)),IsHelper(3)
+trigger5 = NumHelper(3) != 1
+sysvar(2) = 0
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = !IsHelper
+trigger1 = NumHelper(2) = 1
+trigger1 = PlayerIDExist(var(3))
+trigger1 = var(3) = Helper(2),ID
+trigger1 = PlayerID(var(3)),Name = "FT-Mizuchi"
+trigger1 = PlayerID(var(3)),IsHelper(2)
+trigger1 = sysvar(3) != var(3)
+sysvar(3) = var(3)
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !PlayerIDExist(sysvar(3))
+trigger2 = NumHelper(2)
+trigger2 = sysvar(3) != Helper(2),ID
+trigger3 = PlayerID(sysvar(3)),Name != "FT-Mizuchi"
+trigger4 = !PlayerID(sysvar(3)),IsHelper(2)
+trigger5 = NumHelper(2) != 1
+sysvar(3) = 0
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = !IsHelper
+trigger1 = NumHelper(6) = 1
+trigger1 = PlayerIDExist(var(4))
+trigger1 = var(4) = Helper(6),ID
+trigger1 = PlayerID(var(4)),Name = "FT-Mizuchi"
+trigger1 = PlayerID(var(4)),IsHelper(6)
+trigger1 = floor(sysfvar(0)) != var(4)
+sysfvar(0) = var(4)
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !PlayerIDExist(floor(sysfvar(0)))
+;intとfloot値の違いからfvarは整数を要求する場所では小数点以下を一旦切り捨てる処理をしないとエラーメッセージが出る
+trigger2 = NumHelper(6)
+trigger2 = floor(sysfvar(0)) != Helper(6),ID
+trigger3 = PlayerID(floor(sysfvar(0))),Name != "FT-Mizuchi"
+trigger4 = !PlayerID(floor(sysfvar(0))),IsHelper(6)
+trigger5 = NumHelper(6) != 1
+trigger6 = sysfvar(0) = 1
+sysfvar(0) = 0
+ignorehitpause = 1
+[State ]
+type = DisplayToClipboard
+trigger1 = !IsHelper
+trigger1 = PlayerIDExist(sysvar(0)) && PlayerIDExist(sysvar(1)) && playeridexist(sysvar(2))
+text = "life=%d, e.l=%d, p=%d, fld=%d, k=%d\n"
+params = (playerid(sysvar(0)),animelemno(0)),Enemy,Life,(playerid(sysvar(0)),sysvar(1)),enemy,gethitvar(fall.damage),(playerid(sysvar(2)),sysvar(3)%5)
+persistent = 256
+IgnoreHitPause = 1
+[State ]
+type = DisplayToClipboard
+trigger1 = IsHelper(1)
+text = "life=%d, p=%d, fld=%d,\n"
+params = animelemno(0),sysvar(1),root,gethitvar(fall.damage)
+persistent = 256
+IgnoreHitPause = 1
+[State ]
+type = PowerSet
+trigger1 = !IsHelper
+trigger1 = playeridexist(sysvar(0))
+value = playerid(sysvar(0)),sysvar(1)
+ignorehitpause = 1
+[State ]
+type = PowerSet
+trigger1 = !IsHelper
+trigger1 = roundstate > 1
+trigger1 = !playeridexist(sysvar(0))
+trigger1 = NumHelper(1) != 1
+value = powermax
+ignorehitpause = 1
+[State ]
+type=movehitreset
+trigger1=!ishelper
+trigger1=movehit>1
+ignorehitpause=1
+
+[state -2, a];右向き設定
+type = varset
+trigger1 = !IsHelper
+trigger1 = var(10) = 0
+trigger1 = facing = 1
+v = 10
+value = 1
+
+[state -2, a];左向き設定
+type = varset
+trigger1 = !IsHelper
+trigger1 = var(10) = 0
+trigger1 = facing = -1
+v = 10
+value = 2
+
+[state a];超火炎音止め
+type = stopsnd
+trigger1 = movetype = H
+channel = 3
+
+[state a]
+type = stopsnd
+trigger1 = stateno != 1055
+channel = 5
+
+[State -2, 3]
+type = stopSnd
+trigger1 = MoveType = H
+channel = 2
+
+[State -2, 4];ハイジャンプ判定
+type = varadd
+trigger1 = !IsHelper
+v = 15
+value = -1
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;::::::::変数設定(多分ダメージ関係が殆ど)
+[state a]
+type = varset
+trigger1 = !IsHelper
+trigger1 = movetype = H
+v = 13
+value = 0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;ダメージ時のエフェクト、サウンドの消去
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 185
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1470
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 4000
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 4200
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1655
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1860
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 2200
+ignorehitpause = 1
+[state a]
+type = stopsnd
+trigger1 = MoveType = H
+trigger2 = stateno != 100
+channel = 1
+ignorehitpause = 1
+
+;ダメージ時の残像の消去
+[state a];
+type = afterimagetime
+trigger1 = MoveType = H
+time = 0
+ignorehitpause = 1
+[State ]
+type = PosSet
+trigger1 = !ishelper
+trigger1 = sysfvar(4) != 1
+trigger1 = sysfvar(4) = GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+trigger1 = Pos y > 100
+Y = 0
+ignorehitpause = 1
+;コンボによるダメージ補正
+[state a]
+type = varset
+trigger1 = !IsHelper
+fvar(0) = 1.0
+ignorehitpause = 1
+
+[state a]
+type = varset
+trigger1 = !IsHelper
+trigger1 = enemy,movetype = H
+trigger1 = enemy,gethitvar(hitcount) > 0
+fvar(0) = ((100.0-(30.0+(enemy,gethitvar(hitcount)/3.0)*10.0))/100.0)
+ignorehitpause = 1
+
+[state a]
+type = attackmulset
+trigger1 = !IsHelper
+value = fvar(0)
+ignorehitpause = 1
+
+[state a]
+type = attackmulset
+triggerall = !IsHelper
+trigger1 = Anim = [2000,2001]
+trigger2 = anim = 2005
+trigger3 = anim = 2100
+value = 1
+ignorehitpause = 1
+
+[State 1]
+type = varset
+trigger1 = !IsHelper
+trigger1 = RoundState != 2
+v = 26
+value = 0
+
+[State ]
+type = Projectile
+triggerall=!ishelper
+triggerall=!win
+trigger1=sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
+trigger2=playeridexist(sysvar(1))&&roundstate>1
+trigger2=sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
+trigger3=!NumExplod(9000+gametime)
+attr = 
+hitflag = 
+damage = 0,0
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 3
+projanim = 9000
+projhitanim = 9000
+ProjRemAnim = 9000
+ProjCancelAnim = 9000
+postype = p1
+sparkno = -1
+guard.sparkno = -1
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+ignorehitpause = 1
+
+[State ]
+type = Projectile
+triggerall=(numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5
+trigger1=!ishelper
+trigger1=!numprojid(333)
+trigger2=ishelper
+trigger2=!root,numprojid(333)
+attr = 
+hitflag = 
+damage = 0,0
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 333
+projanim = 9000
+projhitanim = 9000
+ProjRemAnim = 9000
+ProjCancelAnim = 9000
+postype = p1
+sparkno = -1
+guard.sparkno = -1
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+ignorehitpause = 1
+
+[State 時止め]
+type = pause
+triggerall = !IsHelper
+triggerall = Alive
+trigger1 = RoundState > 2
+time = 2147483647
+movetime = 2147483647
+IgnoreHitPause = 1
+
+[State 時止め]
+type = superpause
+triggerall = !IsHelper
+triggerall = Alive
+trigger1 = RoundState > 2
+anim = -1
+time = 2147483647
+movetime = 2147483647
+UnHittable = 0
+darken = 0
+p2defmul = 1
+IgnoreHitPause = 1
+[state ]
+type=varset
+trigger1=!ishelper
+sysfvar(1)=0
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=!ishelper
+triggerall=PalNo!=[1,6]
+trigger1=!NumProjID(3)
+trigger1=stateno=5100||stateno=5110
+trigger1=gethitvar(fall.damage)=[-lifemax,lifemax]
+sysfvar(1)=gethitvar(fall.damage)
+ignorehitpause=1
+[State 5110, 4]
+type = HitFallDamage
+trigger1 = PalNo != [1,6]
+ignorehitpause = 1
+[State マーキング]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(2) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 2
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State Hitdef]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(3) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 3
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 攻撃確認用]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(4) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 4
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 当て身]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(8) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 8
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State ライフ管理]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(1) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 1
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 0]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = RoundState < 2
+trigger1 = !NumHelper(10)
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 10
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 1]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = RoundState < 2
+trigger1 = !NumHelper(11)
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 2]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 1
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 3]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 2
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 4]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 3
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 5]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 4
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 6]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 5
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 7]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 6
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(11) = 7
+trigger1 = NumHelper(10)
+trigger1 = !helper(10),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 11
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 0]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = !NumHelper(9)
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 9
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 1]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = !NumHelper(12)
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 2]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 1
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 3]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 2
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 4]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 3
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 5]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 4
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 6]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 5
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 7]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 6
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(12) = 7
+trigger1 = NumHelper(9)
+trigger1 = !helper(9),numtarget
+trigger1 = (var(59)&2)&&!NumHelper(6)
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 12
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 時止めヘルパー領域確保]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(5) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 5
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 時止め解除召喚]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(5)
+trigger1 = NumHelper(6) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 6
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+
+[State 無敵処理]
+type = NotHitBy
+triggerall = !IsHelper
+trigger1 = (var(59)&32)
+trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5||numprojid(333)
+trigger2 = (var(59)&32)
+trigger2 = PlayerIDExist(sysvar(1))
+trigger2 = PlayerID(sysvar(1)),sysvar(0);被弾無敵
+trigger3 = (var(59)&32)
+trigger3 = Enemy,MoveType != A
+trigger4 = RoundState != 2
+trigger5 = hitpausetime;念のためのmugen落ち防止
+value = SCA
+value2 = SCA
+ignorehitpause = 1
+
+[State ]
+type = StateTypeSet
+trigger1 = !ishelper
+trigger1 = roundstate != 2
+trigger1 = movetype = h
+movetype = i
+ignorehitpause = 1
+
+[State ガード禁止]
+type = AssertSpecial
+trigger1 = !IsHelper
+flag = NoStandGuard
+flag2 = NoCrouchGuard
+flag3 = NoAirGuard
+IgnoreHitPause = 1
+
+[State ]
+type = AssertSpecial
+trigger1 = IsHelper
+flag = NoKOSnd
+IgnoreHitPause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = IsHelper(1)||IsHelper(6)
+trigger1 = Anim = 10000
+value = 10000
+elem = AnimElemNo(0) - 1
+Persistent = 256
+ignorehitpause = 1
+
+
+;AnimElemNo(0)式ライフ管理
+;かなり強固なライフ管理
+;変数利用ではないため捏造で変数を弄られたところでなんともない
+;おまけにヘルパーでやっていたとしても、奪われようが意識しないと突破不可能
+;欠点は若干面倒くさい
+;Animの動作について理解しないとやりづらい
+;でもそれらを補う強固性がある
+;ちなみに本体でやることは可能だが、ヘルパー利用すると一個ヘルパーが増やす必要があるかもしれない。
+;工夫次第では増やす必要性はない
+;なお、やり方が悪いとフリーズすることがある(AnimElemNo(0)が膨大(万を越えているだけでも怪しい)なAnimを使ったりする等)
+;1000程度なら平気なのでそこまで気にする必要はないはずだったり
+[State ライフ管理]
+type = LifeSet
+triggerall = !IsHelper
+triggerall = RoundState = 2
+triggerall = Alive
+trigger1 = PlayerIDExist(sysvar(0))
+trigger1 = PlayerID(sysvar(0)),Anim = 10000
+value = LifeMax - PlayerID(sysvar(0)),AnimElemNo(0) + 1 + MoveType = A;誤差修正
+ignorehitpause = 1
+[state ]
+type = lifeset
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5||numprojid(333)
+value=1
+ignorehitpause=1
+[State 異常感知]
+type = LifeSet
+triggerall = !IsHelper
+triggerall = Alive
+trigger1 = RoundState!=2&&(var(59)&1)||(roundstate<2&&!(var(59)&1))
+trigger2 = PlayerIDExist(sysvar(0))
+trigger2 = PlayerID(sysvar(0)),Anim != 10000
+value = LifeMax
+ignorehitpause = 1
+
+[State ]
+type = LifeSet
+trigger1=!ishelper
+trigger1=Alive
+trigger1=!life
+value=1
+ignorehitpause=1
+
+[State ライフ管理]
+type = LifeSet
+trigger1 = !IsHelper
+trigger1 = RoundState = 2
+trigger1 = Alive
+trigger1 = PlayerIDExist(sysvar(0))
+trigger1 = PlayerID(sysvar(0)),Anim = 10000
+trigger1 = PlayerID(sysvar(0)),AnimElemNo(0) >= LifeMax + 1
+value = 0
+ignorehitpause = 1
+
+[State 異常感知]
+type = AssertSpecial
+trigger1 = RoundState != 2
+flag = NoKO
+ignorehitpause = 1
+
+[State ]
+type = AssertSpecial
+triggerall = IsHelper
+triggerall = Root,Alive
+triggerall = !win
+trigger1 = movetype != A
+trigger1 = Root,sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||root,sysfvar(4)=1
+trigger2 = PlayerIDExist(Root,sysvar(0))
+trigger2 = PlayerID(Root,sysvar(0)),AnimElemNo(0) < LifeMax + 1
+trigger2 = !Root,Life
+trigger3 = !(PlayerIDExist(root,sysvar(0)) && PlayerIDExist(root,sysvar(1)) && PlayerIDExist(root,sysvar(2)) && PlayerIDExist(Root,sysvar(3))&& PlayerIDExist(floor(Root,sysfvar(0))))
+trigger4 = Root,NumProjID(3)||Root,NumProj>200
+trigger5 = Root,gethitvar(damage)
+flag = noko
+ignorehitpause = 1
+
+[State ]
+type = AssertSpecial
+triggerall = !IsHelper
+triggerall = Alive
+triggerall = !Win
+trigger1 = PlayerIDExist(sysvar(0))
+trigger1 = PlayerID(sysvar(0)),AnimElemNo(0) < LifeMax + 1
+trigger1 = !Life
+trigger2 = PlayerIDExist(sysvar(0))
+trigger2 = PlayerID(sysvar(0)),anim != 10000
+trigger3 = sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1||!NumExplod(9000+GameTime)
+trigger4 = playeridexist(sysvar(1))
+trigger4 = sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
+trigger5 = !(PlayerIDExist(sysvar(0)) && PlayerIDExist(sysvar(1)) && PlayerIDExist(sysvar(2)) && PlayerIDExist(sysvar(3))&& PlayerIDExist(floor(sysfvar(0))))
+trigger6 = NumProjID(3)||NumProj>200
+trigger7 = gethitvar(damage)
+flag = noko
+ignorehitpause = 1
+
+[State 異常感知でリセット]
+type=varset
+triggerall=!IsHelper
+;コモン
+trigger1=sysvar(4)!=0&&(sysvar(4)!=[10,12])&&(sysvar(4)!=20)&&sysvar(4)!=40
+trigger1=sysvar(4)!=45&&(sysvar(4)!=[50,52])&&(sysvar(4)!=[100,101])&&(sysvar(4)!=[105,107])
+trigger1=sysvar(4)!=120&&(sysvar(4)!=[130,132])&&sysvar(4)!=140&&sysvar(4)!=[150,155]
+trigger1=sysvar(4)!=170&&(sysvar(4)!=[180,181])&&sysvar(4)!=183&&sysvar(4)!=190&&sysvar(4)!=195
+trigger1=(sysvar(4)!=[5000,5001])&&(sysvar(4)!=[5010,5011])&&sysvar(4)!=5020
+trigger1=sysvar(4)!=5030&&sysvar(4)!=5035&&sysvar(4)!=5040&&sysvar(4)!=5050
+trigger1=(sysvar(4)!=[5070,5071])&&(sysvar(4)!=[5080,5081])&&(sysvar(4)!=[5100,5101])
+trigger1=sysvar(4)!=5110&&sysvar(4)!=5120&&sysvar(4)!=5150&&(sysvar(4)!=[5200,5201])
+trigger1=sysvar(4)!=5210
+;通常攻撃
+trigger1=sysvar(4)!=200&&sysvar(4)!=205&&sysvar(4)!=210&&sysvar(4)!=215&&sysvar(4)!=230
+trigger1=sysvar(4)!=235&&sysvar(4)!=240&&sysvar(4)!=245&&sysvar(4)!=[290,291]
+trigger1=sysvar(4)!=400&&sysvar(4)!=410&&sysvar(4)!=430&&sysvar(4)!=440
+trigger1=sysvar(4)!=600&&sysvar(4)!=610&&sysvar(4)!=630&&sysvar(4)!=640&&sysvar(4)!=690
+trigger1=(sysvar(4)!=[700,702])&&(sysvar(4)!=[800,801])
+;必殺技
+trigger1=(sysvar(4)!=[1000,1001])&&sysvar(4)!=1010&&sysvar(4)!=1100&&(sysvar(4)!=[1200,1203])&&(sysvar(4)!=[1300,1301])&&sysvar(4)!=1310&&sysvar(4)!=1400
+trigger1=(sysvar(4)!=[1500,1501])&&sysvar(4)!=1510
+;超必
+trigger1=sysvar(4)!=2000&&sysvar(4)!=2005&&sysvar(4)!=2100
+sysvar(4)=0
+IgnoreHitPause=1
+
+[State 異常感知でリセット]
+type=selfstate
+triggerall=!IsHelper
+triggerall=win
+;コモン
+trigger1=stateno!=0&&(stateno!=[10,12])&&(stateno!=20)&&stateno!=40
+trigger1=stateno!=45&&(stateno!=[50,52])&&(stateno!=[100,101])&&(stateno!=[105,107])
+trigger1=stateno!=120&&(stateno!=[130,132])&&stateno!=140&&stateno!=[150,155]
+trigger1=stateno!=170&&(stateno!=[180,181])&&stateno!=183&&stateno!=190&&stateno!=195
+trigger1=(stateno!=[5000,5001])&&(stateno!=[5010,5011])&&stateno!=5020
+trigger1=stateno!=5030&&stateno!=5035&&stateno!=5040&&stateno!=5050
+trigger1=(stateno!=[5070,5071])&&(stateno!=[5080,5081])&&(stateno!=[5100,5101])
+trigger1=stateno!=5110&&stateno!=5120&&stateno!=5150&&(stateno!=[5200,5201])
+trigger1=stateno!=5210
+;通常攻撃
+trigger1=stateno!=200&&stateno!=205&&stateno!=210&&stateno!=215&&stateno!=230
+trigger1=stateno!=235&&stateno!=240&&stateno!=245&&stateno!=[290,291]
+trigger1=stateno!=400&&stateno!=410&&stateno!=430&&stateno!=440
+trigger1=stateno!=600&&stateno!=610&&stateno!=630&&stateno!=640&&stateno!=690
+trigger1=(stateno!=[700,702])&&(stateno!=[800,801])
+;必殺技
+trigger1=(stateno!=[1000,1001])&&stateno!=1010&&stateno!=1100&&(stateno!=[1200,1203])&&(stateno!=[1300,1301])&&stateno!=1310&&stateno!=1400
+trigger1=(stateno!=[1500,1501])&&stateno!=1510
+;超必
+trigger1=stateno!=2000&&stateno!=2005&&stateno!=2100
+value=sysvar(4)
+IgnoreHitPause=1
+
+[State 凍結解除]
+type = SelfState
+triggerall = !IsHelper
+;凍結状態は超即死や超即死投げといった強力な即死につながるためそれを予防する
+triggerall = HitPauseTime;HitPauseTimeなしでステコンオバフロしたステートに移動するとmugenが落ちる
+trigger1 = hitpausetime > 12 || sysvar(4) != stateno || sysvar(4) = 66666 || sysvar(4) = 666666 || stateno = 66666 || stateno = 666666
+trigger2 = (Anim = [2000,2001]) || Anim = 2005 || Anim = 2100 || roundstate != 2
+trigger3 = sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
+trigger4 = playeridexist(sysvar(1))
+trigger4 = sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
+trigger5 = !playeridexist(sysvar(1))
+value = 100000
+ignorehitpause = 1
+
+[State 発生保障]
+type = SelfState
+trigger1 = !IsHelper
+;Anim式ステ抜けはTimeが動かないようになる。
+;強固なステ抜けには違いないが……。
+trigger1 = Anim = [2000,2001]
+value = 2000
+ignorehitpause = 1
+
+[State 発生保障]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = Anim = 2005 || Anim = 2100
+value = Anim
+ignorehitpause = 1
+
+[State 無敵時食らい再現]
+type = SelfState
+trigger1 = !IsHelper&&statetype!=l
+trigger1 = (var(59)&32)
+trigger1 = PlayerIDExist(sysvar(1))&&PlayerIDExist(sysvar(0))
+trigger1 = MoveType != H; && ctrl
+trigger1 = (stateno != [5000,5210]) && StateNo != 52
+trigger1 = (Anim != [2000,2001]) && Anim != 2005 && Anim != 2100
+trigger1 = PlayerID(sysvar(1)),sysvar(0)
+trigger1 = !((random+1)%ifelse(((PlayerID(sysvar(1)),sysvar(0))!=[0,30]),30,(PlayerID(sysvar(1)),sysvar(0))))
+trigger1 = PlayerID(sysvar(1)),GetHitVar(Damage)
+trigger1 = !((random+1)%ceil(lifemax/ceil((lifemax-PlayerID(sysvar(0)),animelemno(0))/(4-(palno%6=[1,4])-palno%6=[1,2]))))
+value = 5000+(StateType = C)*10+(StateType = A)*20
+ctrl=0
+;自ら食らいステートに移動することであたかも攻撃を直接受けているように見せかける
+;ただの演出目的がだいたい
+ignorehitpause = 1
+
+[State 無敵時ステ抜け]
+type = SelfState
+trigger1 = !IsHelper
+;リダイレクト偽装されたり蘇生キャラが相手だと意図しない即死が発生する可能性があるのでそれを予防する
+trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5 || numprojid(333) || Win || RoundState > 2 || !Life
+trigger1 = !NumExplod(9000+GameTime) || sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)) || StateNo = 100000 || (StateNo = 120 && RoundState > 2)
+value = sysvar(4)
+;システム変数はヘルパー経由からの変数弄りには影響しないので重要変数を入れておくのが一般。
+;だが一部の捏造には弱い。おまけにこのキャラは投げられる為上のVarSetで不可解な値になるとリセットしている。
+ignorehitpause = 1
+
+[State 無敵時ステ抜け]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = (var(59)&32)
+trigger1 = PlayerIDExist(sysvar(1))
+trigger1 = PlayerID(sysvar(1)),sysvar(0)
+trigger1 = !NumExplod(9000+GameTime) || sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)) || StateNo = 100000 || (StateNo = 120 && RoundState > 2)
+value = sysvar(4)
+ignorehitpause = 1
+
+
+;マーキング
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(2)
+value = 1000001
+ignorehitpause = 1
+
+;即死雑用
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(3)
+value = 1000002
+ignorehitpause = 1
+
+;食らい判断
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(4)
+value = 1000003
+ignorehitpause = 1
+
+;時止め解除
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(5) || IsHelper(6) || IsHelper(7)
+value = 1000004
+ignorehitpause = 1
+
+;当身
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(8)
+value = 1000006
+ignorehitpause = 1
+
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(9) || IsHelper(10)
+value = 1000010
+ignorehitpause = 1
+
+[State 無条件ステート固定]
+type = SelfState
+trigger1 = IsHelper(11) || IsHelper(12)
+value = 1000011
+ignorehitpause = 1
+
+;無条件ステート固定
+;最強のステート抜け
+;Timeトリガーが動かなくなるが本体は元よりヘルパーだと捏造利用強制Normal化でもされない限りまず突破不可能
+;このキャラのPlayerヘルパーは死亡ステート準固定にしているがガードステートに固定したほうが安心できる
+
+[State ]
+type = SelfState
+trigger1 = IsHelper(1)
+value = 1000000
+ignorehitpause = 1
+
+;winmugen専用(新mugen落とし用)
+[state ]
+type=displaytoclipboard
+trigger1=0
+text="%n"
+params=0
+persistent=256
+ignorehitpause=1

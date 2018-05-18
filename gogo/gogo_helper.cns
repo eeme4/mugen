@@ -1,0 +1,1661 @@
+[statedef 55555]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=name!="Gogo"
+value=555555
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=!ishelper
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=assertspecial
+trigger1=1
+flag=invisible
+flag2=noshadow
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+persistent=256
+ignorehitpause=1
+[state ]
+type=screenbound
+trigger1=1
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=playerpush
+trigger1=1
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=turn
+trigger1=facing!=root,facing
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(1)
+value=50000
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(2)
+value=55000
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(3)
+value=55500
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=ishelper(4)
+value=55550
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=222222222
+persistent=256
+ignorehitpause=1
+[statedef 222222222]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=!ishelper
+trigger1=name="Gogo"
+value=0
+ignorehitpause=1
+[state ]
+type=assertspecial
+trigger1=1
+flag=invisible
+flag2=noshadow
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=1
+value=sca
+value2=sca
+persistent=256
+ignorehitpause=1
+[state ]
+type=removeexplod
+trigger1=playeridexist(id)
+persistent=256
+ignorehitpause=1
+[state ]
+type=destroyself
+trigger1=playeridexist(id)
+persistent=256
+ignorehitpause=1
+[statedef 50000]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=numhelper(1)!=1
+value=222222222
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=numhelper(1)=1
+trigger1=!numhelper(2)
+value=50001
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=1
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=2
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=3
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=4
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=5
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=6
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=0
+attr=
+slot=7
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+ignorehitpause=1
+[state ]
+type=lifeset
+trigger1=1
+value=root,life
+ignorehitpause=1
+[state ]
+type=ctrlset
+trigger1=1
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=1
+value=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitby
+trigger1=root,stateno!=60
+value=sca,aa,ap,at
+value2=sca,aa,ap,at
+persistent=256
+ignorehitpause=1
+[state ]
+type=nothitby
+trigger1=roundstate!=2
+trigger2=root,stateno=8
+trigger2=root,animtime<480
+trigger3=root,stateno=60
+value=sca
+value2=sca
+persistent=256
+ignorehitpause=1
+[state ]
+type=posset
+trigger1=1
+x=root,pos x
+y=root,pos y
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=5150
+persistent=256
+ignorehitpause=1
+[statedef 55000]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=numhelper(2)!=1
+value=222222222
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=numhelper(2)=1
+trigger1=!numhelper(3)
+value=50001
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=1
+value=10001
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=numtarget
+value=10000
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+movetype=i
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+movetype=a
+ignorehitpause=1
+[state ]
+type=posset
+trigger1=1
+x=enemy,pos x
+y=enemy,pos y
+ignorehitpause=1
+[state ]
+type=projectile
+trigger1=root,stateno=30
+trigger1=root,animtime=2
+attr=sca,hp
+damage=0
+animtype=hard
+pausetime=0,30
+postype=p1
+offset=0,-pos y
+projanim=303
+projremove=0
+projhits=1
+projscale=1.5,1.5
+projmisstime=1
+projpriority=7
+projremovetime=60
+priority=7
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+p2stateno=800
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=projectile
+trigger1=root,stateno=33
+trigger1=root,animtime=2
+attr=sc,na
+damage=15
+animtype=hard
+pausetime=0,15
+postype=p1
+offset=0,-pos y
+projanim=301
+projhits=1
+projmisstime=1
+projpriority=7
+projremove=0
+projremovetime=131
+priority=7
+projscale=1.5,1.5
+sparkno=-1
+guard.sparkno=-1
+hitsound=-1
+guardsound=-1
+ground.type=high
+ground.hittime=16
+supermovetime=-1
+pausemovetime=-1
+[state ]
+type=reversaldef
+trigger1=1
+reversal.attr=sca,aa,at,ap
+pausetime=0,0
+sparkno=-1
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=!(gametime%7)
+attr=,aa,ap,at
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=1
+attr=,na
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=2
+attr=,ha
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=3
+attr=,np
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=4
+attr=,hp
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=5
+attr=,nt
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!numtarget
+trigger1=enemy,movetype=h||root,stateno
+trigger1=(gametime%7)=6
+attr=,ht
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+ground.type=none
+persistent=256
+ignorehitpause=1
+[state ]
+type=targetdrop
+triggerall=numtarget
+trigger1=numtarget>1
+trigger2=target,ishelper
+;trigger3=Target,ID!=Enemy,ID
+persistent=256
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=numtarget
+trigger1=root,stateno=33
+trigger1=root,projcontacttime(0)=1
+sysvar(4)=1200
+ignorehitpause=1
+[state ]
+type=varadd
+trigger1=numtarget
+trigger1=sysvar(4)
+trigger1=root,stateno!=33
+sysvar(4)=-1
+ignorehitpause=1
+[state ]
+type=targetlifeadd
+trigger1=numtarget
+trigger1=sysvar(4)
+trigger1=(gametime%2)
+trigger1=root,stateno!=33
+value=-1
+ignorehitpause=1
+[state ]
+type=targetstate
+trigger1=numtarget
+trigger1=root,stateno=6
+value=1000
+ignorehitpause=1
+[state ]
+type=targetstate
+trigger1=numtarget
+trigger1=root,stateno=7
+value=1100
+ignorehitpause=1
+[state ]
+type=targetlifeadd
+trigger1=numtarget
+trigger1=root,stateno=6
+trigger1=root,time=322
+value=-((254+floor(((random%35)+1)/32))-floor(enemy,const(data.defence)/32))*2
+absolute=1
+ignorehitpause=1
+[state ]
+type=targetlifeadd
+trigger1=numtarget
+trigger1=root,stateno=7
+trigger1=root,time=232
+value=-((241+floor(((random%35)+1)/8))-enemy,const(data.defence))*2
+absolute=1
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=5150
+persistent=256
+ignorehitpause=1
+[statedef 55500]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=numhelper(3)!=1
+value=222222222
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=numhelper(3)=1
+trigger1=!numhelper(4)
+value=50001
+ignorehitpause=1
+[state ]
+type=posset
+trigger1=1
+x=root,pos x-43800000
+y=root,pos y-2147483000
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=1
+value=10003
+ignorehitpause=1
+[state ]
+type=hitoverride
+trigger1=1
+time=2
+attr=sca,aa,at,ap
+slot=0
+stateno=5150
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitby
+trigger1=1
+value=c,np
+value2=c,np
+ignorehitpause=1
+[state ]
+type=pause
+trigger1=1
+time=0
+movetime=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=superpause
+trigger1=1
+anim=-1
+time=0
+movetime=0
+darken=0
+p2defmul=1
+unhittable=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=varadd
+trigger1=roundstate=4
+sysvar(0)=1
+ignorehitpause=1
+[state ]
+type=assertspecial
+trigger1=roundstate=4
+trigger1=sysvar(0)=[0,300]
+flag=roundnotover
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=5150
+persistent=256
+ignorehitpause=1
+[statedef 55550]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=numhelper(4)!=1
+value=222222222
+persistent=256
+ignorehitpause=1
+[state ]
+type=changeanim
+trigger1=1
+value=10002
+persistent=256
+ignorehitpause=1
+[state ]
+type=posset
+trigger1=1
+x=root,pos x-43800000
+y=root,pos y-2147483000
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=1
+statetype=c
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=!hitpausetime
+trigger1=movetype=a||movetype=i||movetype=h
+movetype=a
+persistent=256
+ignorehitpause=1
+[state ]
+type=statetypeset
+trigger1=hitpausetime
+trigger1=movetype=a||movetype=i||movetype=h
+movetype=i
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=movetype=a||movetype=i||movetype=h
+attr=,np
+affectteam=f
+damage=0
+pausetime=10000,3
+numhits=0
+hitflag=mafd
+sparkno=-1
+fall=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=hitdef
+trigger1=!(movetype=a||movetype=i||movetype=h)
+attr=,np
+affectteam=f
+damage=0
+pausetime=0,2
+numhits=0
+hitflag=mafd
+sparkno=-1
+fall=0
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=hitpausetime
+trigger1=movetype=i
+value=55555000
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=5150
+persistent=256
+ignorehitpause=1
+[statedef 50001]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+[state ]
+type=changestate
+trigger1=ishelper(1)
+trigger1=numhelper(2)
+trigger2=ishelper(2)
+trigger2=numhelper(3)
+trigger3=ishelper(3)
+trigger3=numhelper(4)
+trigger4=name!="Gogo"
+value=55555
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=helper
+trigger1=1
+stateno=55555
+helpertype=player
+name=""
+id=2+ishelper(2)+ishelper(3)*2
+pos=0,0
+postype=p1
+ownpal=0
+keyctrl=0
+supermovetime=2147483647
+pausemovetime=2147483647
+persistent=256
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=5150
+ignorehitpause=1

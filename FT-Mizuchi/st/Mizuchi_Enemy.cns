@@ -1,0 +1,2743 @@
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 805]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 805
+
+[state a]
+type = velset
+trigger1 = time = 20
+x = -2
+y = -3
+
+[state a]
+type = veladd
+trigger1 = vel x < 0
+x = 0.1
+
+[state a]
+type = veladd
+trigger1 = vel y < 0
+y = 0.1
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+
+
+;---------------------------------------------------------------------------
+;投げられている相手2
+[Statedef 806]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 700, 2];無敵の状態を作る
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+[state a]
+type = velset
+trigger1 = animelem = 1
+x = -1.5
+y = -10
+
+[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
+type = VelAdd
+Trigger1 = 1;animelem = 3,>= 0
+y = .4
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 1205]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = animexist(5051) = 1
+value = 5051
+
+[state a]
+type = velset
+trigger1 = time = 0
+x = 0
+y = -13
+
+[state a]
+type = veladd
+trigger1 = 1
+y = 0.49
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+[State 821, 3] 
+type = lifeadd
+triggerall = ifelse(Name = "FT-Mizuchi", sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)), 1)
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = -98
+
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 
+
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 1420]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[state a]
+type = velset
+trigger1 = time = 0
+x = -4
+y = -7
+
+[state a]
+type = veladd
+trigger1 = 1
+y = 0.4
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100
+
+
+
+;---------------------------------------------------------------------------
+;投げられている相手1
+[Statedef 2010]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2010
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+
+;---------------------------------------------------------------------------
+;投げられている相手2
+[Statedef 2011]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2011
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+;---------------------------------------------------------------------------
+;投げられている相手3
+[Statedef 2012]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2012
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+;---------------------------------------------------------------------------
+;投げられている相手4
+[Statedef 2013]
+type    = A
+movetype= H
+physics = N
+velset = -7,-7
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = animexist(5052) = 1
+value = 5052
+
+[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
+type = VelAdd
+Trigger1 = 1
+y = .3
+
+[State 1];無敵の状態を作る
+type = NotHitBy 
+trigger1 = 1
+value = SCA
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 15
+trigger1 = animexist(5061) = 1
+value = 5061
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 15
+trigger1 = animexist(5062) = 1
+value = 5062
+
+;[State 821, 3] 
+;type = SelfState
+;triggerall = Vel Y > 0
+;trigger1 = Pos Y >= 0
+;value = 5100
+
+[State 821, 3] 
+type = ChangeState
+;triggerall = Vel Y > 0
+;trigger1 = Pos Y >= 0
+trigger1 = 1
+value = 1000005
+
+
+[Statedef 1000005]
+type = U
+movetype = U
+physics = U
+moveHitpersIst = 1
+HitdefpersIst = 1
+hitcountpersist=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432;anim保存済み
+trigger1=hitcount!=44524567;本体が親
+value=-hitcount
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+var(0)=anim
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+var(3)=0
+ignorehitpause=1
+[State ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+trigger1=prevstateno!=[5000,5900]
+trigger1=prevstateno!=1000005
+trigger1=prevstateno!=[6000001,6000003]
+var(1)=prevstateno
+ignorehitpause=1
+[State ]
+type=varset
+triggerall=ishelper
+trigger1=(prevstateno=[5000,5900])
+trigger2=prevstateno=1000005
+trigger3=prevstateno!=[6000001,6000003]
+var(1)=200+random%7
+ignorehitpause=1
+[State ]
+type=varset
+trigger1=ishelper
+trigger1=var(1)=3003||var(1)=22100
+var(1)=3101
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+trigger1=root,id=parent,id
+value=44524567
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+value=33225432
+ignorehitpause=1
+[State ]
+type = varadd
+trigger1=ishelper
+var(3)=1
+ignorehitpause=1
+
+[State ]
+type = AssertSpecial
+trigger1 = 1
+flag = NoStandGuard
+flag2 = NoCrouchGuard
+flag3 = NoAirGuard
+ignorehitpause = 1
+
+[State ]
+type = AssertSpecial
+trigger1 = 1
+flag = Invisible
+flag2 = NoShadow
+flag3 = NoWalk
+ignorehitpause = 1
+
+[State ]
+type = MoveHitReset
+trigger1 = 1
+ignorehitpause = 1
+
+[State ]
+type = TargetDrop
+trigger1 = 1
+ignorehitpause = 1
+
+[State ]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+ignorehitpause = 1
+
+[State ]
+type=PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 0
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 1
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 2
+time = 0
+ignorehitpause = 1
+
+[State ]
+type=HitOverRide
+trigger1=1
+attr=
+slot=3
+time=0
+ignorehitpause=1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 4
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 5
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 6
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = HitOverRide
+trigger1 = 1
+attr =
+slot = 7
+time = 0
+ignorehitpause = 1
+
+[State ]
+type = PowerSet
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = HitBy
+trigger1 = 1
+value2 =
+time = 5
+ignorehitpause = 1
+
+[State ]
+type = HitBy
+trigger1 = 1
+value =
+time = 5
+ignorehitpause = 1
+
+[State ]
+type = Pause
+trigger1 = !IsHelper
+time = 2*!!Alive
+movetime = 0
+ignorehitpause = 1
+
+[State ]
+type = SuperPause
+trigger1 = !IsHelper
+anim = -1
+time = 2*!!Alive
+movetime = 0
+UnHittable = 0
+darken = 0
+p2defmul = 1
+ignorehitpause = 1
+
+[State ]
+type = Assertspecial
+trigger1 = !IsHelper
+flag = invisible
+flag2 = noshadow
+ignoreHitPause = 1
+
+[State ]
+type = NotHitby
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+value = sca
+ignoreHitPause = 1
+
+[State ]
+type = HitFallDamage
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+ignoreHitPause = 1
+
+[State ]
+type = StateTypeSet
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+trigger1 = Alive
+movetype = A
+Statetype = S
+physics = N
+ignoreHitPause=1
+
+[State ]
+type = NotHitBy
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+value = sca
+ignoreHitPause = 1
+
+[State ]
+type = Lifeset
+trigger1 = Name != "FT-Mizuchi"
+value = 0
+ignorehitpause = 1
+[State ]
+type = ChangeAnim2
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+value = 10001
+ignoreHitPause = 1
+
+[State ]
+type=ReversalDef
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = Name != "FT-Mizuchi"
+reversal.attr = SCA,AA,AT,AP
+PauseTime = 3,3
+p1Stateno = ifelse((enemy(enemy,name!="FT-Mizuchi"),var(59)&8) ,666666 ,66666)
+sparkno = -1
+persistent = 256
+ignoreHitPause = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+trigger1 = Alive
+trigger1 = HitPauseTime
+value = ifelse((enemy(enemy,name!="FT-Mizuchi"),var(59)&8) ,666666 ,66666)
+ignoreHitPause=1
+
+[State ]
+type = Pause
+trigger1 = !ishelper
+trigger1 = !alive
+time = 2147483647
+movetime = 0
+ignorehitpause = 1
+
+[State ]
+type = SuperPause
+trigger1 = !ishelper
+trigger1 = !alive
+anim = -1
+time = 2147483647
+movetime = 0
+UnHittable = 0
+darken = 0
+p2defmul = 1
+ignorehitpause = 1
+
+[State ]
+type=Hitdef
+triggerall = !IsHelper
+trigger1 = !Alive
+attr =
+ignorehitpause = 1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=RoundState=[2,3]
+trigger1=Time=[2,10]
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+ground.type=none
+p1stateno=var(1)
+ignorehitPause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=RoundState=[2,3]
+trigger1=Time=[20,28]
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=ifelse(random%2,110+random%2*5,5100+random%2*10)
+ground.type=none
+ignorehitPause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=RoundState=[2,3]
+trigger1=Time=[38,46]
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=ifelse(random%2,110+random%2*5,60+random%10)
+ground.type=none
+ignorehitPause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=Time=[50,70]
+trigger1=RoundState=[2,3]
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238161
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=30
+sparkno=-1
+p1stateno=52
+ground.type=none
+ignorehitPause=1
+[State ]
+type=StateTypeSet
+trigger1=!Alive
+movetype=h
+ignorehitpause=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+trigger1 = Alive
+trigger1 = PrevStateNo != StateNo
+value = StateNo
+ignoreHitPause = 1
+[state ]
+type=ChangeState
+triggerall=ishelper
+triggerall=!root,numprojid(216238160)
+triggerall=!root,numprojid(216238161)
+trigger1=!root,alive
+trigger2=var(3)>70||time>70
+value=4444444
+ignorehitpause=1
+[State ]
+type = SelfState
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+trigger1 = Alive = 0
+value = 5150
+ignoreHitPause = 1
+
+[Statedef 6000001]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432;anim保存済み
+trigger1=hitcount!=44524567;本体が親
+value=-hitcount
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+var(0)=anim
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+trigger1=root,id=parent,id
+value=44524567
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+value=33225432
+ignorehitpause=1
+
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=RoundState=[2,3]
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+trigger1=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(4)
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=ifelse(root,gethitvar(fall.damage),ifelse(random%2,110+(random%2)*5,5120+(random%2)*90),ifelse(random%2,5080+random%2,5100+(random%2)*10))
+ground.type=none
+ignorehitPause=1
+
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=RoundState=[2,3]
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+trigger1=!playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(4)
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=ifelse(random%2,ifelse(random%2,110+(random%2)*5,5120+(random%2)*90),ifelse(random%2,30+random%10,random*random+gametime))
+ground.type=none
+ignorehitPause=1
+
+[State ]
+type = ChangeState
+trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
+value = 1000005
+ignorehitpause = 1
+
+[Statedef 6000002]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432;anim保存済み
+trigger1=hitcount!=44524567;本体が親
+value=-hitcount
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+var(0)=anim
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+trigger1=root,id=parent,id
+value=44524567
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+value=33225432
+ignorehitpause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
+trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(0)
+trigger1=RoundState=[2,3]
+trigger1=!(gametime%3)||!playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(0)
+ground.type=none
+ignorehitPause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
+trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+trigger1=RoundState=[2,3]
+trigger1=gametime%3=1||!playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+ground.type=none
+ignorehitPause=1
+[State ]
+type=Projectile
+trigger1=IsHelper
+trigger1=Root,Alive
+trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
+trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+trigger1=RoundState=[2,3]
+trigger1=gametime%3=2
+attr=S,NP
+hitflag=MAFD
+damage=0
+animtype=Hard
+PauseTime=0,0
+offset=0,0
+Postype=p2
+SupermoveTime=2147483647
+PausemoveTime=2147483647
+velocity=0,0
+accel=0,0
+projID=216238160
+projscale=0,0
+projAnim=var(0)
+projHits=2147483647
+projmissTime=1
+projpriority=2147483647
+projremoveTime=10
+sparkno=-1
+p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+ground.type=none
+ignorehitPause=1
+[State ]
+type = ChangeState
+trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
+value = 1000005
+ignorehitpause = 1
+
+[Statedef 6000003]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432;anim保存済み
+trigger1=hitcount!=44524567;本体が親
+value=-hitcount
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+var(0)=anim
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+trigger1=root,id=parent,id
+value=44524567
+ignorehitpause=1
+[State ]
+type=hitadd
+trigger1=ishelper
+trigger1=hitcount!=33225432
+trigger1=hitcount!=44524567
+value=33225432
+ignorehitpause=1
+
+[State ]
+type = ChangeState
+trigger1 = playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+value = StateNo+playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(4)+1
+ignorehitpause = 1
+
+[Statedef 6000004]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=VarRangeSet
+trigger1=1
+value=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarRangeSet
+trigger1=1
+fvalue=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(0)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(1)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(2)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(3)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(4)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(0)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(1)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(2)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(3)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(4)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(0)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(1)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(2)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(3)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(4)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(5)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(6)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(7)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(8)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(9)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(10)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(11)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(12)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(13)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(14)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(15)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(16)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(17)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(18)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(19)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(20)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(21)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(22)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(23)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(24)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(25)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(26)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(27)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(28)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(29)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(30)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(31)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(32)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(33)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(34)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(35)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(36)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(37)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(38)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(39)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(40)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(41)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(42)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(43)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(44)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(45)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(46)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(47)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(48)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(49)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(50)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(51)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(52)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(53)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(54)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(55)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(56)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(57)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(58)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(59)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(0)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(1)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(2)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(3)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(4)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(5)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(6)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(7)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(8)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(9)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(10)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(11)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(12)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(13)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(14)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(15)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(16)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(17)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(18)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(19)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(20)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(21)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(22)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(23)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(24)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(25)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(26)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(27)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(28)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(29)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(30)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(31)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(32)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(33)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(34)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(35)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(36)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(37)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(38)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(39)=random*(GameTime%16=[2,3])+(GameTime%16=[4,5])-(GameTime%16=[6,7])+(GameTime%16=[8,9])*LifeMax-(GameTime%16=[10,11])*LifeMax+(GameTime%16=[12,13])*(GameTime+1)+(GameTime%16=[14,15])*random*random*random
+ignorehitpause=1
+[State ]
+type = ChangeState
+trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
+value = 6000006
+ignorehitpause = 1
+
+[Statedef 6000005]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=VarRangeSet
+trigger1=1
+value=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarRangeSet
+trigger1=1
+fvalue=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(0)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(1)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(2)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(3)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysvar(4)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(0)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(1)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(2)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(3)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=VarSet
+trigger1=1
+sysfvar(4)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(0)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(1)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(2)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(3)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(4)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(5)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(6)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(7)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(8)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(9)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(10)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(11)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(12)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(13)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(14)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(15)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(16)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(17)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(18)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(19)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(20)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(21)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(22)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(23)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(24)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(25)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(26)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(27)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(28)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(29)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(30)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(31)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(32)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(33)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(34)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(35)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(36)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(37)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(38)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(39)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(40)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(41)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(42)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(43)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(44)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(45)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(46)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(47)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(48)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(49)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(50)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(51)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(52)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(53)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(54)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(55)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(56)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(57)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(58)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+var(59)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(0)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(1)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(2)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(3)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(4)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(5)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(6)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(7)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(8)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(9)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(10)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(11)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(12)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(13)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(14)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(15)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(16)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(17)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(18)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(19)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(20)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(21)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(22)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(23)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(24)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(25)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(26)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(27)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(28)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(29)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(30)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(31)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(32)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(33)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(34)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(35)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(36)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(37)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(38)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+fvar(39)=ifelse(random%2,ifelse(random%2,(random%2)*2-1,(random%2)*2*lifemax-lifemax),ifelse(random%2,random*random,0))
+ignorehitpause=1
+[State ]
+type = ChangeState
+trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
+value = 6000006
+ignorehitpause = 1
+
+[Statedef 6000006]
+type = U
+movetype = U
+physics = U
+movehitpersist = 1
+hitdefpersist = 1
+hitcountpersist=1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 0
+ignoreHitPause = 1
+[State ]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = Name="FT-Mizuchi"
+value = 5150
+ignoreHitPause = 1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(0)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(0)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(1)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(1)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(2)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(2)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(3)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(3)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(4)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(4)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(5)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(5)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(6)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(6)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(7)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(7)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(8)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(8)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(9)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(9)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(10)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(10)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(11)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(11)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(12)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(12)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(13)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(13)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(14)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(14)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(15)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(15)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(16)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(16)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(17)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(17)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(18)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(18)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(19)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(19)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(20)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(20)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(21)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(21)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(22)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(22)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(23)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(23)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(24)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(24)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(25)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(25)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(26)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(26)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(27)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(27)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(28)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(28)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(29)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(29)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(30)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(30)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(31)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(31)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(32)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(32)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(33)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(33)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(34)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(34)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(35)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(35)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(36)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(36)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(37)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(37)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(38)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(38)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(39)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(39)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(40)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(40)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(41)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(41)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(42)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(42)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(43)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(43)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(44)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(44)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(45)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(45)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(46)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(46)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(47)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(47)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(48)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(48)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(49)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(49)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(50)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(50)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(51)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(51)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(52)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(52)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(53)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(53)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(54)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(54)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(55)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(55)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(56)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(56)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(57)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(57)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(58)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(58)
+ignorehitpause=1
+[State ]
+type=parentvarset
+trigger1=hitcount=44524567
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+var(59)=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),var(59)
+ignorehitpause=1
+
+[State ]
+type = ChangeState
+trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
+trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
+value = 1000005
+ignorehitpause = 1
+
+[Statedef 4444444]
+type = U
+movetype = U
+physics = U
+moveHitpersIst = 1
+HitdefpersIst = 1
+hitcountpersist=1
+
+[State ]
+type = ChangeState
+trigger1 = PlayerIDExist(ID)
+trigger1 = !IsHelper
+trigger1 = Name != "FT-Mizuchi"
+value = 1000005
+ignoreHitPause = 1
+
+[State ]
+type = Assertspecial
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+flag = invisible
+flag2 = noshadow
+ignoreHitPause = 1
+
+[State ]
+type=NotHitby
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = Name != "FT-Mizuchi"
+value = sca
+ignoreHitPause = 1
+
+[State ]
+type = RemoveExplod
+trigger1 = PlayerIDExist(ID)
+trigger1 = NumExplod
+ignorehitpause = 1
+
+[State ]
+type = DestroySelf
+trigger1 = PlayerIDExist(ID)
+ignorehitpause = 1

@@ -1,0 +1,37 @@
+; ここにキャラ情報を書いてください
+[Info]
+name="A_M T_D";"Anti Matter Type D"
+displayname="Object199"
+versiondate=11,22,2000
+mugenversion=11,22,2000
+author="e.eme"
+pal.defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd=st/Mizuchi.cmd
+cns=st/_Mizuchi.cns
+st=st/_Mizuchi.cns
+st0=st/Mizuchi2.cns
+st1=オプション.txt
+st3=st/Object199_null.cns
+st4=st/_Object199_common.cns
+st5=st/Object199_enemy.cns
+st7=st/Object199_DE_2.cns
+st8=st/Object199_DE_3.cns
+st9=st/Object199_DE_4.cns
+stcommon=st/Object199_DE.cns
+sprite=sys/Object199.sff
+anim=sys/Object199.air
+sound=sys/Object199.snd
+pal1=act/Object199_2.act
+pal2=act/Object199_1.act
+pal3=act/Object199_2.act
+pal4=act/Object199_1.act
+pal5=act/Object199_2.act
+pal6=act/Object199_1.act
+pal7=act/Object199_2.act
+pal8=act/Object199_1.act
+pal9=act/Object199_2.act
+pal10=act/Object199_1.act
+pal11=act/Object199_2.act
+pal12=act/Object199_1.act
