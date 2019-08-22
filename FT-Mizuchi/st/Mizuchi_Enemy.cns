@@ -1,353 +1,4 @@
-
-;---------------------------------------------------------------------------
-;投げられている相手
-[Statedef 805]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim2
-Trigger1 = Time = 0
-value = 805
-
-[state a]
-type = velset
-trigger1 = time = 20
-x = -2
-y = -3
-
-[state a]
-type = veladd
-trigger1 = vel x < 0
-x = 0.1
-
-[state a]
-type = veladd
-trigger1 = vel y < 0
-y = 0.1
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-
-
-;---------------------------------------------------------------------------
-;投げられている相手2
-[Statedef 806]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 700, 2];無敵の状態を作る
-type = NotHitBy
-trigger1 = 1
-value = SCA
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-value = 5050
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-[state a]
-type = velset
-trigger1 = animelem = 1
-x = -1.5
-y = -10
-
-[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
-type = VelAdd
-Trigger1 = 1;animelem = 3,>= 0
-y = .4
-
-[State 821, 3] 
-type = SelfState
-triggerall = Vel Y > 0
-trigger1 = Pos Y >= 0
-value = 5100 
-
-;---------------------------------------------------------------------------
-;投げられている相手
-[Statedef 1205]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-value = 5050
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-trigger1 = animexist(5051) = 1
-value = 5051
-
-[state a]
-type = velset
-trigger1 = time = 0
-x = 0
-y = -13
-
-[state a]
-type = veladd
-trigger1 = 1
-y = 0.49
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-[State 821, 3] 
-type = lifeadd
-triggerall = ifelse(Name = "FT-Mizuchi", sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)), 1)
-triggerall = Vel Y > 0
-trigger1 = Pos Y >= 0
-value = -98
-
-
-[State 821, 3] 
-type = SelfState
-triggerall = Vel Y > 0
-trigger1 = Pos Y >= 0
-value = 5100 
-
-
-;---------------------------------------------------------------------------
-;投げられている相手
-[Statedef 1420]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-value = 5050
-
-[state a]
-type = velset
-trigger1 = time = 0
-x = -4
-y = -7
-
-[state a]
-type = veladd
-trigger1 = 1
-y = 0.4
-
-[State 821, 3] 
-type = SelfState
-triggerall = Vel Y > 0
-trigger1 = Pos Y >= 0
-value = 5100
-
-
-
-;---------------------------------------------------------------------------
-;投げられている相手1
-[Statedef 2010]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim2
-Trigger1 = Time = 0
-value = 2010
-
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-
-;---------------------------------------------------------------------------
-;投げられている相手2
-[Statedef 2011]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim2
-Trigger1 = Time = 0
-value = 2011
-
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-;---------------------------------------------------------------------------
-;投げられている相手3
-[Statedef 2012]
-type    = A
-movetype= H
-physics = N
-velset = 0,0
-sprpriority = 1
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim2
-Trigger1 = Time = 0
-value = 2012
-
-
-[State 1];カメラ固定
-type = screenbound
-trigger1 = 1
-value = 1
-movecamera = 1
-
-;---------------------------------------------------------------------------
-;投げられている相手4
-[Statedef 2013]
-type    = A
-movetype= H
-physics = N
-velset = -7,-7
-
-[State ]
-type = ChangeState
-trigger1 = !IsHelper
-trigger1 = Name="FT-Mizuchi"
-trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-value = 0
-ignoreHitPause = 1
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-value = 5050
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 0
-trigger1 = animexist(5052) = 1
-value = 5052
-
-[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
-type = VelAdd
-Trigger1 = 1
-y = .3
-
-[State 1];無敵の状態を作る
-type = NotHitBy 
-trigger1 = 1
-value = SCA
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 15
-trigger1 = animexist(5061) = 1
-value = 5061
-
-[State 820, 1]
-type = ChangeAnim
-Trigger1 = Time = 15
-trigger1 = animexist(5062) = 1
-value = 5062
-
-;[State 821, 3] 
-;type = SelfState
-;triggerall = Vel Y > 0
-;trigger1 = Pos Y >= 0
-;value = 5100
-
-[State 821, 3] 
-type = ChangeState
-;triggerall = Vel Y > 0
-;trigger1 = Pos Y >= 0
-trigger1 = 1
-value = 1000005
-
-
-[Statedef 1000005]
+[Statedef 2000000]
 type = U
 movetype = U
 physics = U
@@ -393,7 +44,7 @@ trigger1=ishelper
 trigger1=hitcount!=33225432
 trigger1=hitcount!=44524567
 trigger1=prevstateno!=[5000,5900]
-trigger1=prevstateno!=1000005
+trigger1=prevstateno!=2000000
 trigger1=prevstateno!=[6000001,6000003]
 var(1)=prevstateno
 ignorehitpause=1
@@ -401,7 +52,7 @@ ignorehitpause=1
 type=varset
 triggerall=ishelper
 trigger1=(prevstateno=[5000,5900])
-trigger2=prevstateno=1000005
+trigger2=prevstateno=2000000
 trigger3=prevstateno!=[6000001,6000003]
 var(1)=200+random%7
 ignorehitpause=1
@@ -932,7 +583,7 @@ type = ChangeState
 trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
-value = 1000005
+value = 2000000
 ignorehitpause = 1
 
 [Statedef 6000002]
@@ -988,10 +639,10 @@ ignorehitpause=1
 type=Projectile
 trigger1=IsHelper
 trigger1=Root,Alive
-trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
-trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(0)
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+trigger1=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(0)
 trigger1=RoundState=[2,3]
-trigger1=!(gametime%3)||!playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+trigger1=!(gametime%3)||!playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(1)
 attr=S,NP
 hitflag=MAFD
 damage=0
@@ -1011,17 +662,17 @@ projmissTime=1
 projpriority=2147483647
 projremoveTime=10
 sparkno=-1
-p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(0)
+p1stateno=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(0)
 ground.type=none
 ignorehitPause=1
 [State ]
 type=Projectile
 trigger1=IsHelper
 trigger1=Root,Alive
-trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
-trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+trigger1=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(1)
 trigger1=RoundState=[2,3]
-trigger1=gametime%3=1||!playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+trigger1=gametime%3=1||!playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(2)
 attr=S,NP
 hitflag=MAFD
 damage=0
@@ -1041,15 +692,15 @@ projmissTime=1
 projpriority=2147483647
 projremoveTime=10
 sparkno=-1
-p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(1)
+p1stateno=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(1)
 ground.type=none
 ignorehitPause=1
 [State ]
 type=Projectile
 trigger1=IsHelper
 trigger1=Root,Alive
-trigger1=playeridexist(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0)))
-trigger1=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+trigger1=playeridexist(enemy(enemy,name!="FT-Mizuchi"),sysvar(2))
+trigger1=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(2)
 trigger1=RoundState=[2,3]
 trigger1=gametime%3=2
 attr=S,NP
@@ -1071,7 +722,7 @@ projmissTime=1
 projpriority=2147483647
 projremoveTime=10
 sparkno=-1
-p1stateno=playerid(floor(enemy(enemy,name!="FT-Mizuchi"),sysfvar(0))),var(2)
+p1stateno=playerid(enemy(enemy,name!="FT-Mizuchi"),sysvar(2)),sysvar(2)
 ground.type=none
 ignorehitPause=1
 [State ]
@@ -1079,7 +730,7 @@ type = ChangeState
 trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
-value = 1000005
+value = 2000000
 ignorehitpause = 1
 
 [Statedef 6000003]
@@ -2696,7 +2347,7 @@ type = ChangeState
 trigger1 = enemy(enemy,name!="FT-Mizuchi"),Anim != 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),Anim = 2100
 trigger2 = enemy(enemy,name!="FT-Mizuchi"),AnimElemNo(0) != 8
-value = 1000005
+value = 2000000
 ignorehitpause = 1
 
 [Statedef 4444444]
@@ -2712,7 +2363,7 @@ type = ChangeState
 trigger1 = PlayerIDExist(ID)
 trigger1 = !IsHelper
 trigger1 = Name != "FT-Mizuchi"
-value = 1000005
+value = 2000000
 ignoreHitPause = 1
 
 [State ]

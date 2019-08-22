@@ -130,6 +130,11 @@ sysvar(4)=stateno
 persistent=256
 ignorehitpause=1
 [state ]
+type=ctrlset
+trigger1=name="FT-Mizuchi"
+value=1
+ignorehitpause=1
+[state ]
 type=selfstate
 trigger1=!ishelper
 trigger1=alive
@@ -188,6 +193,11 @@ trigger1=ishelper
 trigger2=name!="FT-Mizuchi"
 value=5150
 ignorehitpause=1
+[State ]
+Type = ChangeState
+Trigger1 = var(56)
+value = 0
+ctrl = 1
 [state ]
 type=statetypeset
 trigger1=win||roundstate!=2
@@ -245,6 +255,11 @@ trigger1=ishelper
 trigger2=name!="FT-Mizuchi"
 value=5150
 ignorehitpause=1
+[State ]
+Type = ChangeState
+Trigger1 = var(56)
+value = 0
+ctrl = 1
 [state ]
 type=changeanim
 trigger1=anim!=40
@@ -1487,32 +1502,18 @@ ignorehitpause=1
 [state ]
 type=changeanim
 trigger1=(anim!=[5000,5002])&&(anim!=[5010,5012])
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=(gethitvar(animtype)!=[3,5])
 value=ifelse((gethitvar(groundtype)=1),5000,5010)+gethitvar(animtype)
 [state ]
 type=changeanim
 trigger1=anim!=5030
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=gethitvar(animtype)=[3,5]
 value=5030
 [state ]
 type=changeanim
 trigger1=anim!=[5051,5052]
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=(gethitvar(animtype)=[4,5])
 value=5047+gethitvar(animtype)
-[state ]
-type=null;changeanim
-triggerall=anim!=5051
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)
-trigger2=!playeridexist(sysvar(1))
-value=5051
-ignorehitpause=1
 [state ]
 type=changeanim
 trigger1=animelemtime(1)>0
@@ -1537,21 +1538,21 @@ trigger2=pos y!=0
 statetype=a
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitshakeover
 trigger1=gethitvar(yvel)=0&&!gethitvar(fall)
 value=5001
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitshakeover
 value=5030
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=time>10||var(6)>10
 value=5001
 [state ]
@@ -1636,16 +1637,16 @@ trigger1=hitover
 value=1
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitover
 trigger2=time>100
 value=0
 ctrl=1
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=var(6)>15||time>15
 value=0
 ctrl=1
@@ -1677,32 +1678,18 @@ ignorehitpause=1
 [state ]
 type=changeanim
 trigger1=anim!=[5020,5022]
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=gethitvar(animtype)!=[3,5]
 value=5020+gethitvar(animtype)
 [state ]
 type=changeanim
 trigger1=anim!=5030
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=gethitvar(animtype)=[3,5]
 value=5030
 [state ]
 type=changeanim
 trigger1=anim!=[5051,5052]
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=(gethitvar(animtype)=[4,5])
 value=5047+gethitvar(animtype)
-[state ]
-type=null;changeanim
-triggerall=anim!=5051
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)
-trigger2=!playeridexist(sysvar(1))
-value=5051
-ignorehitpause=1
 [state ]
 type=changeanim
 trigger1=animelemtime(1)>0
@@ -1727,21 +1714,21 @@ trigger2=pos y!=0
 statetype=a
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitshakeover
 trigger1=gethitvar(yvel)=0&&!gethitvar(fall)
 value=5011
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitshakeover
 value=5030
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=var(6)>7||time>7
 value=5011
 [state ]
@@ -1769,9 +1756,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=0;playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=0;numhelper(4)!=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1
@@ -1833,16 +1820,16 @@ trigger1=hitover
 value=1
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)<=2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=hitover
 trigger2=time>100
 value=11
 ctrl=1
 [state ]
 type=changestate
-triggerall=PlayerIDExist(sysvar(1))
-triggerall=PlayerID(sysvar(1)),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
+triggerall=numhelper(4)=1
+triggerall=helper(4),sysvar(0)>2+((palno%6)!=[1,2])+((palno%6)!=[1,4])*2
 trigger1=var(6)>10||time>10
 value=11
 ctrl=1
@@ -1874,32 +1861,18 @@ ignorehitpause=1
 [state ]
 type=changeanim
 trigger1=(anim!=[5000,5002])&&(anim!=[5010,5012])
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=(gethitvar(animtype)!=[3,5])
 value=ifelse((gethitvar(airtype)=1),5000,5010)+gethitvar(animtype)
 [state ]
 type=changeanim
 trigger1=anim!=5030
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=gethitvar(animtype)=[3,5]
 value=5030
 [state ]
 type=changeanim
 trigger1=anim!=[5051,5052]
-;trigger1=playeridexist(sysvar(1))
-;trigger1=playerid(sysvar(1)),sysvar(0)=0
 trigger1=(gethitvar(animtype)=[4,5])
 value=5047+gethitvar(animtype)
-[state ]
-type=null;changeanim
-triggerall=anim!=5051
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)
-trigger2=!playeridexist(sysvar(1))
-value=5051
-ignorehitpause=1
 [state ]
 type=varset
 trigger1=name="FT-Mizuchi"
@@ -2221,9 +2194,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=numhelper(4)=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1
@@ -2285,9 +2258,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=numhelper(4)=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1
@@ -2551,9 +2524,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=numhelper(4)=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1
@@ -2762,9 +2735,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=numhelper(4)=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1
@@ -2956,13 +2929,9 @@ ignorehitpause=1
 type=ChangeState
 triggerall=ishelper
 trigger1=root,alive=0
-trigger2=ishelper(5)
-trigger2=numhelper(6)
-trigger3=ishelper(7)
-trigger3=sysvar(0)>1
-trigger4=name!="FT-Mizuchi"
-trigger5=!(ishelper(1)+ishelper(2)+ishelper(3)+ishelper(4)+ishelper(5)+ishelper(6))
-trigger5=!(ishelper(7)+ishelper(8)+ishelper(9)+ishelper(10)+ishelper(11)+ishelper(12))
+trigger2=name!="FT-Mizuchi"
+trigger3=!(ishelper(1)+ishelper(2)+ishelper(3)+ishelper(4)+ishelper(5)+ishelper(6))
+trigger3=!(ishelper(7)+ishelper(9)+ishelper(10)+ishelper(11)+ishelper(12))
 value=4444444
 ignorehitpause=1
 [state ]
@@ -2970,9 +2939,9 @@ type=changestate
 triggerall=!ishelper
 triggerall=alive
 triggerall=name="FT-Mizuchi"
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),sysvar(0)>100
-trigger2=!playeridexist(sysvar(1))
+trigger1=numhelper(4)=1
+trigger1=helper(4),sysvar(0)>100
+trigger2=numhelper(4)!=1
 trigger3=time>100
 value=0
 ignorehitpause=1

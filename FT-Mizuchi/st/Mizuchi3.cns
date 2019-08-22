@@ -1,0 +1,1304 @@
+
+
+; 鏡(?)ヘルパー
+[Statedef 1010]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1010
+value = 1010
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = AnimElem = 1
+x = 4
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[無敵処理]
+[state 2901,1]
+type =  hitby
+trigger1 =  1
+value = SCA,NP,SP,HP
+value2 = SCA,NP,SP,HP
+time = -1
+ignorehitpause=1
+[state 2901,1]
+type = hitoverride
+trigger1 = ishelper
+attr = SCA,NP,SP,HP
+stateno = 1015
+ignorehitpause=1
+[State ]
+type = varadd
+trigger1 = IsHelper
+sysvar(1) = 1
+persistent=256
+ignorehitpause=1
+
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+triggerall = EnemyNear(NumEnemy>1&&!EnemyNear,Alive),stateno != 1205
+trigger1 = !time
+trigger2 = movecontact = 10
+attr = A, SP
+animtype  = hard
+damage    = 18,18
+getpower = 30,30
+guardflag = M
+numhits = 1
+pausetime = 0,12
+sparkno = s7002
+sparkxy = -17,0
+hitsound   = s300,0
+guard.sparkno = s7012
+guardsound = s121,0
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 0,0
+air.velocity = 0,-4.5
+fall = 0
+air.fall = 1
+fall.recover = 0
+;p1stateno = 1011
+
+[state ]
+type=changestate
+trigger1=movehit
+value=1011
+ignorehitpause=1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = IsHelper
+trigger1 = sysvar(1) >= 200
+ignorehitpause=1
+
+; 鏡(?)ヘルパーヒット
+[Statedef 1011]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1011
+value = 1011
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = AnimElem = 1
+x = 0.5
+y = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = varadd
+trigger1 = IsHelper
+sysvar(2) = 1
+persistent=256
+ignorehitpause=1
+;---------------------[効果音]
+[state a];
+type = playsnd
+trigger1 = sysvar(2) = 6
+value = 801,1
+
+[state a];
+type = playsnd
+trigger1 = sysvar(2) = 11
+trigger2 = sysvar(2) = 21
+trigger3 = sysvar(2) = 31
+trigger4 = sysvar(2) = 41
+value = 190,2
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+
+;---------------------[移動]
+[state a]
+type = posadd
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+x = 16
+
+;---------------------[エフェクト]
+[State 1000, 5];
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = sysvar(2) = 1
+anim = 1012
+id = 1012
+sprpriority = 3
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+persistent = 0
+persistent=256
+ignorehitpause=1
+removetime = 45
+under = 0
+
+[State 1000, 5];
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = sysvar(2) = 46
+anim = 1013
+id = 1013
+sprpriority = 3
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+persistent = 0
+persistent=256
+ignorehitpause=1
+under = 0
+
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+trigger1 = time = 0
+trigger2 = movecontact = 7
+attr = A, SP
+animtype  = hard
+damage    = 24,24
+getpower = 30,30
+guardflag = M
+numhits = 1
+pausetime = 0,7
+sparkno = s7002
+sparkxy = -17,0
+hitsound   = s300,0
+guard.sparkno = s7012
+guardsound = s121,0
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -4,0
+air.velocity = -4,-4.5
+fall = 0
+air.fall = 1
+fall.recover = 0
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = IsHelper
+trigger1 = sysvar(2) >= 46
+ignorehitpause=1
+
+; 鏡(?)ヘルパー2
+[Statedef 1012]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1010
+value = 1010
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = AnimElem = 1
+x = 8
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+
+[state 2901,1]
+type = hitby
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = -1
+
+[state 2901,1]
+type = hitoverride
+trigger1 = ishelper
+attr = SCA,NP,SP,HP
+stateno = 1015
+
+[State ]
+type = varadd
+trigger1 = IsHelper
+sysvar(1) = 1
+persistent=256
+ignorehitpause=1
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+triggerall = EnemyNear(NumEnemy>1&&!EnemyNear,Alive),stateno != 1205
+trigger1 = !time
+trigger2 = movecontact = 3
+attr = A, SP
+animtype  = hard
+damage    = 18,18
+getpower = 30,30
+guardflag = M
+numhits = 1
+pausetime = 0,12
+sparkno = s7002
+sparkxy = -17,0
+hitsound   = s300,0
+guard.sparkno = s7012
+guardsound = s121,0
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 0,0
+air.velocity = 0,-4.5
+fall = 0
+air.fall = 1
+fall.recover = 0
+;p1stateno = 1013
+
+[state ]
+type=changestate
+trigger1=movehit
+value=1013
+ignorehitpause=1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = IsHelper
+trigger1 = sysvar(1) > 200
+ignorehitpause=1
+
+
+
+
+; 鏡(?)ヘルパーヒット2
+[Statedef 1013]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1011
+value = 1011
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = AnimElem = 1
+x = 1
+y = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = varadd
+trigger1 = IsHelper
+sysvar(2) = 1
+persistent=256
+ignorehitpause=1
+
+;---------------------[効果音]
+[state a];
+type = playsnd
+trigger1 = sysvar(2) = 5
+value = 801,1
+
+[state a];
+type = playsnd
+trigger1 = sysvar(2) = 10
+trigger2 = sysvar(2) = 20
+trigger3 = sysvar(2) = 30
+trigger4 = sysvar(2) = 40
+value = 190,2
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+
+;---------------------[移動]
+[state a]
+type = posadd
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+x = 18
+
+;---------------------[エフェクト]
+[State 1000, 5];
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = sysvar(2) = 1
+anim = 1012
+id = 1012
+sprpriority = 3
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+persistent = 0
+persistent=256
+ignorehitpause=1
+removetime = 45
+under = 0
+
+[State 1000, 5];
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = sysvar(2) = 45
+anim = 1013
+id = 1013
+sprpriority = 3
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+persistent = 0
+persistent=256
+ignorehitpause=1
+under = 0
+
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+triggerall = hitcount <= 6
+trigger1 = !time
+trigger2 = movecontact = 4
+attr = A, SP
+animtype  = hard
+damage    = 24,24
+getpower = 30,30
+guardflag = M
+numhits = 1
+pausetime = 0,7
+sparkno = s7002
+sparkxy = -17,0
+hitsound   = s300,0
+guard.sparkno = s7012
+guardsound = s121,0
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -4,0
+air.velocity = -4,-4.5
+fall = 0
+air.fall = 1
+fall.recover = 0
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = sysvar(2) > 45
+ignorehitpause=1
+
+; 鏡(?)ヘルパー消滅
+[Statedef 1015]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1015
+value = 1015
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = 1
+x = 0
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[効果音]
+[state a];
+type = playsnd
+trigger1 = AnimElemTime(1) = 0
+value = 190,2
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+ignorehitpause=1
+
+; 火柱
+[Statedef 1410]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1410
+value = 1410
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = 1
+x = 0
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+
+[state 2901,1]
+type = hitoverride
+trigger1 = ishelper
+attr = SCA,NP,SP,HP
+stateno = 1411
+
+;---------------------[]
+[state a];
+type = playsnd
+trigger1 = animelem = 12
+value = 190,2
+
+;---------------------[]
+[State 1000, 5];攻撃エフェクト
+type = Explod
+trigger1 = PlayerIDExist(ID)
+trigger1 = IsHelper
+trigger1 = animelem = 12
+anim = 1415
+id = 1415
+sprpriority = 5
+postype = p1
+pos = 0,0
+bindtime = 1
+supermove = 0
+persistent=256
+ignorehitpause=1
+under = 0
+
+
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+trigger1 = movecontact = 0
+attr = A, SP
+animtype  = hard
+damage    = 58-root,var(13)*30,58-root,var(13)*30
+getpower = 61,61
+guardflag = M
+numhits = 1
+pausetime = 16,16
+sparkno = s7002
+sparkxy = -7,-40
+hitsound   = s240,0
+guard.sparkno = s7012
+guardsound = s121,0
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -4,-6
+air.velocity = -4,-6.5
+fall = 1
+air.fall = 1
+fall.recover = 0
+id = 1200+root,var(5)
+nochainID = 1200+root,var(5)
+
+;---------------------[相手]
+[state a]
+type = targetstate
+trigger1 = movehit = 1
+value = 1420
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = IsHelper
+trigger1 = animtime = 0
+ignorehitpause=1
+; 火柱消滅
+[Statedef 1411]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 1411
+value = 1411
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = 1
+x = 0
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = IsHelper
+trigger1 = animtime = 0
+ignorehitpause=1
+; 無ヘルパー
+[Statedef 2101]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+trigger1 = name != "FT-Mizuchi"
+value = 2000000
+persistent=256
+ignorehitpause=1
+[State ]
+type = ChangeAnim
+trigger1 = Anim != 2101
+value = 2101
+persistent=256
+ignorehitpause=1
+
+[state ]
+type = StateTypeSet
+trigger1 = playeridexist(root,sysvar(2))
+trigger1 = (playerid(root,sysvar(2)),sysvar(3)%5) = 1
+movetype = I
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = CtrlSet
+trigger1 = 1
+value = 0
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = velset
+trigger1 = sysvar(1) = 0
+x = 8
+y = 0
+persistent=256
+ignorehitpause=1
+
+;---------------------[変数指定]
+[state a]
+type = varset
+trigger1 = sysvar(1) = 0
+trigger1 = prevstateno != 2101
+v = 14
+value = 8
+
+[state a]
+type = varadd
+trigger1 = movecontact = 1
+v = 14
+value = -1
+
+[State ]
+type = varadd
+trigger1 = 1
+sysvar(1) = 1
+persistent=256
+ignorehitpause=1
+
+;---------------------[無敵処理]
+[state 2901,1]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = -1
+[state 2901,1]
+type = hitby
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = -1
+[state 2901,1]
+type = hitoverride
+trigger1 = ishelper
+attr = SCA,NP,SP,HP
+stateno = 2101
+
+;---------------------[エフェクト]
+[State 1000, 5];
+type = null;Explod
+trigger1 = playeridexist(id)
+trigger1 = movehit = 1
+anim = 2110
+id = 2110
+sprpriority = 10
+postype = p2
+pos = 10,-70
+bindtime = -1
+supermove = 1
+persistent=256
+ignorehitpause=1
+facing = -1
+under = 0
+
+[State 1000, 5];
+type = null;Explod
+trigger1 = playeridexist(id)
+trigger1 = moveguarded = 1
+anim = 1015
+id = 2110
+sprpriority = 10
+postype = p2
+pos = 10,-70
+bindtime = 1
+supermove = 1
+persistent=256
+ignorehitpause=1
+facing = -1
+under = 0
+
+;---------------------[速度指定]
+[state a]
+type = velset
+trigger1 = movecontact = 1
+trigger2 = p2Dist X <=0
+x = 0
+
+[state a]
+type = velset
+trigger1 = movecontact = 5
+x = 8
+
+;---------------------[攻撃の指定]
+[State 2];攻撃の指定
+type = HitDef
+triggerall = ishelper
+triggerall = playeridexist(root,sysvar(2))
+triggerall = playerid(root,sysvar(2)),sysvar(3)%5 != 1
+trigger1 = 1;sysvar(1) = 1
+trigger2 = movehit = 10
+trigger3 = moveguarded = 8
+attr = S, HP
+animtype  = hard
+damage    = 67 - var(14)*2,67 - var(14)*2
+getpower = 0,0
+guardflag = MA
+numhits = 1
+pausetime = 0,6
+guard.pausetime = 0,8
+sparkno = -1
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1
+guardsound = -1;s190,2
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -8,-6
+air.velocity = -8,-6.5
+fall = 1
+air.fall = 1
+fall.recover = 0
+ID = 1200
+
+[State 2];攻撃の指定
+type = HitDef
+triggerall = ishelper
+triggerall = !playeridexist(root,sysvar(2))
+trigger1 = 1;sysvar(1) = 1
+trigger2 = movehit = 10
+trigger3 = moveguarded = 8
+attr = S, HP
+animtype  = hard
+damage    = 67 - var(14)*2,67 - var(14)*2
+getpower = 0,0
+guardflag = MA
+numhits = 1
+pausetime = 0,6
+guard.pausetime = 0,8
+sparkno = -1
+sparkxy = -17,0
+hitsound   = -1;s190,2
+guard.sparkno = -1
+guardsound = -1;s190,2
+ground.type = high
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -8,-6
+air.velocity = -8,-6.5
+fall = 1
+air.fall = 1
+fall.recover = 0
+ID = 1200
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Time > 100||roundstate!=2
+value = 0
+persistent=256
+ignorehitpause=1
+;---------------------[消滅]
+[state a]
+type = destroyself
+triggerall = IsHelper
+trigger1 = sysvar(1) >= 100
+trigger2 = var(14) <= 0
+ignorehitpause=1
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 805]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 805
+
+[state a]
+type = velset
+trigger1 = time = 20
+x = -2
+y = -3
+
+[state a]
+type = veladd
+trigger1 = vel x < 0
+x = 0.1
+
+[state a]
+type = veladd
+trigger1 = vel y < 0
+y = 0.1
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+
+
+;---------------------------------------------------------------------------
+;投げられている相手2
+[Statedef 806]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 700, 2];無敵の状態を作る
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+[state a]
+type = velset
+trigger1 = animelem = 1
+x = -1.5
+y = -10
+
+[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
+type = VelAdd
+Trigger1 = 1;animelem = 3,>= 0
+y = .4
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 1205]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = animexist(5051) = 1
+value = 5051
+
+[state a]
+type = velset
+trigger1 = time = 0
+x = 0
+y = -13
+
+[state a]
+type = veladd
+trigger1 = 1
+y = 0.49
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+[State 821, 3] 
+type = lifeadd
+triggerall = ifelse(Name = "FT-Mizuchi", sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)), 1)
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = -98
+
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 
+
+
+;---------------------------------------------------------------------------
+;投げられている相手
+[Statedef 1420]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[state a]
+type = velset
+trigger1 = time = 0
+x = -4
+y = -7
+
+[state a]
+type = veladd
+trigger1 = 1
+y = 0.4
+
+[State 821, 3] 
+type = SelfState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100
+
+
+
+;---------------------------------------------------------------------------
+;投げられている相手1
+[Statedef 2010]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2010
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+
+;---------------------------------------------------------------------------
+;投げられている相手2
+[Statedef 2011]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2011
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+;---------------------------------------------------------------------------
+;投げられている相手3
+[Statedef 2012]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2012
+
+
+[State 1];カメラ固定
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+;---------------------------------------------------------------------------
+;投げられている相手4
+[Statedef 2013]
+type    = A
+movetype= H
+physics = N
+velset = -7,-7
+
+[State ]
+type = ChangeState
+trigger1 = !IsHelper
+trigger1 = Name="FT-Mizuchi"
+trigger1 = sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+value = 0
+ignoreHitPause = 1
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5050
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = animexist(5052) = 1
+value = 5052
+
+[State 821, 1] ;これは重力これは毎フレーム事に0.4の力が加わります
+type = VelAdd
+Trigger1 = 1
+y = .3
+
+[State 1];無敵の状態を作る
+type = NotHitBy 
+trigger1 = 1
+value = SCA
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 15
+trigger1 = animexist(5061) = 1
+value = 5061
+
+[State 820, 1]
+type = ChangeAnim
+Trigger1 = Time = 15
+trigger1 = animexist(5062) = 1
+value = 5062
+
+;[State 821, 3] 
+;type = SelfState
+;triggerall = Vel Y > 0
+;trigger1 = Pos Y >= 0
+;value = 5100
+
+[State 821, 3] 
+type = ChangeState
+;triggerall = Vel Y > 0
+;trigger1 = Pos Y >= 0
+trigger1 = 1
+value = 2000000

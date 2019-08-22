@@ -1,24 +1,16 @@
 [Statedef -3]
-;ゲーム中に常にいつでも開始したいステート、ここでは「着地音」に使用しています
-;下の条件は「52か106のステートに移動して１フレーム目に」と言う事です。
-;52と106はバックステップとジャンプの着地のステートです。
 
 [State GameTime式ステ抜け]
 type = VarSet
 trigger1 = 1
 sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-;変数を使用した強力なステ抜け
-;通常変数だと突破されることも多々あるがシステム変数を使用すると捏造利用でない限り突破されない
-;だが、これだけだとp1stateno耐性が無いためp1stateno耐性をつけるなら一工夫する必要がある
 ignorehitpause = 1
 
 [state ]
 type=varset
 trigger1=!ishelper
 trigger1=numhelper(4)=1
-trigger1=playeridexist(sysvar(1))
-trigger1=playerid(sysvar(1)),ishelper(4)
-sysfvar(3)=playerid(sysvar(1)),sysfvar(3)
+sysfvar(3)=helper(4),sysfvar(3)
 ignorehitpause=1
 
 [State ]
@@ -28,17 +20,8 @@ trigger1 = !IsHelper(1)
 ignorehitpause = 1
 
 [State ステート奪取判断Explod]
-;Explod式ステ抜け
-;原理はGameTime式ステ抜けとほぼ同じ
-;違うのは捏造でもほぼ弄らないものであること
-;よく弄られる危険性のあるGameTime式ステ抜けよりは安心できる
-;Proj式もあるがこちらはヘルパー押し付けなどで突破される危険性があるのでこちらのほうがいい
-;だが、少しでも重さを回避したいならProj式も考慮にいれるといい
-;ぶっちゃけどっちも捏造利用でも滅多に突破されない
-;Proj式はヘルパー奪われたらあっさりステ抜け貫通されるけど
 Type = Explod
 trigger1 = !ishelper
-;trigger1 = NumExplod(9000+GameTime) = 0
 ID = 9000+GameTime
 PosType = P1
 Pos = 0,0
@@ -56,8 +39,8 @@ IgnoreHitPause = 1
 type = ChangeAnim
 triggerall = IsHelper(1)
 triggerall = Root,PalNo%6 = [1,2]
-triggerall = PlayerIDExist(Root,sysvar(1))
-triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+triggerall = numhelper(4)=1
+triggerall = helper(4),sysvar(0) < 6
 trigger1 = var(1) := AnimElemNo(0)
 trigger1 = var(0) := Root,GetHitVar(Damage)
 trigger1 = abs(var(0)) > (LifeMax/2) || abs(var(0)) < 0
@@ -77,7 +60,7 @@ trigger6 = var(1) := var(1) + ceil(1.0*var(0)*4.0/5.0)
 trigger7 = Root,GetHitVar(AnimType) = 5
 trigger7 = var(1) := var(1) + ceil(1.0*var(0)*4.0/5.0)
 value = 10000
-elem = var(1); + var(0)
+elem = var(1)
 Persistent = 256
 ignorehitpause = 1
 
@@ -85,8 +68,8 @@ ignorehitpause = 1
 type = ChangeAnim
 triggerall = IsHelper(1)
 triggerall = Root,PalNo%6 = [3,4]
-triggerall = PlayerIDExist(Root,sysvar(1))
-triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+triggerall = numhelper(4)=1
+triggerall = helper(4),sysvar(0) < 6
 trigger1 = var(1) := AnimElemNo(0)
 trigger1 = var(0) := Root,GetHitVar(Damage)
 trigger1 = abs(var(0)) > (LifeMax/3) || abs(var(0)) < 0
@@ -113,8 +96,8 @@ ignorehitpause = 1
 type = ChangeAnim
 triggerall = IsHelper(1)
 triggerall = Root,PalNo%6 != [1,4]
-triggerall = PlayerIDExist(Root,sysvar(1))
-triggerall = PlayerID(Root,sysvar(1)),sysvar(0) < 6
+triggerall = numhelper(4)=1
+triggerall = helper(4),sysvar(0) < 6
 trigger1 = var(1) := AnimElemNo(0) || 1
 trigger1 = var(0) := Root,GetHitVar(Damage)
 trigger1 = abs(var(0)) > (LifeMax/4) || abs(var(0)) < 0
@@ -141,6 +124,7 @@ ignorehitpause = 1
 type = Tagout
 trigger1 = IsHelper(1)
 ignorehitpause = 1
+
 [State -3, Landing Sound]
 type = PlaySnd
 triggerall = Time = 1

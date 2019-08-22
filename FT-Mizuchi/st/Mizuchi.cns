@@ -66,6 +66,88 @@ crouch.friction=.82;屈み状態の摩擦係数
 ;physics=?S/C/A/NＳ：立ち/Ｃ：屈み/Ａ：空中/Ｎ：無し
 ;juggle=?その攻撃に使うジャグル数
 ;
+[Statedef 19]
+type    = S
+physics = S
+sprpriority = 0
+Ctrl = 0
+
+[State ]
+type=ChangeAnim
+trigger1=Anim!=21
+value=21
+persistent=256
+ignorehitpause=1
+
+
+[State ]
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
+[State 19, 1]
+type = Turn
+trigger1 = P2dist X < 0
+
+
+[State 19, 2]
+type = VelSet
+trigger1 = 1
+x = const(velocity.walk.back.x)
+
+[State 19, 3]
+type = ChangeState
+trigger1 = roundstate != 2
+trigger2 = P2BodyDist X >= 200
+trigger3 = inguarddist
+trigger3 = random <= 100*(Var(59))
+trigger4 = BackEdgeBodyDist <= 0
+value = 0
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;AI前歩き
+[Statedef 21]
+type    = S
+physics = S
+sprpriority = 0
+Ctrl = 0
+[State ]
+type=ChangeAnim
+trigger1=Anim!=20
+value=20
+persistent=256
+ignorehitpause=1
+
+[State ]
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
+[State 19, 1]
+type = Turn
+trigger1 = P2dist X < 0
+
+
+[State 21, 2]
+type = VelSet
+trigger1 = 1
+x = const(velocity.walk.fwd.x)
+
+
+[State 21, 3]
+type = changestate
+trigger1 = roundstate != 2
+trigger2 = P2BodyDist X <= 15
+trigger3 = inguarddist
+trigger3 = random <= 100*(Var(59))
+value = 0
+ctrl = 1
 
 ;---------------------------------------------------------------------------
 ;フロントステップ
@@ -89,11 +171,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 290,1]
 type=poweradd
@@ -138,18 +221,26 @@ type=AssertSpecial
 trigger1=1
 flag=NoAutoTurn
 
-[State 100,4]
-type=ChangeState
-trigger1=command="holdfwd"
-trigger1=animelem=5,>=0
-value=101
+[State 100, 4]
+type = ChangeState
+trigger1 = var(56) <= 0
+trigger1 = command = "holdfwd"
+trigger1 = animelem = 5,>=0
+value = 101
 
-[State 100,4]
-type=ChangeState
-trigger1=animtime=0
-value=0
-ctrl=1
 
+[State 100, 4]
+type = ChangeState
+trigger1 = var(56) > 0
+trigger1 = animelem = 5,>=0
+value = 101
+
+[State 100, 4]
+type = ChangeState
+trigger1 = var(56) <= 0
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
 [State ]
 type=SelfState
 trigger1=!IsHelper
@@ -181,11 +272,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 100,1]
 type=VelSet
@@ -240,11 +332,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 100,1]
 type=VelSet
@@ -281,7 +374,6 @@ ignorehitpause=1
 type=S
 physics=S
 ctrl=0
-velset=0,0
 
 [State ]
 type=ChangeState
@@ -298,16 +390,55 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
-[State 106,4]
-type=ChangeState
-trigger1=AnimElem=3
-value=102
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.fwd.x)
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+triggerall = var(56) <= 0
+trigger1 = command != "holdfwd"
+value = 0
+
+[State 100, 4]
+type = ChangeState
+triggerall = var(56) > 0
+trigger1 = inguarddist
+Trigger2 = EnemyNear(floor(fvar(36))),Ctrl
+trigger2 = P2BodyDist X <= 90
+Trigger3 = P2StateType = L
+trigger3 = P2BodyDist X <= 90
+Trigger4 = P2StateType != A
+Trigger4 = P2MoveType = H || (P2StateNo=[120,159])
+Trigger4 = P2StateType != L
+trigger4 = P2BodyDist X <= 18
+Trigger5 = P2StateType = A
+Trigger5 = P2MoveType = H || (P2StateNo=[120,159])
+Trigger5 = P2StateType != L
+trigger5 = P2BodyDist X <= 45
+Trigger6 = P2MoveType = A
+Trigger7 = Facing = EnemyNear(floor(fvar(36))),Facing
+value = 0
+Ctrl = 1
 
 [State ]
 type=SelfState
@@ -340,11 +471,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 105,1]
 type=VelSet
@@ -389,11 +521,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 106,1]
 type=VelSet
@@ -450,11 +583,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 106,4]
 type=ChangeState
@@ -492,11 +626,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 105,1]
 type=VelSet
@@ -541,11 +676,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 106,1]
 type=VelSet
@@ -602,11 +738,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 170,1]
 type=NotHitBy
@@ -635,11 +772,12 @@ value=5150
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 180,1]
 type=ChangeState
@@ -691,11 +829,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 191,3];天上天下
 type=PlaySnd
@@ -759,11 +898,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 191,3]
 type=PlaySnd
@@ -808,11 +948,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 191,3]
 type=PlaySnd
@@ -897,11 +1038,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 191,3];我のみを尊ぶ
 type=PlaySnd
@@ -955,17 +1097,18 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,1]
 type=HitDef
 trigger1=AnimElem=3
 attr=S,NA;立ち状態で、通常の攻撃(ｓは立ち、ｎは通常、aは攻撃を表す)
-damage=38,0;ダメージ量（左が当たった時、右はガードした時）
+damage=38,38;ダメージ量（左が当たった時、右はガードした時）
 getpower=61,61
 animtype=Light;当てた時の相手のポーズ（light/midium/hard/back）から選択
 guardflag=MA;ガードできる状態（ｍaは全ての状態でガード可能）
@@ -1045,17 +1188,18 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,1]
 type=HitDef
 trigger1=AnimElem=3
 attr=S,NA;立ち状態で、通常の攻撃(ｓは立ち、ｎは通常、aは攻撃を表す)
-damage=29,0;ダメージ量（左が当たった時、右はガードした時）
+damage=29,29;ダメージ量（左が当たった時、右はガードした時）
 getpower=61,61
 animtype=Light;当てた時の相手のポーズ（light/midium/hard/back）から選択
 guardflag=MA;ガードできる状態（ｍaは全ての状態でガード可能）
@@ -1134,11 +1278,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 210,1]
 type=PlaySnd
@@ -1169,7 +1314,7 @@ type=HitDef
 trigger1=AnimElem=8
 attr=S,NA
 animtype=hard
-damage=106
+damage=106,106
 getpower=30,30
 guardflag=MA
 pausetime=8,10
@@ -1191,7 +1336,7 @@ type=HitDef
 trigger1=animelem=9
 attr=S,NA
 animtype=hard
-damage=70
+damage=70,70
 getpower=30,30
 guardflag=MA
 pausetime=11,12
@@ -1250,11 +1395,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,1]
 type=PlaySnd
@@ -1284,7 +1430,7 @@ type=HitDef
 trigger1=AnimElem=6
 attr=S,NA
 animtype=hard
-damage=135
+damage=135,135
 getpower=61,61
 guardflag=MA
 pausetime=11,12
@@ -1344,11 +1490,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -1399,7 +1546,7 @@ trigger1=AnimElem=2
 trigger2=AnimElem=3
 attr=S,NA
 animtype=light
-damage=38
+damage=38,38
 getpower=61,61
 guardflag=MA
 pausetime=7,8
@@ -1458,11 +1605,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -1512,7 +1660,7 @@ type=HitDef
 trigger1=AnimElem=3
 attr=S,NA
 animtype=light
-damage=29
+damage=29,29
 getpower=30,30
 guardflag=MA
 pausetime=7,8
@@ -1533,7 +1681,7 @@ type=HitDef
 trigger1=animelem=4
 attr=S,NA
 animtype=light
-damage=29
+damage=29,29
 getpower=30,30
 guardflag=MA
 pausetime=9,10
@@ -1593,11 +1741,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 210,1]
 type=PlaySnd
@@ -1628,7 +1777,7 @@ type=HitDef
 trigger1=AnimElem=3
 attr=S,NA
 animtype=hard
-damage=96
+damage=96,96
 getpower=30,30
 guardflag=MA
 pausetime=8,10
@@ -1649,7 +1798,7 @@ type=HitDef
 trigger1=animelem=4
 attr=S,NA
 animtype=hard
-damage=58
+damage=58,58
 getpower=30,30
 guardflag=MA
 pausetime=11,12
@@ -1713,11 +1862,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -1734,7 +1884,7 @@ type=HitDef
 trigger1=AnimElem=4
 attr=S,NA
 animtype=hard
-damage=96
+damage=96,96
 getpower=30,30
 guardflag=MA
 pausetime=8,10
@@ -1756,7 +1906,7 @@ trigger1=AnimElem=10
 trigger2=AnimElem=11
 attr=S,NA
 animtype=hard
-damage=58
+damage=58,58
 getpower=30,30
 guardflag=HA
 pausetime=11,12
@@ -1816,11 +1966,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -1851,7 +2002,7 @@ type=HitDef
 trigger1=AnimElem=4
 attr=S,NA
 animtype=hard
-damage=98
+damage=98,98
 getpower=136,136
 guardflag=MA
 pausetime=11,12
@@ -1914,11 +2065,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -1949,7 +2101,7 @@ type=HitDef
 trigger1=AnimElemNo(0)=[2,4]
 attr=S,NA
 animtype=diagup
-damage=39
+damage=39,39
 getpower=0,0
 guardflag=MA
 pausetime=11,12
@@ -2010,11 +2162,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -2030,7 +2183,7 @@ value=201,0
 type=HitDef
 trigger1=AnimElem=2
 attr=C,NA
-damage=19
+damage=19,19
 priority=3
 animtype=Light
 hitflag=MAF
@@ -2097,11 +2250,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 410,1]
 type=PlaySnd
@@ -2117,7 +2271,7 @@ value=210,Random%3
 type=HitDef
 trigger1=AnimElem=6
 attr=C,NA
-damage=96
+damage=96,96
 animtype=hard
 hitflag=MAF
 guardflag=M
@@ -2139,7 +2293,7 @@ nochainID=1200
 type=HitDef
 trigger1=animelem=7
 attr=C,NA
-damage=70
+damage=70,70
 animtype=hard
 hitflag=MAF
 guardflag=M
@@ -2199,11 +2353,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -2219,7 +2374,7 @@ value=221,0
 type=HitDef
 trigger1=AnimElem=2
 attr=C,NA
-damage=19
+damage=19,19
 animtype=Light
 hitflag=MAF
 guardflag=L
@@ -2287,11 +2442,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 440,2]
 type=PlaySnd
@@ -2308,7 +2464,7 @@ value=210,Random%3
 type=HitDef
 trigger1=AnimElem=8
 attr=C,NA
-damage=154
+damage=154,154
 hitflag=MAF
 guardflag=L
 pausetime=11,12
@@ -2370,11 +2526,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -2390,7 +2547,7 @@ value=201,0
 type=HitDef
 trigger1=AnimElem=2
 attr=A,NA
-damage=38
+damage=38,38
 getpower=61,61
 guardflag=HA
 priority=3
@@ -2444,11 +2601,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,1]
 type=PlaySnd
@@ -2464,7 +2622,7 @@ value=210,Random%3
 type=HitDef
 trigger1=AnimElem=2
 attr=A,NA
-damage=125
+damage=125,125
 guardflag=HA
 getpower=61,61
 priority=4
@@ -2519,11 +2677,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -2539,7 +2698,7 @@ value=221,0
 type=HitDef
 trigger1=AnimElem=2
 attr=A,NA
-damage=36
+damage=36,36
 getpower=61,61
 guardflag=HA
 priority=3
@@ -2593,11 +2752,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 640,2]
 type=PlaySnd
@@ -2613,7 +2773,7 @@ value=210,Random%3
 type=HitDef
 trigger1=AnimElem=2
 attr=A,NA
-damage=135
+damage=135,135
 guardflag=HA
 getpower=61,61
 priority=4
@@ -2668,11 +2828,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,5]
 type=PlaySnd
@@ -2703,7 +2864,7 @@ type=HitDef
 trigger1=AnimElem=2
 attr=A,NA
 animtype=hard
-damage=98
+damage=98,98
 getpower=120,120
 guardflag=MA
 pausetime=11,12
@@ -2758,11 +2919,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 290,1]
 type=poweradd
@@ -2870,11 +3032,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 290,1]
 type=poweradd
@@ -2979,11 +3142,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State a]
 type=posset
@@ -3063,11 +3227,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 800,1]
 type=HitDef
@@ -3087,9 +3252,9 @@ fall=1;落ちる力を２Ｐにかけるか
 [State ]
 type=SelfState
 trigger1=MoveHit
-trigger2=PlayerIDExist(sysvar(3))
-trigger2=PlayerID(sysvar(3)),NumTarget
-trigger2=playerid(sysvar(3)),sysvar(0)=334455667
+trigger2=numhelper(2)=1
+trigger2=helper(2),NumTarget
+trigger2=helper(2),anim=9000
 value=801
 ignorehitpause=1
 
@@ -3133,11 +3298,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[サウンド]
 [State 810,GrabSound];掴み
@@ -3245,9 +3411,9 @@ ownpal=1
 type=TargetBind
 triggerall=NumTarget
 triggerall=animelem=1
-trigger1=PlayerIDExist(sysvar(3))
-trigger1=!PlayerID(sysvar(3)),NumTarget
-trigger2=!PlayerIDExist(sysvar(3))
+trigger1=numhelper(2)=1
+trigger1=!helper(2),NumTarget
+trigger2=numhelper(2)!=1
 pos=32,0
 
 
@@ -3255,9 +3421,9 @@ pos=32,0
 type=targetstate
 triggerall=NumTarget
 triggerall=animelemtime(6)=6
-trigger1=PlayerIDExist(sysvar(3))
-trigger1=!PlayerID(sysvar(3)),NumTarget
-trigger2=!PlayerIDExist(sysvar(3))
+trigger1=numhelper(2)=1
+trigger1=!helper(2),NumTarget
+trigger2=numhelper(2)!=1
 value=806
 
 
@@ -3265,9 +3431,9 @@ value=806
 type=TargetLifeAdd
 triggerall=NumTarget
 triggerall=animelemtime(6)=6
-trigger1=PlayerIDExist(sysvar(3))
-trigger1=!PlayerID(sysvar(3)),NumTarget
-trigger2=!PlayerIDExist(sysvar(3))
+trigger1=numhelper(2)=1
+trigger1=!helper(2),NumTarget
+trigger2=numhelper(2)!=1
 value=-173
 
 ;:::
@@ -3325,11 +3491,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[効果音]
 [State a];はらえ
@@ -3441,11 +3608,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[効果音]
 [State a];はらえ
@@ -3557,11 +3725,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 210,1]
 type=PlaySnd
@@ -3594,7 +3763,7 @@ trigger1=AnimElem=3
 trigger2=AnimElem=4
 attr=S,SA
 animtype=hard
-damage=135,10
+damage=135,135
 priority=7
 getpower=0,0
 guardflag=MA
@@ -3661,11 +3830,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[効果音]
 [State 210,1]
@@ -3698,7 +3868,7 @@ trigger1=movecontact=0
 trigger1=enemy,stateno!=1420
 attr=S,SA
 animtype=hard
-damage=58,10
+damage=58,58
 priority=7
 getpower=121,121
 guardflag=MA
@@ -3776,11 +3946,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[立ちステートに戻る]
 [State 240,4]
@@ -3826,11 +3997,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[効果音]
 [State 210,1]
@@ -3863,7 +4035,7 @@ trigger1=movecontact=0
 trigger1=enemy,stateno!=1420
 attr=S,SA
 animtype=hard
-damage=77,10
+damage=77,77
 priority=7
 getpower=121,121
 guardflag=MA
@@ -3941,11 +4113,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[立ちステートに戻る]
 [State 240,4]
@@ -3991,11 +4164,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -4036,7 +4210,7 @@ type=HitDef
 trigger1=animelem=4
 attr=S,SA
 animtype=diagup
-damage=115,10
+damage=115,115
 getpower=0,0
 guardflag=MA
 pausetime=11,12
@@ -4097,11 +4271,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -4142,7 +4317,7 @@ type=HitDef
 trigger1=animelem=4
 attr=S,SA
 animtype=diagup
-damage=96,10
+damage=96,96
 getpower=0,0
 guardflag=MA
 pausetime=11,12
@@ -4203,11 +4378,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[無敵の状態を作る]
 [State 1];
@@ -4249,7 +4425,7 @@ type=HitDef
 trigger1=animelem=1
 attr=S,SA
 animtype=hard
-damage=48,10
+damage=48,48
 getpower=0,0
 guardflag=MA
 pausetime=0,17
@@ -4282,7 +4458,7 @@ postype=p1
 getpower=0,0
 offset=28,-73
 velocity=7
-damage=144,10
+damage=144,144
 animtype=Hard
 guardflag=MA
 pausetime=11,12
@@ -4345,16 +4521,17 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 ;---------------------[コマンド判定]
 [State a]
 type=varset
-triggerall=AnimElem=1
+triggerall=AnimElem=1&&!var(56)
 trigger1=command="b"
 trigger1=prevstateno!=1400
 trigger2=prevstateno=1400
@@ -4364,7 +4541,7 @@ value=3
 
 [State a]
 type=varset
-triggerall=AnimElem=1
+triggerall=AnimElem=1&&!var(56)
 trigger1=command="y"
 trigger1=prevstateno!=1400
 trigger2=prevstateno=1400
@@ -4374,7 +4551,7 @@ value=2
 
 [State a]
 type=varset
-triggerall=AnimElem=1
+triggerall=AnimElem=1&&!var(56)
 trigger1=command="a"
 trigger1=prevstateno!=1400
 trigger2=prevstateno=1400
@@ -4384,12 +4561,55 @@ value=1
 
 [State a]
 type=varset
-trigger1=AnimElem=1
+trigger1=AnimElem=1&&!var(56)
 trigger1=command="x"
 ;trigger1=prevstateno!=1400
 v=5
 value=0
 
+;---------------------[AI判定]
+[state a]
+type = varset
+triggerall = var(56) > 0
+triggerall = AnimElem=1
+Triggerall = P2bodydist X = [173+floor(28*(EnemyNear(floor(fvar(36))),vel X)),500+floor(28*(EnemyNear(floor(fvar(36))),vel X))]
+trigger1 = prevstateno != 1400
+trigger2 = prevstateno = 1400
+trigger2 = var(5) = 2
+v = 5
+value = 3
+
+[state a]
+type = varset
+triggerall = var(56) > 0
+triggerall = AnimElem=1
+Triggerall = P2bodydist X = [101+floor(28*(EnemyNear(floor(fvar(36))),vel X)),172+floor(28*(EnemyNear(floor(fvar(36))),vel X))]
+trigger1 = prevstateno != 1400
+trigger2 = prevstateno = 1400
+trigger2 = var(5) = 1
+v = 5
+value = 2
+
+[state a]
+type = varset
+triggerall = var(56) > 0
+triggerall = AnimElem=1
+Triggerall = P2bodydist X = [39+floor(28*(EnemyNear(floor(fvar(36))),vel X)),100+floor(28*(EnemyNear(floor(fvar(36))),vel X))]
+trigger1 = prevstateno != 1400
+trigger2 = prevstateno = 1400
+trigger2 = var(5) = 0
+v = 5
+value = 1
+
+[state a]
+type = varset
+triggerall = var(56) > 0
+Triggerall = P2bodydist X = [0+floor(28*(EnemyNear(floor(fvar(36))),vel X)),38+floor(28*(EnemyNear(floor(fvar(36))),vel X))]
+trigger1 = numhelper(1400) = 0
+trigger1 = AnimElem=1
+trigger1 = prevstateno != 1400
+v = 5
+value = 0
 ;---------------------[ゲージ増加]
 [State a]
 type=poweradd
@@ -4419,6 +4639,7 @@ value=0
 
 [State a];コマンド受付判定
 type=varset
+triggerall=!var(56)
 trigger1=command="火闌降1"
 trigger1=var(5)=0
 trigger2=command="火闌降2"
@@ -4427,7 +4648,15 @@ trigger3=command="火闌降3"
 trigger3=var(5)=2
 v=7
 value=1
-
+[state a];AI判定
+type = varset
+triggerall = prevstateno != 1400
+triggerall = var(56) > 0
+trigger1 = var(5) = 0
+trigger2 = var(5) = 1
+trigger3 = var(5) = 2
+v = 7
+value = 1
 [State ]
 type=Null
 triggerall=var(30)
@@ -4491,6 +4720,28 @@ trigger3=(var(7)=1)&&(var(5)=0)&&(animtime=0)
 value=1400
 
 
+;---------------------[連続]
+[state a]
+type = changestate
+TriggerAll = var(56) <= 0&&time
+TriggerAll = RoundState = 2
+trigger1 = (var(7) = 1)&&(var(5) = 2)&&(animtime = 0)
+trigger2 = (var(7) = 1)&&(var(5) = 1)&&(animtime = 0)
+trigger3 = (var(7) = 1)&&(var(5) = 0)&&(time != 0)
+value = 1400
+
+[state a]
+type = changestate
+TriggerAll = var(56) > 0&&time
+TriggerAll = P2movetype = H
+TriggerAll = P2Statetype != L
+TriggerAll = RoundState = 2
+trigger1 = (var(7) = 1)&&(var(5) = 2)&&(animtime = 0)
+trigger2 = (var(7) = 1)&&(var(5) = 1)&&(animtime = 0)
+trigger3 = (var(7) = 1)&&(var(5) = 0)&&(time != 0)
+trigger3 =  numhelper(1400) = 0
+value = 1400
+
 ;---------------------[立ちステートに戻る]
 [State 240,4]
 type=ChangeState
@@ -4537,11 +4788,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -4583,7 +4835,7 @@ trigger1=animelem=2
 trigger1=p2movetype=H
 attr=A,SA
 animtype=hard
-damage=74,10
+damage=74,74
 getpower=121,121
 guardflag=MA
 pausetime=11,12
@@ -4606,7 +4858,7 @@ trigger1=animelem=2
 trigger1=p2movetype!=H
 attr=A,SA
 animtype=hard
-damage=154,10
+damage=154,154
 getpower=121,121
 guardflag=MA
 pausetime=11,12
@@ -4687,11 +4939,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 240,1]
 type=PlaySnd
@@ -4723,7 +4976,7 @@ trigger1=animelem=2
 trigger1=p2movetype=H
 attr=A,SA
 animtype=hard
-damage=74,10
+damage=74,74
 getpower=121,121
 guardflag=MA
 pausetime=11,12
@@ -4746,7 +4999,7 @@ trigger1=animelem=2
 trigger1=p2movetype!=H
 attr=A,SA
 animtype=hard
-damage=154,10
+damage=154,154
 getpower=121,121
 guardflag=MA
 pausetime=11,12
@@ -4826,11 +5079,12 @@ persistent=256
 ignorehitpause=1
 
 [State ]
-type=VarSet
-trigger1=Name="FT-Mizuchi"
-sysvar(4)=StateNo
-persistent=256
-ignorehitpause=1
+type = VarSet
+trigger1 = Name = "FT-Mizuchi"
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
+persistent = 256
+ignorehitpause = 1
 
 [State 200,1];着地音
 type=PlaySnd

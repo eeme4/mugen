@@ -11,8 +11,10 @@ trigger5=command="CPU_41"||command="CPU_42"||command="CPU_43"||command="CPU_44"|
 trigger6=(palno%2)=0
 ;/---------------------------------------------------------------------/
 ;/---------------------------------------------------------------------/
-var(30) = 2;©AIƒŒƒxƒ‹İ’è:ƒfƒtƒHƒ‹ƒg,2
-;0:AIƒIƒt
+var(30) = 2;©’´•K‰ğ‹ÖƒŒƒxƒ‹İ’è:ƒfƒtƒHƒ‹ƒg,2
+;’ˆÓ:‰º‚Ìá–{AIƒ‚[ƒh‚ªƒIƒ“‚É‚È‚Á‚Ä‚¢‚é‚Æ‰º‹L‚ÌŒÀ‚è‚Å‚Í‚ ‚è‚Ü‚¹‚ñ
+
+;0:ÙìAIƒIƒt
 
 ;1:’´•K‚É‹­‚¢§ŒÀ‚ª•t‚«‚Ü‚·
 ;ğŒ1:c‚èƒ‰ƒCƒt‚ª2/5ˆÈ‰º‚É‚È‚é‚Ü‚Å’´•K‚ğg‚¦‚È‚¢
@@ -28,7 +30,25 @@ var(30) = 2;©AIƒŒƒxƒ‹İ’è:ƒfƒtƒHƒ‹ƒg,2
 ;‹¶‚Ì”Íáe‚É‚Íâ‘Îû‚Ü‚ç‚È‚¢‚Å‚·
 ;³’¼Œ©‰h‚¦ˆ«‚¢‚Ì‚ÅƒŒƒxƒ‹3‚ğg‚¤•û‚ª“®‰æ‰f‚¦‚·‚é‚©‚à
 
+[state á–{AIƒ‚[ƒh]
+type=varset
+trigger1=!ishelper
+trigger1=(palno%2)=0||var(30)
+v=56
+value=11;©‚ğ˜M‚é,’l‚ª0‚¾‚ÆƒIƒt,Å‘å11,Å¬0,ƒfƒtƒHƒ‹ƒg11
+;‚±‚Ìƒ‚[ƒh‚ªƒIƒ“‚¾‚Æá–{AI(‘Î‹¥ˆ«—p‚É‰ü‘¢Ï‚İ)‚Ì“®‚«‚É‚È‚è‚Ü‚·
+;ƒfƒtƒHƒ‹ƒg‚Ìå€—p‚ÌAI‚Å‚·‚ªƒx[ƒX‚ğ–w‚Ç˜M‚ç‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚é‚½‚ß‹@”\‚µ‚Ä‚¢‚Ü‚·
+ignorehitpause=1
 
+
+[state “Š‚°‹–—eŠÔ]
+type=varset
+trigger1=!ishelper
+v=58
+value=500;©‚ğ˜M‚é:ƒfƒtƒHƒ‹ƒg,500
+;“Š‚°‚ÌŠÔ‚ğ‚Ç‚ê‚®‚ç‚¢‹–—e‚·‚é‚©İ’è‚Å‚«‚Ü‚·B
+;“Š‚°‚ç‚ê‚½‚­‚È‚¢‚È‚ç0A“Š‚°‚Å”²‚¯‚Ä‚Ù‚µ‚­‚È‚¢‚È‚ç‹É‘å’l‚Ì2147483647‚ğİ’è‚·‚é‚Æ‚¢‚¢‚Æv‚¢‚Ü‚·B
+ignorehitpause=1
 ;/---------------------------------------------------------------------/
 [State ƒXƒCƒbƒ`]
 type = null
@@ -50,6 +70,10 @@ trigger6 = 1;H‚ç‚¢”²‚¯ƒXƒCƒbƒ`,©‚Ì”’l‚ğ0‚É‚·‚é‚ÆƒIƒt,‚»‚êˆÈŠO‚Ì”’l‚¾‚ÆƒIƒ“,ƒ
 ;‘Î_d—l‚ÌƒLƒƒƒ‰‚È‚Ì‚Åˆê•”“Áê‚È–³“G‚ª‚ ‚è‚Ü‚·
 ;‚»‚ê‚ğ–³Œø‰»‚·‚éƒXƒCƒbƒ`‚Å‚·B
 ;‰i‹v”²‚¯‚Æ‚©‚ğ‚³‚¹‚½‚­‚È‚¢‚ÉƒIƒt‚É‚·‚é‚Æ‚¢‚¢‚Å‚·
+
+trigger7 = 0;”ñ“€Œ‹’´‘¦€‘ÎôƒXƒCƒbƒ`,©‚Ì”’l‚ğ0‚É‚·‚é‚ÆƒIƒt,‚»‚êˆÈŠO‚Ì”’l‚¾‚ÆƒIƒ“,ƒfƒtƒHƒ‹ƒg:ƒIƒt
+;‘Î‹¶‘z’è‚¾‚ÆƒIƒt„§‚Å‚·B
+;ƒXƒCƒbƒ`‚ªƒIƒ“‚É“Š‚°‚é‚Æ‚«explod‚ğÁ‚·ƒLƒƒƒ‰‚ª‘Šè‚¾‚ÆˆÓ}‚µ‚È‚¢ƒXƒe”²‚¯‚ğ‹N‚±‚·‚±‚Æ‚ª‚ ‚è‚Ü‚·
 
 ;‚±‚êˆÈ~‚Í˜M‚ç‚È‚¢‚Å‚Ë
 ;/---------------------------------------------------------------------/
@@ -73,346 +97,26 @@ trigger6 = 1;H‚ç‚¢”²‚¯ƒXƒCƒbƒ`,©‚Ì”’l‚ğ0‚É‚·‚é‚ÆƒIƒt,‚»‚êˆÈŠO‚Ì”’l‚¾‚ÆƒIƒ“,ƒ
 
 
 triggerall = !IsHelper
-triggerall = var(59):=(var(59)|63)-63||1
+triggerall = var(59):=(var(59)|127)-127||var(6):=var(6)+1||1
 trigger1 = var(59):=(var(59)|1)&&0
 trigger2 = var(59):=(var(59)|2)&&0
 trigger3 = var(59):=(var(59)|4)&&0
 trigger4 = var(59):=(var(59)|8)&&0
 trigger5 = var(59):=(var(59)|16)&&0
 trigger6 = var(59):=(var(59)|32)&&0
+trigger7 = var(59):=(var(59)|64)&&0
 ignorehitpause = 1
 [state ]
-type=varadd
-trigger1=1
-var(6)=1
-ignorehitpause=1
-[State ]
-type = VarSet
-trigger1 = !IsHelper
-trigger1 = NumHelper(1) = 1;‹K’è‚ÌŒÂ”‚Å‚ ‚é‚©‚Ç‚¤‚©
-trigger1 = PlayerIDExist(var(0));‘¶İŠm”F
-trigger1 = var(0) = Helper(1),ID;ƒŠƒ_ƒCƒŒƒNƒg‹U‘•‘Îô
-trigger1 = PlayerID(var(0)),Name = "FT-Mizuchi";–¼‘O‚Ì‚¨ç‚èB‘Šè‚©‚Ç‚¤‚©‚Ì”»•Ê‚Ég‚¤
-trigger1 = PlayerID(var(0)),IsHelper(1);IDŠm”F
-trigger1 = sysvar(0) != var(0);—]Œv‚È‘ã“ü‚ğ–h‚®
-sysvar(0) = var(0)
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-triggerall = !IsHelper
-trigger1 = !PlayerIDExist(sysvar(0))
-trigger2 = NumHelper(1)
-trigger2 = sysvar(0) != Helper(1),ID
-trigger3 = PlayerID(sysvar(0)),Name != "FT-Mizuchi"
-trigger4 = !PlayerID(sysvar(0)),IsHelper(1)
-trigger5 = NumHelper(1) != 1
-sysvar(0) = 0
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-trigger1 = !IsHelper
-trigger1 = NumHelper(4) = 1
-trigger1 = PlayerIDExist(var(1))
-trigger1 = var(1) = Helper(4),ID
-trigger1 = PlayerID(var(1)),Name = "FT-Mizuchi"
-trigger1 = PlayerID(var(1)),IsHelper(4)
-trigger1 = sysvar(1) != var(1)
-sysvar(1) = var(1)
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-triggerall = !IsHelper
-trigger1 = !PlayerIDExist(sysvar(1))
-trigger2 = NumHelper(4)
-trigger2 = sysvar(1) != Helper(4),ID
-trigger3 = PlayerID(sysvar(1)),Name != "FT-Mizuchi"
-trigger4 = !PlayerID(sysvar(1)),IsHelper(4)
-trigger5 = NumHelper(4) != 1
-sysvar(1) = 0
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-trigger1 = !IsHelper
-trigger1 = NumHelper(3) = 1
-trigger1 = PlayerIDExist(var(2))
-trigger1 = var(2) = Helper(3),ID
-trigger1 = PlayerID(var(2)),Name = "FT-Mizuchi"
-trigger1 = PlayerID(var(2)),IsHelper(3)
-trigger1 = sysvar(2) != var(2)
-sysvar(2) = var(2)
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-triggerall = !IsHelper
-trigger1 = !PlayerIDExist(sysvar(2))
-trigger2 = NumHelper(3)
-trigger2 = sysvar(2) != Helper(3),ID
-trigger3 = PlayerID(sysvar(2)),Name != "FT-Mizuchi"
-trigger4 = !PlayerID(sysvar(2)),IsHelper(3)
-trigger5 = NumHelper(3) != 1
-sysvar(2) = 0
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-trigger1 = !IsHelper
-trigger1 = NumHelper(2) = 1
-trigger1 = PlayerIDExist(var(3))
-trigger1 = var(3) = Helper(2),ID
-trigger1 = PlayerID(var(3)),Name = "FT-Mizuchi"
-trigger1 = PlayerID(var(3)),IsHelper(2)
-trigger1 = sysvar(3) != var(3)
-sysvar(3) = var(3)
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-triggerall = !IsHelper
-trigger1 = !PlayerIDExist(sysvar(3))
-trigger2 = NumHelper(2)
-trigger2 = sysvar(3) != Helper(2),ID
-trigger3 = PlayerID(sysvar(3)),Name != "FT-Mizuchi"
-trigger4 = !PlayerID(sysvar(3)),IsHelper(2)
-trigger5 = NumHelper(2) != 1
-sysvar(3) = 0
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-trigger1 = !IsHelper
-trigger1 = NumHelper(6) = 1
-trigger1 = PlayerIDExist(var(4))
-trigger1 = var(4) = Helper(6),ID
-trigger1 = PlayerID(var(4)),Name = "FT-Mizuchi"
-trigger1 = PlayerID(var(4)),IsHelper(6)
-trigger1 = floor(sysfvar(0)) != var(4)
-sysfvar(0) = var(4)
-ignorehitpause = 1
-
-[State ]
-type = VarSet
-triggerall = !IsHelper
-trigger1 = !PlayerIDExist(floor(sysfvar(0)))
-;int‚Æfloot’l‚Ìˆá‚¢‚©‚çfvar‚Í®”‚ğ—v‹‚·‚éêŠ‚Å‚Í¬”“_ˆÈ‰º‚ğˆê’UØ‚èÌ‚Ä‚éˆ—‚ğ‚µ‚È‚¢‚ÆƒGƒ‰[ƒƒbƒZ[ƒW‚ªo‚é
-trigger2 = NumHelper(6)
-trigger2 = floor(sysfvar(0)) != Helper(6),ID
-trigger3 = PlayerID(floor(sysfvar(0))),Name != "FT-Mizuchi"
-trigger4 = !PlayerID(floor(sysfvar(0))),IsHelper(6)
-trigger5 = NumHelper(6) != 1
-trigger6 = sysfvar(0) = 1
-sysfvar(0) = 0
-ignorehitpause = 1
-[State ]
-type = DisplayToClipboard
-trigger1 = !IsHelper
-trigger1 = PlayerIDExist(sysvar(0)) && PlayerIDExist(sysvar(1)) && playeridexist(sysvar(2))
-text = "life=%d, e.l=%d, p=%d, fld=%d, k=%d\n"
-params = (playerid(sysvar(0)),animelemno(0)),Enemy,Life,(playerid(sysvar(0)),sysvar(1)),enemy,gethitvar(fall.damage),(playerid(sysvar(2)),sysvar(3)%5)
-persistent = 256
-IgnoreHitPause = 1
-[State ]
-type = DisplayToClipboard
-trigger1 = IsHelper(1)
-text = "life=%d, p=%d, fld=%d,\n"
-params = animelemno(0),sysvar(1),root,gethitvar(fall.damage)
-persistent = 256
-IgnoreHitPause = 1
-[State ]
-type = PowerSet
-trigger1 = !IsHelper
-trigger1 = playeridexist(sysvar(0))
-value = playerid(sysvar(0)),sysvar(1)
-ignorehitpause = 1
-[State ]
-type = PowerSet
-trigger1 = !IsHelper
-trigger1 = roundstate > 1
-trigger1 = !playeridexist(sysvar(0))
-trigger1 = NumHelper(1) != 1
-value = powermax
-ignorehitpause = 1
-[State ]
-type=movehitreset
-trigger1=!ishelper
-trigger1=movehit>1
-ignorehitpause=1
-
-[state -2, a];‰EŒü‚«İ’è
-type = varset
-trigger1 = !IsHelper
-trigger1 = var(10) = 0
-trigger1 = facing = 1
-v = 10
-value = 1
-
-[state -2, a];¶Œü‚«İ’è
-type = varset
-trigger1 = !IsHelper
-trigger1 = var(10) = 0
-trigger1 = facing = -1
-v = 10
-value = 2
-
-[state a];’´‰Î‰Š‰¹~‚ß
-type = stopsnd
-trigger1 = movetype = H
-channel = 3
-
-[state a]
-type = stopsnd
-trigger1 = stateno != 1055
-channel = 5
-
-[State -2, 3]
-type = stopSnd
-trigger1 = MoveType = H
-channel = 2
-
-[State -2, 4];ƒnƒCƒWƒƒƒ“ƒv”»’è
-type = varadd
-trigger1 = !IsHelper
-v = 15
-value = -1
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;::::::::•Ï”İ’è(‘½•ªƒ_ƒ[ƒWŠÖŒW‚ª–w‚Ç)
-[state a]
-type = varset
-trigger1 = !IsHelper
-trigger1 = movetype = H
-v = 13
-value = 0
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;ƒ_ƒ[ƒW‚ÌƒGƒtƒFƒNƒgAƒTƒEƒ“ƒh‚ÌÁ‹
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 185
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 1470
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 4000
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 4200
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 1655
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 1860
-ignorehitpause = 1
-[state a]
-type = removeexplod
-trigger1 = MoveType = H
-id = 2200
-ignorehitpause = 1
-[state a]
-type = stopsnd
-trigger1 = MoveType = H
-trigger2 = stateno != 100
-channel = 1
-ignorehitpause = 1
-
-;ƒ_ƒ[ƒW‚Ìc‘œ‚ÌÁ‹
-[state a];
-type = afterimagetime
-trigger1 = MoveType = H
-time = 0
-ignorehitpause = 1
-[State ]
-type = PosSet
-trigger1 = !ishelper
-trigger1 = sysfvar(4) != 1
-trigger1 = sysfvar(4) = GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
-trigger1 = Pos y > 100
-Y = 0
-ignorehitpause = 1
-;ƒRƒ“ƒ{‚É‚æ‚éƒ_ƒ[ƒW•â³
-[state a]
-type = varset
-trigger1 = !IsHelper
-fvar(0) = 1.0
-ignorehitpause = 1
-
-[state a]
-type = varset
-trigger1 = !IsHelper
-trigger1 = enemy,movetype = H
-trigger1 = enemy,gethitvar(hitcount) > 0
-fvar(0) = ((100.0-(30.0+(enemy,gethitvar(hitcount)/3.0)*10.0))/100.0)
-ignorehitpause = 1
-
-[state a]
-type = attackmulset
-trigger1 = !IsHelper
-value = fvar(0)
-ignorehitpause = 1
-
-[state a]
-type = attackmulset
-triggerall = !IsHelper
-trigger1 = Anim = [2000,2001]
-trigger2 = anim = 2005
-trigger3 = anim = 2100
-value = 1
-ignorehitpause = 1
-
-[State 1]
-type = varset
-trigger1 = !IsHelper
-trigger1 = RoundState != 2
-v = 26
-value = 0
-
-[State ]
-type = Projectile
+type=null
 triggerall=!ishelper
-triggerall=!win
-trigger1=sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
-trigger2=playeridexist(sysvar(1))&&roundstate>1
-trigger2=sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
-trigger3=!NumExplod(9000+gametime)
-attr = 
-hitflag = 
-damage = 0,0
-pausetime = 0,0
-projremovetime = 3
-projremove = 1
-projid = 3
-projanim = 9000
-projhitanim = 9000
-ProjRemAnim = 9000
-ProjCancelAnim = 9000
-postype = p1
-sparkno = -1
-guard.sparkno = -1
-PauseMoveTime = 2147483647
-SuperMoveTime = 2147483647
-ignorehitpause = 1
-
+trigger1=var(56)!=[0,11]
+trigger1=0&&var(56):=11
+trigger2=var(30)!=[0,4]
+trigger2=var(30):=4
+ignorehitpause=1
 [State ]
 type = Projectile
-triggerall=(numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5
+triggerall=(numhelper(1)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(5)+numhelper(6)+numhelper(7))!=7
 trigger1=!ishelper
 trigger1=!numprojid(333)
 trigger2=ishelper
@@ -425,64 +129,139 @@ projremovetime = 3
 projremove = 1
 projid = 333
 projanim = 9000
-projhitanim = 9000
-ProjRemAnim = 9000
-ProjCancelAnim = 9000
 postype = p1
 sparkno = -1
 guard.sparkno = -1
 PauseMoveTime = 2147483647
 SuperMoveTime = 2147483647
 ignorehitpause = 1
-
-[State ~‚ß]
-type = pause
-triggerall = !IsHelper
-triggerall = Alive
-trigger1 = RoundState > 2
-time = 2147483647
-movetime = 2147483647
-IgnoreHitPause = 1
-
-[State ~‚ß]
-type = superpause
-triggerall = !IsHelper
-triggerall = Alive
-trigger1 = RoundState > 2
-anim = -1
-time = 2147483647
-movetime = 2147483647
-UnHittable = 0
-darken = 0
-p2defmul = 1
-IgnoreHitPause = 1
-[state ]
-type=varset
-trigger1=!ishelper
-sysfvar(1)=0
-ignorehitpause=1
-[state ]
-type=varset
+[State ]
+type = Projectile
 triggerall=!ishelper
-triggerall=PalNo!=[1,6]
-trigger1=!NumProjID(3)
-trigger1=stateno=5100||stateno=5110
-trigger1=gethitvar(fall.damage)=[-lifemax,lifemax]
-sysfvar(1)=gethitvar(fall.damage)
-ignorehitpause=1
-[State 5110, 4]
-type = HitFallDamage
-trigger1 = PalNo != [1,6]
+trigger1=sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
+trigger2=!NumExplod(9000+gametime)
+trigger3=numhelper(4)=1
+trigger3=helper(4),sysfvar(3)!=sysfvar(3)||sysfvar(3)=-1
+attr = 
+hitflag = 
+damage = 0,0
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 3
+projanim = 9000
+postype = p1
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
 ignorehitpause = 1
-[State ƒ}[ƒLƒ“ƒO]
+[State ]
+type = null;Projectile
+triggerall=ishelper
+triggerall=movetype!=a
+trigger1=root,sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
+trigger2=!root,NumExplod(9000+gametime)
+attr = 
+hitflag = 
+damage = 0,0
+pausetime = 0,0
+projremovetime = 3
+projremove = 1
+projid = 3
+projanim = 9000
+postype = p1
+PauseMoveTime = 2147483647
+SuperMoveTime = 2147483647
+ignorehitpause = 1
+[State ƒXƒe[ƒg’Dæ”»’fExplod]
+Type = Explod
+triggerall=!ishelper
+trigger1=sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
+trigger2=!NumExplod(9000+gametime)
+trigger3=numhelper(4)=1
+trigger3=helper(4),sysfvar(3)!=sysfvar(3)||sysfvar(3)=-1
+ID = 3
+PosType = P1
+Pos = 0,0
+BindTime = -1
+SprPriority = -2
+RemoveTime = 3
+SuperMove = -1
+SuperMoveTime = -1
+PauseMoveTime = -1
+Anim = 9000
+OwnPal = 0
+IgnoreHitPause = 1
+
+[State ]
+type = AssertSpecial
+trigger1 = IsHelper
+flag = NoKOSnd
+IgnoreHitPause = 1
+
+[State ˆÙíŠ´’m]
+type = AssertSpecial
+trigger1 = RoundState != 2
+flag = NoKO
+ignorehitpause = 1
+
+[State ]
+type = AssertSpecial
+triggerall = IsHelper
+triggerall = Root,Alive
+triggerall = !win
+trigger1 = movetype != A
+trigger1 = Root,sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||root,sysfvar(4)=1
+trigger2 = numhelper(1)=1
+trigger2 = helper(1),AnimElemNo(0)<LifeMax + 1||helper(1),anim!=10000
+trigger2 = !Root,Life
+trigger3 = (numhelper(1)!=1)+(numhelper(4)!=1)
+trigger4 = Root,NumProjID(3)||Root,NumProj>200
+trigger5 = Root,gethitvar(damage)
+flag = noko
+ignorehitpause = 1
+[state ]
+type=selfstate
+trigger1=ishelper
+value=1111111
+ignorehitpause=1
+[state ]
+type=assertspecial
+trigger1=1
+flag=noautoturn
+ignorehitpause=1
+[state ]
+type=turn
+trigger1=Pos x<EnemyNear(NumEnemy>1&&!EnemyNear,Alive),Pos x&&Facing=-1
+trigger2=EnemyNear(NumEnemy>1&&!EnemyNear,Alive),Pos x<Pos x&&Facing=1
+ignorehitpause=1
+[State UŒ‚Šm”F—p]
 type = Helper
 trigger1 = !IsHelper
 trigger1 = Alive
-trigger1 = NumHelper(2) = 0
+trigger1 = NumHelper(4) = 0
 StateNo = 5150
 Helpertype = player
 name = ""
-ID = 2
+ID = 4
+size.shadowoffset=var(58)
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+[State ƒ‰ƒCƒtŠÇ—]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive&&numhelper(4)=1
+trigger1 = NumHelper(1) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 1
+size.shadowoffset=var(58)
+size.height=helper(4),id
 pos = 0,0
 postype = p1
 ownpal = 0
@@ -508,15 +287,16 @@ supermovetime = 2147483647
 pausemovetime = 2147483647
 ignorehitpause = 1
 
-[State UŒ‚Šm”F—p]
+[State ƒ}[ƒLƒ“ƒO]
 type = Helper
 trigger1 = !IsHelper
-trigger1 = Alive
-trigger1 = NumHelper(4) = 0
+trigger1 = Alive&&numhelper(3)=1
+trigger1 = NumHelper(2) = 0
 StateNo = 5150
 Helpertype = player
 name = ""
-ID = 4
+ID = 2
+size.shadowoffset=helper(3),id
 pos = 0,0
 postype = p1
 ownpal = 0
@@ -524,33 +304,18 @@ keyctrl = 0
 supermovetime = 2147483647
 pausemovetime = 2147483647
 ignorehitpause = 1
+
 
 [State “–‚Äg]
 type = Helper
 trigger1 = !IsHelper
 trigger1 = Alive
-trigger1 = NumHelper(8) = 0
+trigger1 = NumHelper(5) = 0
 StateNo = 5150
 Helpertype = player
 name = ""
-ID = 8
-pos = 0,0
-postype = p1
-ownpal = 0
-keyctrl = 0
-supermovetime = 2147483647
-pausemovetime = 2147483647
-ignorehitpause = 1
-
-[State ƒ‰ƒCƒtŠÇ—]
-type = Helper
-trigger1 = !IsHelper
-trigger1 = Alive
-trigger1 = NumHelper(1) = 0
-StateNo = 5150
-Helpertype = player
-name = ""
-ID = 1
+ID = 5
+size.shadowoffset=helper(3),id
 pos = 0,0
 postype = p1
 ownpal = 0
@@ -564,12 +329,13 @@ type = Helper
 trigger1 = !IsHelper
 trigger1 = Alive
 trigger1 = RoundState < 2
-trigger1 = !NumHelper(10)
+trigger1 = !NumHelper(10)&&numhelper(3)=1
 trigger1 = (var(59)&2)&&!NumHelper(6)
 StateNo = 5150
 Helpertype = player
 name = ""
 ID = 10
+size.shadowoffset=helper(3),id
 pos = 0,0
 postype = p1
 ownpal = 0
@@ -743,12 +509,13 @@ ignorehitpause = 1
 type = Helper
 trigger1 = !IsHelper
 trigger1 = Alive
-trigger1 = !NumHelper(9)
+trigger1 = !NumHelper(9)&&numhelper(3)=1
 trigger1 = (var(59)&2)&&!NumHelper(6)
 StateNo = 5150
 Helpertype = player
 name = ""
 ID = 9
+size.shadowoffset=helper(3),id
 pos = 0,0
 postype = p1
 ownpal = 0
@@ -917,28 +684,10 @@ supermovetime = 2147483647
 pausemovetime = 2147483647
 ignorehitpause = 1
 
-[State ~‚ßƒwƒ‹ƒp[—ÌˆæŠm•Û]
+[State ~‚ßhitby]
 type = Helper
 trigger1 = !IsHelper
 trigger1 = Alive
-trigger1 = NumHelper(5) = 0
-StateNo = 5150
-Helpertype = player
-name = ""
-ID = 5
-pos = 0,0
-postype = p1
-ownpal = 0
-keyctrl = 0
-supermovetime = 2147483647
-pausemovetime = 2147483647
-ignorehitpause = 1
-
-[State ~‚ß‰ğœ¢Š«]
-type = Helper
-trigger1 = !IsHelper
-trigger1 = Alive
-trigger1 = NumHelper(5)
 trigger1 = NumHelper(6) = 0
 StateNo = 5150
 Helpertype = player
@@ -952,15 +701,255 @@ supermovetime = 2147483647
 pausemovetime = 2147483647
 ignorehitpause = 1
 
+[State ~‚ßhitdef]
+type = Helper
+trigger1 = !IsHelper
+trigger1 = Alive
+trigger1 = NumHelper(7) = 0
+StateNo = 5150
+Helpertype = player
+name = ""
+ID = 7
+pos = 0,0
+postype = p1
+ownpal = 0
+keyctrl = 0
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+[state ]
+type=varset
+trigger1=numhelper(3)=1
+sysvar(2)=helper(3),id
+ignorehitpause=1
+[state ]
+type=varset
+trigger1=numhelper(3)!=1
+sysvar(2)=-1
+ignorehitpause=1
+[State ]
+type = AssertSpecial
+triggerall = !IsHelper
+triggerall = Alive
+triggerall = !Win
+trigger1 = numhelper(1)=1
+trigger1 = helper(1),AnimElemNo(0) < LifeMax + 1
+trigger1 = !Life
+trigger2 = numhelper(1)=1
+trigger2 = helper(1),anim != 10000
+trigger3 = sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1||!NumExplod(9000+GameTime)
+trigger4 = numhelper(4)=1
+trigger4 = sysfvar(3)!=helper(4),sysfvar(3)||sysfvar(3)=-1
+trigger5 = (numhelper(1)!=1)+(numhelper(4)!=1)
+trigger6 = NumProjID(3)||NumProj>200
+trigger7 = gethitvar(damage)
+flag = noko
+ignorehitpause = 1
+
+
+[State ]
+type = PowerSet
+trigger1 = numhelper(1)=1
+value = helper(1),sysvar(1)
+ignorehitpause = 1
+[State ]
+type = PowerSet
+trigger1 = roundstate > 1
+trigger1 = NumHelper(1)!=1||numhelper(4)!=1
+value = powermax
+ignorehitpause = 1
+[State ]
+type=movehitreset
+trigger1=movehit>1
+ignorehitpause=1
+
+[state -2, a];‰EŒü‚«İ’è
+type = varset
+trigger1 = var(10) = 0
+trigger1 = facing = 1
+v = 10
+value = 1
+
+[state -2, a];¶Œü‚«İ’è
+type = varset
+trigger1 = var(10) = 0
+trigger1 = facing = -1
+v = 10
+value = 2
+
+[state a];’´‰Î‰Š‰¹~‚ß
+type = stopsnd
+trigger1 = movetype = H
+channel = 3
+
+[state a]
+type = stopsnd
+trigger1 = stateno != 1055
+channel = 5
+
+[State -2, 3]
+type = stopSnd
+trigger1 = MoveType = H
+channel = 2
+
+[State -2, 4];ƒnƒCƒWƒƒƒ“ƒv”»’è
+type = varadd
+trigger1 = 1
+v = 15
+value = -1
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;::::::::•Ï”İ’è(‘½•ªƒ_ƒ[ƒWŠÖŒW‚ª–w‚Ç)
+[state a]
+type = varset
+trigger1 = movetype = H
+v = 13
+value = 0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;ƒ_ƒ[ƒW‚ÌƒGƒtƒFƒNƒgAƒTƒEƒ“ƒh‚ÌÁ‹
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 185
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1470
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 4000
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 4200
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1655
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 1860
+ignorehitpause = 1
+[state a]
+type = removeexplod
+trigger1 = MoveType = H
+id = 2200
+ignorehitpause = 1
+[state a]
+type = stopsnd
+trigger1 = MoveType = H
+trigger2 = stateno != 100
+channel = 1
+ignorehitpause = 1
+
+;ƒ_ƒ[ƒW‚Ìc‘œ‚ÌÁ‹
+[state a];
+type = afterimagetime
+trigger1 = MoveType = H
+time = 0
+ignorehitpause = 1
+[State ]
+type = PosSet
+trigger1 = sysfvar(4) != 1
+trigger1 = sysfvar(4) = GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))
+trigger1 = Pos y > 100
+Y = 0
+ignorehitpause = 1
+
+;ƒRƒ“ƒ{‚É‚æ‚éƒ_ƒ[ƒW•â³
+[state a]
+type = varset
+trigger1 = !IsHelper
+fvar(0) = 1.0
+ignorehitpause = 1
+
+[state a]
+type = varset
+trigger1 = !IsHelper
+trigger1 = enemy,movetype = H
+trigger1 = enemy,gethitvar(hitcount) > 0
+fvar(0) = ((100.0-(30.0+(enemy,gethitvar(hitcount)/3.0)*10.0))/100.0)
+ignorehitpause = 1
+
+[state a]
+type = attackmulset
+trigger1 = !IsHelper
+value = fvar(0)
+ignorehitpause = 1
+
+[state a]
+type = attackmulset
+triggerall = !IsHelper
+trigger1 = Anim = [2000,2001]
+trigger2 = anim = 2005
+trigger3 = anim = 2100
+value = 1
+ignorehitpause = 1
+
+[State 1]
+type = varset
+trigger1 = !IsHelper
+trigger1 = RoundState != 2
+v = 26
+value = 0
+
+[State ~‚ß]
+type = pause
+triggerall = !IsHelper
+triggerall = Alive
+trigger1 = RoundState > 2
+time = 2147483647
+movetime = 2147483647
+IgnoreHitPause = 1
+
+[State ~‚ß]
+type = superpause
+triggerall = !IsHelper
+triggerall = Alive
+trigger1 = RoundState > 2
+anim = -1
+time = 2147483647
+movetime = 2147483647
+UnHittable = 0
+darken = 0
+p2defmul = 1
+IgnoreHitPause = 1
+[state ]
+type=varset
+trigger1=!ishelper
+sysvar(0)=0
+ignorehitpause=1
+[state ]
+type=varset
+triggerall=!ishelper
+triggerall=PalNo!=[1,6]
+trigger1=!NumProjID(3)
+trigger1=stateno=5100||stateno=5110
+trigger1=gethitvar(fall.damage)=[-lifemax,lifemax]
+sysvar(0)=gethitvar(fall.damage)
+ignorehitpause=1
+[State 5110, 4]
+type = HitFallDamage
+trigger1 = PalNo != [1,6]
+ignorehitpause = 1
 
 [State –³“Gˆ—]
 type = NotHitBy
 triggerall = !IsHelper
 trigger1 = (var(59)&32)
-trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5||numprojid(333)
+trigger1 = numhelper(1)!=1||numhelper(3)!=1||numhelper(4)!=1
 trigger2 = (var(59)&32)
-trigger2 = PlayerIDExist(sysvar(1))
-trigger2 = PlayerID(sysvar(1)),sysvar(0);”í’e–³“G
+trigger2 = numhelper(4)=1
+trigger2 = helper(4),sysvar(0);”í’e–³“G
 trigger3 = (var(59)&32)
 trigger3 = Enemy,MoveType != A
 trigger4 = RoundState != 2
@@ -985,124 +974,38 @@ flag2 = NoCrouchGuard
 flag3 = NoAirGuard
 IgnoreHitPause = 1
 
-[State ]
-type = AssertSpecial
-trigger1 = IsHelper
-flag = NoKOSnd
-IgnoreHitPause = 1
-
-[State ]
-type = ChangeAnim
-trigger1 = IsHelper(1)||IsHelper(6)
-trigger1 = Anim = 10000
-value = 10000
-elem = AnimElemNo(0) - 1
-Persistent = 256
-ignorehitpause = 1
-
-
-;AnimElemNo(0)®ƒ‰ƒCƒtŠÇ—
-;‚©‚È‚è‹­ŒÅ‚Èƒ‰ƒCƒtŠÇ—
-;•Ï”—˜—p‚Å‚Í‚È‚¢‚½‚ßs‘¢‚Å•Ï”‚ğ˜M‚ç‚ê‚½‚Æ‚±‚ë‚Å‚È‚ñ‚Æ‚à‚È‚¢
-;‚¨‚Ü‚¯‚Éƒwƒ‹ƒp[‚Å‚â‚Á‚Ä‚¢‚½‚Æ‚µ‚Ä‚àA’D‚í‚ê‚æ‚¤‚ªˆÓ¯‚µ‚È‚¢‚Æ“Ë”j•s‰Â”\
-;Œ‡“_‚ÍáŠ±–Ê“|‚­‚³‚¢
-;Anim‚Ì“®ì‚É‚Â‚¢‚Ä—‰ğ‚µ‚È‚¢‚Æ‚â‚è‚Ã‚ç‚¢
-;‚Å‚à‚»‚ê‚ç‚ğ•â‚¤‹­ŒÅ«‚ª‚ ‚é
-;‚¿‚È‚İ‚É–{‘Ì‚Å‚â‚é‚±‚Æ‚Í‰Â”\‚¾‚ªAƒwƒ‹ƒp[—˜—p‚·‚é‚ÆˆêŒÂƒwƒ‹ƒp[‚ª‘‚â‚·•K—v‚ª‚ ‚é‚©‚à‚µ‚ê‚È‚¢B
-;H•vŸ‘æ‚Å‚Í‘‚â‚·•K—v«‚Í‚È‚¢
-;‚È‚¨A‚â‚è•û‚ªˆ«‚¢‚ÆƒtƒŠ[ƒY‚·‚é‚±‚Æ‚ª‚ ‚é(AnimElemNo(0)‚ª–c‘å(–œ‚ğ‰z‚¦‚Ä‚¢‚é‚¾‚¯‚Å‚à‰ö‚µ‚¢)‚ÈAnim‚ğg‚Á‚½‚è‚·‚é“™)
-;1000’ö“x‚È‚ç•½‹C‚È‚Ì‚Å‚»‚±‚Ü‚Å‹C‚É‚·‚é•K—v‚Í‚È‚¢‚Í‚¸‚¾‚Á‚½‚è
-[State ƒ‰ƒCƒtŠÇ—]
-type = LifeSet
-triggerall = !IsHelper
-triggerall = RoundState = 2
-triggerall = Alive
-trigger1 = PlayerIDExist(sysvar(0))
-trigger1 = PlayerID(sysvar(0)),Anim = 10000
-value = LifeMax - PlayerID(sysvar(0)),AnimElemNo(0) + 1 + MoveType = A;Œë·C³
-ignorehitpause = 1
 [state ]
-type = lifeset
-trigger1 = !IsHelper
-trigger1 = Alive
-trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5||numprojid(333)
-value=1
+type=lifeset
+trigger1=numhelper(1)=1
+trigger1=helper(1),anim=10000
+value=lifemax-helper(1),animelemno(1)+1+(movetype=a)
 ignorehitpause=1
-[State ˆÙíŠ´’m]
-type = LifeSet
-triggerall = !IsHelper
-triggerall = Alive
-trigger1 = RoundState!=2&&(var(59)&1)||(roundstate<2&&!(var(59)&1))
-trigger2 = PlayerIDExist(sysvar(0))
-trigger2 = PlayerID(sysvar(0)),Anim != 10000
-value = LifeMax
-ignorehitpause = 1
-
-[State ]
-type = LifeSet
-trigger1=!ishelper
-trigger1=Alive
+[state ]
+type=lifeset
+trigger1=RoundState!=2&&(var(59)&1)||(roundstate<2&&!(var(59)&1))
+trigger2=numhelper(1)!=1
+trigger3=numhelper(1)
+trigger3=helper(1),anim!=10000
+value=lifemax
+ignorehitpause=1
+[state ]
+type=lifeset
 trigger1=!life
 value=1
 ignorehitpause=1
-
-[State ƒ‰ƒCƒtŠÇ—]
-type = LifeSet
-trigger1 = !IsHelper
-trigger1 = RoundState = 2
-trigger1 = Alive
-trigger1 = PlayerIDExist(sysvar(0))
-trigger1 = PlayerID(sysvar(0)),Anim = 10000
-trigger1 = PlayerID(sysvar(0)),AnimElemNo(0) >= LifeMax + 1
-value = 0
-ignorehitpause = 1
-
-[State ˆÙíŠ´’m]
-type = AssertSpecial
-trigger1 = RoundState != 2
-flag = NoKO
-ignorehitpause = 1
-
-[State ]
-type = AssertSpecial
-triggerall = IsHelper
-triggerall = Root,Alive
-triggerall = !win
-trigger1 = movetype != A
-trigger1 = Root,sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||root,sysfvar(4)=1
-trigger2 = PlayerIDExist(Root,sysvar(0))
-trigger2 = PlayerID(Root,sysvar(0)),AnimElemNo(0) < LifeMax + 1
-trigger2 = !Root,Life
-trigger3 = !(PlayerIDExist(root,sysvar(0)) && PlayerIDExist(root,sysvar(1)) && PlayerIDExist(root,sysvar(2)) && PlayerIDExist(Root,sysvar(3))&& PlayerIDExist(floor(Root,sysfvar(0))))
-trigger4 = Root,NumProjID(3)||Root,NumProj>200
-trigger5 = Root,gethitvar(damage)
-flag = noko
-ignorehitpause = 1
-
-[State ]
-type = AssertSpecial
-triggerall = !IsHelper
-triggerall = Alive
-triggerall = !Win
-trigger1 = PlayerIDExist(sysvar(0))
-trigger1 = PlayerID(sysvar(0)),AnimElemNo(0) < LifeMax + 1
-trigger1 = !Life
-trigger2 = PlayerIDExist(sysvar(0))
-trigger2 = PlayerID(sysvar(0)),anim != 10000
-trigger3 = sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1||!NumExplod(9000+GameTime)
-trigger4 = playeridexist(sysvar(1))
-trigger4 = sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
-trigger5 = !(PlayerIDExist(sysvar(0)) && PlayerIDExist(sysvar(1)) && PlayerIDExist(sysvar(2)) && PlayerIDExist(sysvar(3))&& PlayerIDExist(floor(sysfvar(0))))
-trigger6 = NumProjID(3)||NumProj>200
-trigger7 = gethitvar(damage)
-flag = noko
-ignorehitpause = 1
-
+[state ]
+type=lifeset
+trigger1=numhelper(1)=1
+trigger1=helper(1),anim=10000
+trigger1=helper(1),animelemno(0)>=lifemax+1
+trigger2=!alive
+value=0
+ignorehitpause=1
 [State ˆÙíŠ´’m‚ÅƒŠƒZƒbƒg]
 type=varset
 triggerall=!IsHelper
 ;ƒRƒ‚ƒ“
-trigger1=sysvar(4)!=0&&(sysvar(4)!=[10,12])&&(sysvar(4)!=20)&&sysvar(4)!=40
+trigger1=sysvar(4)!=0&&(sysvar(4)!=[10,12])&&(sysvar(4)!=[19,21])&&sysvar(4)!=40
 trigger1=sysvar(4)!=45&&(sysvar(4)!=[50,52])&&(sysvar(4)!=[100,101])&&(sysvar(4)!=[105,107])
 trigger1=sysvar(4)!=120&&(sysvar(4)!=[130,132])&&sysvar(4)!=140&&sysvar(4)!=[150,155]
 trigger1=sysvar(4)!=170&&(sysvar(4)!=[180,181])&&sysvar(4)!=183&&sysvar(4)!=190&&sysvar(4)!=195
@@ -1128,7 +1031,7 @@ IgnoreHitPause=1
 [State ˆÙíŠ´’m‚ÅƒŠƒZƒbƒg]
 type=selfstate
 triggerall=!IsHelper
-triggerall=win
+triggerall=win||sysfvar(4)=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=-1
 ;ƒRƒ‚ƒ“
 trigger1=stateno!=0&&(stateno!=[10,12])&&(stateno!=20)&&stateno!=40
 trigger1=stateno!=45&&(stateno!=[50,52])&&(stateno!=[100,101])&&(stateno!=[105,107])
@@ -1161,9 +1064,9 @@ triggerall = HitPauseTime;HitPauseTime‚È‚µ‚ÅƒXƒeƒRƒ“ƒIƒoƒtƒ‚µ‚½ƒXƒe[ƒg‚ÉˆÚ“®‚·
 trigger1 = hitpausetime > 12 || sysvar(4) != stateno || sysvar(4) = 66666 || sysvar(4) = 666666 || stateno = 66666 || stateno = 666666
 trigger2 = (Anim = [2000,2001]) || Anim = 2005 || Anim = 2100 || roundstate != 2
 trigger3 = sysfvar(4)!=GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8))||sysfvar(4)=1
-trigger4 = playeridexist(sysvar(1))
-trigger4 = sysfvar(3)!=playerid(sysvar(1)),sysfvar(3)||sysfvar(3)=-1
-trigger5 = !playeridexist(sysvar(1))
+trigger4 = numhelper(4)=1
+trigger4 = sysfvar(3)!=helper(4),sysfvar(3)||sysfvar(3)=-1
+trigger5 = numhelper(4)!=1
 value = 100000
 ignorehitpause = 1
 
@@ -1187,14 +1090,14 @@ ignorehitpause = 1
 type = SelfState
 trigger1 = !IsHelper&&statetype!=l
 trigger1 = (var(59)&32)
-trigger1 = PlayerIDExist(sysvar(1))&&PlayerIDExist(sysvar(0))
+trigger1 = numhelper(4)=1&&numhelper(1)=1
 trigger1 = MoveType != H; && ctrl
 trigger1 = (stateno != [5000,5210]) && StateNo != 52
 trigger1 = (Anim != [2000,2001]) && Anim != 2005 && Anim != 2100
-trigger1 = PlayerID(sysvar(1)),sysvar(0)
-trigger1 = !((random+1)%ifelse(((PlayerID(sysvar(1)),sysvar(0))!=[0,30]),30,(PlayerID(sysvar(1)),sysvar(0))))
-trigger1 = PlayerID(sysvar(1)),GetHitVar(Damage)
-trigger1 = !((random+1)%ceil(lifemax/ceil((lifemax-PlayerID(sysvar(0)),animelemno(0))/(4-(palno%6=[1,4])-palno%6=[1,2]))))
+trigger1 = helper(4),sysvar(0)
+trigger1 = !((random+1)%ifelse(((helper(4),sysvar(0))!=[0,30]),30,(helper(4),sysvar(0))))
+trigger1 = helper(4),GetHitVar(Damage)
+trigger1 = !((random+1)%ceil(lifemax/ceil((lifemax-helper(1),animelemno(0))/(4-(palno%6=[1,4])-palno%6=[1,2]))))
 value = 5000+(StateType = C)*10+(StateType = A)*20
 ctrl=0
 ;©‚çH‚ç‚¢ƒXƒe[ƒg‚ÉˆÚ“®‚·‚é‚±‚Æ‚Å‚ ‚½‚©‚àUŒ‚‚ğ’¼Úó‚¯‚Ä‚¢‚é‚æ‚¤‚ÉŒ©‚¹‚©‚¯‚é
@@ -1203,10 +1106,12 @@ ignorehitpause = 1
 
 [State –³“GƒXƒe”²‚¯]
 type = SelfState
-trigger1 = !IsHelper
+triggerall = !IsHelper
 ;ƒŠƒ_ƒCƒŒƒNƒg‹U‘•‚³‚ê‚½‚è‘h¶ƒLƒƒƒ‰‚ª‘Šè‚¾‚ÆˆÓ}‚µ‚È‚¢‘¦€‚ª”­¶‚·‚é‰Â”\«‚ª‚ ‚é‚Ì‚Å‚»‚ê‚ğ—\–h‚·‚é
-trigger1 = (numhelper(6)+numhelper(2)+numhelper(3)+numhelper(4)+numhelper(1))!=5 || numprojid(333) || Win || RoundState > 2 || !Life
+triggerall = !(numhelper(4)=1&&numhelper(1)=1) || numprojid(333) || Win || RoundState > 2 || !Life
 trigger1 = !NumExplod(9000+GameTime) || sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)) || StateNo = 100000 || (StateNo = 120 && RoundState > 2)
+trigger2 = (var(59)&64)
+trigger2 = (time && (numprojid(3)=1 || numexplod(3)=1)) ||numproj>200
 value = sysvar(4)
 ;ƒVƒXƒeƒ€•Ï”‚Íƒwƒ‹ƒp[Œo—R‚©‚ç‚Ì•Ï”˜M‚è‚É‚Í‰e‹¿‚µ‚È‚¢‚Ì‚Åd—v•Ï”‚ğ“ü‚ê‚Ä‚¨‚­‚Ì‚ªˆê”ÊB
 ;‚¾‚ªˆê•”‚Ìs‘¢‚É‚Íã‚¢B‚¨‚Ü‚¯‚É‚±‚ÌƒLƒƒƒ‰‚Í“Š‚°‚ç‚ê‚éˆ×ã‚ÌVarSet‚Å•s‰Â‰ğ‚È’l‚É‚È‚é‚ÆƒŠƒZƒbƒg‚µ‚Ä‚¢‚éB
@@ -1216,70 +1121,13 @@ ignorehitpause = 1
 type = SelfState
 trigger1 = !IsHelper
 trigger1 = (var(59)&32)
-trigger1 = PlayerIDExist(sysvar(1))
-trigger1 = PlayerID(sysvar(1)),sysvar(0)
+trigger1 = numhelper(4)=1
+trigger1 = helper(4),sysvar(0)
 trigger1 = !NumExplod(9000+GameTime) || sysfvar(4) != GameTime*(GameTime+9-8*(GameTime%2)+7*(GameTime%3)-6*(GameTime%4)+5*(GameTime%5)-4*(GameTime%6)+3*(GameTime%7)-2*(GameTime%8)) || StateNo = 100000 || (StateNo = 120 && RoundState > 2)
 value = sysvar(4)
 ignorehitpause = 1
 
 
-;ƒ}[ƒLƒ“ƒO
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(2)
-value = 1000001
-ignorehitpause = 1
-
-;‘¦€G—p
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(3)
-value = 1000002
-ignorehitpause = 1
-
-;H‚ç‚¢”»’f
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(4)
-value = 1000003
-ignorehitpause = 1
-
-;~‚ß‰ğœ
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(5) || IsHelper(6) || IsHelper(7)
-value = 1000004
-ignorehitpause = 1
-
-;“–g
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(8)
-value = 1000006
-ignorehitpause = 1
-
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(9) || IsHelper(10)
-value = 1000010
-ignorehitpause = 1
-
-[State –³ğŒƒXƒe[ƒgŒÅ’è]
-type = SelfState
-trigger1 = IsHelper(11) || IsHelper(12)
-value = 1000011
-ignorehitpause = 1
-
-;–³ğŒƒXƒe[ƒgŒÅ’è
-;Å‹­‚ÌƒXƒe[ƒg”²‚¯
-;TimeƒgƒŠƒK[‚ª“®‚©‚È‚­‚È‚é‚ª–{‘Ì‚ÍŒ³‚æ‚èƒwƒ‹ƒp[‚¾‚Æs‘¢—˜—p‹­§Normal‰»‚Å‚à‚³‚ê‚È‚¢ŒÀ‚è‚Ü‚¸“Ë”j•s‰Â”\
-;‚±‚ÌƒLƒƒƒ‰‚ÌPlayerƒwƒ‹ƒp[‚Í€–SƒXƒe[ƒg€ŒÅ’è‚É‚µ‚Ä‚¢‚é‚ªƒK[ƒhƒXƒe[ƒg‚ÉŒÅ’è‚µ‚½‚Ù‚¤‚ªˆÀS‚Å‚«‚é
-
-[State ]
-type = SelfState
-trigger1 = IsHelper(1)
-value = 1000000
-ignorehitpause = 1
 
 ;winmugenê—p(Vmugen—‚Æ‚µ—p)
 [state ]

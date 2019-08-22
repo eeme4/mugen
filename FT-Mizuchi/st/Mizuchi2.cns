@@ -35,7 +35,8 @@ ignorehitpause = 1
 [State ]
 type = VarSet
 trigger1 = Name = "FT-Mizuchi"
-sysvar(4) = StateNo
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
 persistent = 256
 ignorehitpause = 1
 
@@ -229,8 +230,8 @@ kill = 0
 
 [State ]
 type = SelfState
-trigger1 = PlayerIDExist(sysvar(3))
-trigger1 = PlayerID(sysvar(3)),NumTarget
+trigger1 = numhelper(2)=1
+trigger1 = helper(2),NumTarget
 value = 2005
 ignorehitpause = 1
 ;---------------------[èIóπ]
@@ -279,7 +280,8 @@ ignorehitpause = 1
 [State ]
 type = VarSet
 trigger1 = Name = "FT-Mizuchi"
-sysvar(4) = StateNo
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
 persistent = 256
 ignorehitpause = 1
 
@@ -476,7 +478,8 @@ ignorehitpause = 1
 [State ]
 type = VarSet
 trigger1 = Name = "FT-Mizuchi"
-sysvar(4) = StateNo
+trigger1 = sysvar(4) != stateno
+sysvar(4) = StateNo + (var(6):=0)
 persistent = 256
 ignorehitpause = 1
 
@@ -681,7 +684,7 @@ trigger2 = !playeridexist(sysvar(2))
 reversal.attr = SCA,AA,AP,AT
 pausetime=0,0
 sparkno=-1;s2110
-p2stateno=1000005
+p2stateno=2000000
 persistent = 256
 ignorehitpause=1
 
@@ -697,7 +700,6 @@ attr      = SCA,AA,AP,AT
 damage    = 0
 Numhits = 0
 hitflag   = MAFD
-ground.type = none
 sparkno = -1;s2110
 sparkxy = -17,0
 hitsound   = -1;s190,2

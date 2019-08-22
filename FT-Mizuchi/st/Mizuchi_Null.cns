@@ -14,7 +14,7 @@ ignorehitpause=1
 type=changestate
 trigger1=ishelper
 trigger1=name!="FT-Mizuchi"
-value=1000005
+value=2000000
 ignorehitpause=1
 [state 3]
 type=null
@@ -9372,5 +9372,1601 @@ ignorehitpause = 1
 type = SelfState
 trigger1 = 1
 value = sysvar(4)*(sysvar(4)!=66666&&sysvar(4)!=666666)
+persistent=256
+ignorehitpause=1
+
+
+[statedef 55555000]
+type=u
+movetype=u
+physics=u
+movehitpersist=1
+hitdefpersist=1
+hitcountpersist=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+[state ]
+type=null
+trigger1=1
+persistent=4
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=changestate
+trigger1=1
+value=ifelse((movetype=a||movetype=i||movetype=h),stateno,5150)
 persistent=256
 ignorehitpause=1
