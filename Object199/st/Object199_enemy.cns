@@ -411,12 +411,20 @@ ignorehitpause=1
 type=hitfallset
 trigger1=prevstateno!=[19919900,19919950]
 trigger1=prevstateno!=31460006
+trigger1=prevstateno!=120
+trigger1=prevstateno!=[130,132]
+trigger1=prevstateno!=140
+trigger1=prevstateno!=[150,155]
 value=prevstateno
 ignorehitpause=1
 [state ]
 type=hitfallset
 trigger1=hitfall=[19919900,19919950]
 trigger2=hitfall=31460006
+trigger3=hitfall=120
+trigger4=hitfall=[130,132]
+trigger5=hitfall=140
+trigger6=hitfall=[150,155]
 value=0
 ignorehitpause=1
 [state ]
@@ -1100,7 +1108,7 @@ ignorehitpause=1
 [state ]
 type=changestate
 triggerall=(enemy,sysfvar(2)=[40+enemy,fvar(38)+31610-(!!(floor(enemy,fvar(37))&256))*8000,40+enemy,fvar(38)+38610+(!!(floor(enemy,fvar(37))&256))*1000])||enemy,sysfvar(2)=[40+enemy,fvar(38)+46610,40+enemy,fvar(38)+49610]
-triggerall=numhelper(100500)&&numhelper(30075)&&root,var(31)=[gametime+321118,gametime+321120]
+triggerall=numhelper(100500)&&numhelper(30075)
 trigger1=root,id=parent,id
 trigger2=ishelper(100500)
 trigger3=ishelper(30075)
@@ -18530,7 +18538,6 @@ hitcountpersist=1
 [state ]
 type=null
 triggerall=const(size.height)=[332233,332234]
-triggerall=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=ishelper(100500)
 trigger1=var(58):=1200
 trigger1=fvar(2):=10
@@ -18551,7 +18558,6 @@ ignorehitpause=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(39)=4
@@ -18559,7 +18565,6 @@ var(39)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(40)=5
@@ -18567,7 +18572,6 @@ var(40)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(41)=6
@@ -18575,7 +18579,6 @@ var(41)=6
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(42)=7
@@ -18583,7 +18586,6 @@ var(42)=7
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(43)=8
@@ -18591,7 +18593,6 @@ var(43)=8
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(44)=9
@@ -18599,7 +18600,6 @@ var(44)=9
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(45)=0
@@ -18607,7 +18607,6 @@ var(45)=0
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(46)=1
@@ -18615,7 +18614,6 @@ var(46)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(47)=2
@@ -18623,7 +18621,6 @@ var(47)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(48)=3
@@ -18631,7 +18628,6 @@ var(48)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(49)=4
@@ -18639,7 +18635,6 @@ var(49)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(50)=5
@@ -18647,7 +18642,6 @@ var(50)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(51)=6
@@ -18655,7 +18649,6 @@ var(51)=6
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(52)=7
@@ -18663,7 +18656,6 @@ var(52)=7
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(53)=8
@@ -18671,7 +18663,6 @@ var(53)=8
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(54)=9
@@ -18679,7 +18670,6 @@ var(54)=9
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(55)=0
@@ -18687,7 +18677,6 @@ var(55)=0
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(56)=1
@@ -18695,7 +18684,6 @@ var(56)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(57)=2
@@ -18703,7 +18691,6 @@ var(57)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 var(58)=3
@@ -18711,7 +18698,6 @@ var(58)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(4)=1
@@ -18719,7 +18705,6 @@ fvar(4)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(5)=2
@@ -18727,7 +18712,6 @@ fvar(5)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(6)=3
@@ -18735,7 +18719,6 @@ fvar(6)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(7)=4
@@ -18743,7 +18726,6 @@ fvar(7)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(8)=5
@@ -18751,7 +18733,6 @@ fvar(8)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(9)=6
@@ -18759,7 +18740,6 @@ fvar(9)=6
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(10)=7
@@ -18767,7 +18747,6 @@ fvar(10)=7
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(11)=8
@@ -18775,7 +18754,6 @@ fvar(11)=8
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(12)=9
@@ -18783,7 +18761,6 @@ fvar(12)=9
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(13)=0
@@ -18791,7 +18768,6 @@ fvar(13)=0
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(14)=1
@@ -18799,7 +18775,6 @@ fvar(14)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(15)=2
@@ -18807,7 +18782,6 @@ fvar(15)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(16)=3
@@ -18815,7 +18789,6 @@ fvar(16)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(17)=4
@@ -18823,7 +18796,6 @@ fvar(17)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(18)=5
@@ -18831,7 +18803,6 @@ fvar(18)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(19)=6
@@ -18839,7 +18810,6 @@ fvar(19)=6
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(20)=7
@@ -18847,7 +18817,6 @@ fvar(20)=7
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(21)=8
@@ -18855,7 +18824,6 @@ fvar(21)=8
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(22)=9
@@ -18863,7 +18831,6 @@ fvar(22)=9
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(23)=0
@@ -18871,7 +18838,6 @@ fvar(23)=0
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(24)=1
@@ -18879,7 +18845,6 @@ fvar(24)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(25)=2
@@ -18887,7 +18852,6 @@ fvar(25)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(26)=3
@@ -18895,7 +18859,6 @@ fvar(26)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(27)=4
@@ -18903,7 +18866,6 @@ fvar(27)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(28)=5
@@ -18911,7 +18873,6 @@ fvar(28)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(29)=6
@@ -18919,7 +18880,6 @@ fvar(29)=6
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(30)=7
@@ -18927,7 +18887,6 @@ fvar(30)=7
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(31)=8
@@ -18935,7 +18894,6 @@ fvar(31)=8
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(32)=9
@@ -18943,7 +18901,6 @@ fvar(32)=9
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(33)=0
@@ -18951,7 +18908,6 @@ fvar(33)=0
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(34)=1
@@ -18959,7 +18915,6 @@ fvar(34)=1
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(35)=2
@@ -18967,7 +18922,6 @@ fvar(35)=2
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(36)=3
@@ -18975,7 +18929,6 @@ fvar(36)=3
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(37)=4
@@ -18983,7 +18936,6 @@ fvar(37)=4
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(38)=5
@@ -18991,7 +18943,6 @@ fvar(38)=5
 type=parentvarset
 ignorehitpause=1
 trigger1=root,id=parent,id
-trigger1=root,var(31)=[gametime+321118,gametime+321120]
 trigger1=numhelper(100500)
 trigger1=numhelper(30075)
 fvar(39)=6

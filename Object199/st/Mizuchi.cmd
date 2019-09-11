@@ -1378,7 +1378,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "死祟"
 ;triggerall=statetype!=A
 trigger1=ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 [State -1, Strong Kung Fu Palm]
 type = ChangeState
 value = floor(fvar(9):=2600)
@@ -1387,7 +1387,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "死祟"
 ;triggerall=statetype!=A
 trigger1=ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 ignorehitpause=1
 [State -1, Strong Kung Fu Palm]
 type = ChangeState
@@ -1397,7 +1397,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "オロチMAX"
 ;trigger1 = statetype != A
 triggerall = ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 trigger2=fvar(3)=3
 ignorehitpause=1
 ;---------------------------------------------------------------------------
@@ -1410,7 +1410,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "吸い寄せ"
 ;trigger1 = statetype != A
 trigger1 = ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 ignorehitpause=1
 ;---------------------------------------------------------------------------
 ;？？？？？？・無に還ろう
@@ -1422,7 +1422,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "混"
 ;trigger1 = statetype != A
 trigger1 = ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 ignorehitpause=1
 ;---------------------------------------------------------------------------
 ;混
@@ -1434,7 +1434,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "混"
 ;trigger1 = statetype != A
 trigger1 = ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 ignorehitpause=1
 
 ;---------------------------------------------------------------------------
@@ -1447,7 +1447,7 @@ triggerall=(floor(fvar(39))&8388608)&&roundstate=2; = "大神"
 ;trigger1 = statetype != A
 trigger1 = ctrl
 trigger1=sysfvar(2)>40+fvar(38)+26500-(!!(floor(fvar(37))&256))*15000
-trigger1=!(random%30)
+trigger1=!(random%10)
 ignorehitpause=1
 ;---------------------------------------------------------------------------
 ;強顕斎

@@ -4799,6 +4799,7 @@ trigger4=target,ishelper(2130706431)
 trigger5=target,ishelper(314732001)
 trigger6=target,const(size.height)=[332233,332234]
 trigger7=target,const(size.height)=[314,315]
+trigger8=target,ishelper(30075)
 value=19919900
 ignorehitpause=1
 [state ]

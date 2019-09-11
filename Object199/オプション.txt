@@ -1538,7 +1538,7 @@ trigger2=sysfvar(2)<13650+floor(fvar(38))
 trigger3=gethitvar(damage);||movereversed
 trigger4=fvar(3)=4||fvar(3)=-3
 value=sca
-time=10
+time=20
 ignorehitpause=1
 [state ]
 type=null
@@ -1691,7 +1691,7 @@ ignorehitpause=1
 [state ]
 type=ctrlset
 trigger1=fvar(3)!=13
-trigger1=roundstate=2&&!stateno
+trigger1=roundstate=2&&!(sysvar(4)&8191)
 trigger1=enemy,ctrl||enemy,movetype!=i||(enemy,stateno&&enemy,stateno!=[190,200))||sysfvar(2)>100
 value=1
 ignorehitpause=1
