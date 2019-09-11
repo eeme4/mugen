@@ -20,21 +20,17 @@ sysfvar(0)=1200;←ここを変える（デフォルト:1200）
 
 [state 行動設定]
 type=varset
-sysvar(2)=2;←ここを変える
+sysvar(2)=0;←ここを変える
 
 ;0:原作再現モード
 
 ;1:常時発狂モード
 ;最初からカウンターメテオ等の発狂状態になる
 
-;2:真似してみろモード
-;一種の撃破挑戦モード
-;一応汎用で倒せる
-
 ;以下は未完成につき現在論外です
 ;選択しても何もありません
 
-;3:死んでも真似するマン(未完成)
+;2:死んでも真似するマン(未完成)
 ;ものまねしの真髄
 ;何があろうと真似する
 ;ほぼ論外に近い何か
@@ -60,8 +56,8 @@ ignorehitpause=1
 [state ]
 type=varset
 trigger1=!ishelper
-trigger1=sysvar(2)!=[0,2]
-value=2
+trigger1=sysvar(2)!=[0,1]
+value=1
 ignorehitpause=1
 [state ]
 type=varset
@@ -96,9 +92,9 @@ ignorehitpause=1
 [state ]
 type=assertspecial
 trigger1=ishelper
-trigger1=((root,sysvar(2)!=[0,2])&&!root,life&&!enemy,life&&!win)||(win&&roundstate>2)
+trigger1=((root,sysvar(2)!=[0,1])&&!root,life&&!enemy,life&&!win)||(win&&roundstate>2)
 trigger2=!ishelper
-trigger2=((sysvar(2)!=[0,2])&&!life&&!enemy,life&&!win)||(win&&roundstate>2)
+trigger2=((sysvar(2)!=[0,1])&&!life&&!enemy,life&&!win)||(win&&roundstate>2)
 flag=noko
 ignorehitpause=1
 [state ]
@@ -211,75 +207,6 @@ unhittable=0
 darken=0
 p2defmul=1
 persistent=256
-ignorehitpause=1
-[state ]
-type=varset
-trigger1=sysvar(2)=2
-trigger1=var(1)<0
-sysvar(4)=0
-ignorehitpause=1
-[State ]
-type=Projectile
-trigger1=sysvar(2)=2
-trigger1=roundstate=2
-trigger1=!stateno
-trigger1=sysvar(4)=0
-trigger1=gametime%2=0
-projanim=555555
-projremove=0
-offset=(1-(random%2)*2)*random*random,(1-(random%2)*2)*random*random
-projremovetime=2
-projscale=0,0
-projid=55555
-attr=
-hitflag=P
-postype=p1
-ProjEdgeBound=2147483647
-ProjheightBound=-2147483648,2147483647
-ProjStageBound=2147483647
-damage=0
-sparkno=-1
-ignorehitpause=1
-[state ]
-type=statetypeset
-trigger1=sysvar(2)=2
-trigger1=gametime%4=0||random%3=0
-statetype=s
-ignorehitpause=1
-[state ]
-type=statetypeset
-trigger1=sysvar(2)=2
-trigger1=gametime%4=1||random%3=0
-statetype=c
-ignorehitpause=1
-[state ]
-type=statetypeset
-trigger1=sysvar(2)=2
-trigger1=gametime%4=2||random%3=0
-statetype=a
-ignorehitpause=1
-[state ]
-type=statetypeset
-trigger1=sysvar(2)=2
-trigger1=gametime%4=3||random%3=0
-statetype=l
-ignorehitpause=1
-[state ]
-type=varset
-trigger1=sysvar(2)=2
-trigger1=1||var(0):=0
-trigger1=1||var(1):=var(1)-1
-trigger1=var(1)<0
-trigger1=!stateno||(stateno&&time=[0,1])
-trigger1=ProjCancelTime(55555)=1
-trigger1=gethitvar(damage)&&!(enemynear,hitdefattr=sca,aa,at,ap)
-trigger1=enemynear,palno=palno&&enemynear,alive=alive
-trigger1=!!enemynear,hitpausetime=!!hitpausetime&&!!enemynear,time=!!time
-trigger1=(movetype=h&&enemynear,movetype=h)||(movetype=i&&enemynear,movetype=i)||(movetype=a&&enemynear,movetype=a)
-trigger1=(statetype=s&&enemynear,statetype=s)||(statetype=c&&enemynear,statetype=c)||(statetype=a&&enemynear,statetype=a)||(statetype=l&&enemynear,statetype=l)
-trigger1=1||var(0):=(random*10)+(random%10)
-trigger1=var(1):=30
-sysvar(4)=1
 ignorehitpause=1
 [state ]
 type=varset
@@ -398,12 +325,6 @@ triggerall=roundstate=2
 trigger1=alive
 trigger1=var(2)=[0,30]
 trigger1=var(0)
-trigger2=sysvar(2)=2&&!stateno
-trigger2=numprojid(55555)
-trigger2=gethitvar(damage)
-trigger3=sysvar(2)=2&&stateno
-trigger3=numprojid(55555)
-trigger3=helper(1),gethitvar(damage)
 anim=1050
 postype=p1
 pos=ifelse(facing=1,4,-6),-20
@@ -417,11 +338,6 @@ sprpriority=55555
 type=lifeset
 trigger1=1
 value=47714/(numpartner+1)-hitcount
-ignorehitpause=1
-[state ]
-type=lifeset
-trigger1=sysvar(2)=3
-value=ifelse(abs(enemynear,life)>47714,47714,ifelse(abs(enemynear,life)<0,47714,enemynear,life))
 ignorehitpause=1
 [state ]
 type=lifeset
